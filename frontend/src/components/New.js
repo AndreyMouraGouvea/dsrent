@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, Text, StyleSheet, Image} from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons'
 
@@ -9,25 +9,25 @@ function New(props) {
 
     return (
 
-        <TouchableOpacity 
-        onPress={props.onPress}
-        style={styles.container}
+        <TouchableOpacity
+            onPress={props.onPress}
+            style={styles.container}
         >
-        <Image
-        source={props.cover}
-        style={styles.cover}
-        
-        />
+            <Image
+                source={props.cover}
+                style={styles.cover}
 
-        <View style={styles.content}>
-            <Text style={styles.title}>{props.name}</Text>
+            />
 
-            <View  style={styles.dot} />
+            <View style={styles.content}>
+                <Text style={styles.title}>{props.name}</Text>
 
-            <Text style={styles.badge}>Novo</Text>
+                <View style={styles.dot} />
 
-        </View>
-            
+                <Text style={styles.badge}>Novo</Text>
+
+            </View>
+
             <Text style={styles.description}>
                 {props.description}
             </Text>
@@ -38,18 +38,18 @@ function New(props) {
                         {props.price}
                     </Text>
                 </View>
-                <View style={{ width: '20%' }}> 
-                <Ionicons
-                name='ios-add-circle'
-                size={24}
-                color= '#000'
-                />
+                <View style={{ width: '20%' }}>
+                    <Ionicons
+                        name='ios-add-circle'
+                        size={24}
+                        color='#000'
+                    />
 
                 </View>
             </View>
-        
+
         </TouchableOpacity>
-    
+
     );
 
 }
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 4,
     },
     badge: {
-        color:'red',
+        color: 'red',
         fontSize: 9,
         fontFamily: 'Montserrat_700Bold'
 
