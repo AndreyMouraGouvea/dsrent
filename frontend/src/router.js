@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity } from 'react-native';
 import Home from './Pages/Home';
 import Detail from './Pages/Detail';
 import { Feather } from '@expo/vector-icons'
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 
 function Routes() {
