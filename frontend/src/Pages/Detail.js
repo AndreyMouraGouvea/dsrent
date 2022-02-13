@@ -1,5 +1,10 @@
-import { View, Text } from 'react-native'
-function Detail() {
+import React from 'react'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+
+import { ScrollView} from 'react-native-gesture-handler';
+import { Feather, Ionicons } from '@expo/vector-icons';
+
+function Detail(navigation) {
 
     return (
 
