@@ -12,6 +12,42 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+function Footer() {
+
+    return (
+
+        <Tab.Navigator>
+
+            <Tab.Screen
+                name="home"
+                component={Home}
+                options={{
+                    tabBarBadge: 3,
+                    tabBarLabel: 'Início',
+                    headerShown: 'false'
+                }} />
+            <Tab.Screen
+                name="find"
+                component={Find}
+                options={{
+                    tabBarBadge: 2,
+                    tabBarLabel: 'Pesquisar'
+                }} />
+            <Tab.Screen
+                name="shop"
+                component={Shop}
+                options={{
+                    tabBarBadge: 1,
+                    tabBarLabel: 'Loja'
+                }}
+            />
+        </Tab.Navigator>
+
+
+
+    )
+
+}
 
 function Routes() {
 
@@ -21,8 +57,8 @@ function Routes() {
             <Stack.Navigator>
 
                 <Stack.Screen
-                    name="home"
-                    component={Home}
+                    name="footer"
+                    component={Footer}
                     options={{
                         title: 'LOGO ALI',
                         headerTitleStyle: {
@@ -31,9 +67,6 @@ function Routes() {
                         headerRight: () => (
                             <TouchableOpacity style={{
                                 marginRight: 15,
-                                alignItems: 'center',
-                                flexDirection: 'row',
-                                justifyContent: 'space-around'
                             }}>
 
                                 <Feather
@@ -47,7 +80,6 @@ function Routes() {
 
                         )
                     }}
-                    
 
                 />
 
@@ -118,25 +150,6 @@ function Routes() {
 
 
             </Stack.Navigator>
-
-            <Stack.Navigator>
-                        <Tab.Screen name="home" component={Home}
-                        options={{
-                            tabBarBadge: 3
-                        }} />
-                        <Tab.Screen name="find" component={Find} />
-                        <Tab.Screen name="shop" component={Shop} />
-                    </Stack.Navigator>           
-            
-                
-                    
-                
-            
-
-
-
-
-
 
         </NavigationContainer>
     )

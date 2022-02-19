@@ -152,19 +152,7 @@ function Home() {
 
             </ScrollView>
 
-            <Stack.Navigator>
-                        <Tab.Screen name="home" component={Home}
-                        options={{
-                            tabBarBadge: 3
-                        }} />
-                        <Tab.Screen name="find" component={Find} />
-                        <Tab.Screen name="shop" component={Shop} />
-                    </Stack.Navigator>
-            
-                
-            
-
-
+    
         </ScrollView>
 
     )
