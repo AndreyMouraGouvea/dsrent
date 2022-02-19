@@ -22,10 +22,10 @@ function Footer() {
                 name="home"
                 component={Home}
                 options={{
-                    tabBarBadge: 3,
-                    tabBarLabel: 'Início',
-                    headerShown: 'false'
-                }} />
+                    headerShown: false,
+                    tabBarLabel: 'Início'
+                }}
+                 />
             <Tab.Screen
                 name="find"
                 component={Find}
