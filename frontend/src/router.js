@@ -23,22 +23,53 @@ function Footer() {
                 component={Home}
                 options={{
                     headerShown: false,
-                    tabBarLabel: 'Início'
+                    tabBarLabel: 'Início',
+                    tabBarIcon: () => (
+
+                            <Feather
+                                name="home"
+                                size={24}
+                                color="#000"
+
+
+                            />
+                    )
+
                 }}
-                 />
+            />
             <Tab.Screen
                 name="find"
                 component={Find}
                 options={{
                     tabBarBadge: 2,
-                    tabBarLabel: 'Pesquisar'
+                    tabBarLabel: 'Pesquisar',
+                    tabBarIcon: () => (
+
+                        <Feather
+                            name="search"
+                            size={24}
+                            color="#000"
+
+
+                        />
+                )
                 }} />
             <Tab.Screen
                 name="shop"
                 component={Shop}
                 options={{
                     tabBarBadge: 1,
-                    tabBarLabel: 'Loja'
+                    tabBarLabel: 'Loja',
+                    tabBarIcon: () => (
+
+                        <Feather
+                            name="shopping-bag"
+                            size={24}
+                            color="#000"
+
+
+                        />
+                )
                 }}
             />
         </Tab.Navigator>

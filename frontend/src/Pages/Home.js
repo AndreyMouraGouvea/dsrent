@@ -2,9 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { useNavigation } from '@react-navigation/native';
 import Find from './Find';
 import New from '../components/New';
 import House from '../components/House';
@@ -17,8 +15,6 @@ function Home() {
 
 
     const navigation = useNavigation();
-    const Stack = createStackNavigator();
-    const Tab = createBottomTabNavigator();
 
     // navigation.navigate('detail') 
 
