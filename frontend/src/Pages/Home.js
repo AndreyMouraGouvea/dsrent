@@ -2,17 +2,23 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Find from './Find';
 import New from '../components/New';
 import House from '../components/House';
 import Recommended from '../components/Recommended';
-import Footer from '../components/Footer';
+import Shop from './Shop';
+
 
 
 function Home() {
 
 
     const navigation = useNavigation();
+    const Stack = createStackNavigator();
+    const Tab = createBottomTabNavigator();
 
     // navigation.navigate('detail') 
 
@@ -145,7 +151,20 @@ function Home() {
                 />
 
             </ScrollView>
-            <Footer />
+
+            <Stack.Navigator>
+                        <Tab.Screen name="home" component={Home}
+                        options={{
+                            tabBarBadge: 3
+                        }} />
+                        <Tab.Screen name="find" component={Find} />
+                        <Tab.Screen name="shop" component={Shop} />
+                    </Stack.Navigator>
+            
+                
+            
+
+
         </ScrollView>
 
     )

@@ -5,7 +5,7 @@ function Shop() {
     return (
 
         <View>
-            <Text>Shop</Text>
+            <Text>Texto pagina shop</Text>
         </View>
     )
 }
