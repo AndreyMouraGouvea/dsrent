@@ -16,7 +16,15 @@ function Footer() {
 
     return (
 
-        <Tab.Navigator>
+        <Tab.Navigator 
+            options={{
+                tabBarStyle: {
+                    paddingBottom: 5,
+                    paddingTop: 5
+                },
+                tabBarActiveTintColor: '#FFF'
+            }}
+        >
 
             <Tab.Screen
                 name="home"
@@ -26,17 +34,18 @@ function Footer() {
                     tabBarLabel: 'Início',
                     tabBarIcon: () => (
 
-                            <Feather
-                                name="home"
-                                size={24}
-                                color="#FFF"
+                        <Feather
+                            name="home"
+                            size={24}
+                            color= '#FFF'
 
-
-                            />
+                        />
                     ),
                     tabBarStyle: {
-                        backgroundColor: '#000'
-                    }
+                        backgroundColor: '#121212',
+                        borderTopColor: 'transparent',
+                    },
+                    // tabBarActiveTintColor: '#FFF'
 
                 }}
             />
@@ -51,16 +60,18 @@ function Footer() {
                         <Feather
                             name="search"
                             size={24}
-                            color="#FFF"
+                            color='#FFF'
 
 
                         />
-                ),
-                tabBarStyle: {
-                    backgroundColor: '#000'
-                }
-                    
-              
+                    ),
+                    tabBarStyle: {
+                        backgroundColor: '#121212',
+                        borderTopColor: 'transparent',
+                    },
+                    // tabBarActiveTintColor: '#FFF'
+
+
                 }} />
             <Tab.Screen
                 name="shop"
@@ -73,14 +84,16 @@ function Footer() {
                         <Feather
                             name="shopping-bag"
                             size={24}
-                            color="#FFF"
+                            color='#FFF'
 
 
                         />
-                ),
-                tabBarStyle: {
-                    backgroundColor: '#000'
-                }
+                    ),
+                    tabBarStyle: {
+                        backgroundColor: '#121212',
+                        borderTopColor: 'transparent',
+                    },                    
+                    // tabBarActiveTintColor: '#FFF'
                 }}
             />
         </Tab.Navigator>
