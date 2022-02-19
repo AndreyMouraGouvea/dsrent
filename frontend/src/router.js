@@ -29,11 +29,14 @@ function Footer() {
                             <Feather
                                 name="home"
                                 size={24}
-                                color="#000"
+                                color="#FFF"
 
 
                             />
-                    )
+                    ),
+                    tabBarStyle: {
+                        backgroundColor: '#000'
+                    }
 
                 }}
             />
@@ -48,11 +51,16 @@ function Footer() {
                         <Feather
                             name="search"
                             size={24}
-                            color="#000"
+                            color="#FFF"
 
 
                         />
-                )
+                ),
+                tabBarStyle: {
+                    backgroundColor: '#000'
+                }
+                    
+              
                 }} />
             <Tab.Screen
                 name="shop"
@@ -65,11 +73,14 @@ function Footer() {
                         <Feather
                             name="shopping-bag"
                             size={24}
-                            color="#000"
+                            color="#FFF"
 
 
                         />
-                )
+                ),
+                tabBarStyle: {
+                    backgroundColor: '#000'
+                }
                 }}
             />
         </Tab.Navigator>
