@@ -5,6 +5,7 @@ import AppLoading from 'expo-app-loading';
 import { useFonts, Montserrat_400Regular, Montserrat_500Medium, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import Routes from './src/router';
 
+
 function App() {
 
   let [fontsLoaded] = useFonts({

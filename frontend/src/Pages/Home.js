@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import New from '../components/New';
 import House from '../components/House';
 import Recommended from '../components/Recommended';
+import Footer from '../components/Footer';
 
 
 function Home() {
@@ -144,8 +145,7 @@ function Home() {
                 />
 
             </ScrollView>
-
-
+            <Footer />
         </ScrollView>
 
     )
