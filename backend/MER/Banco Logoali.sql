@@ -24,16 +24,6 @@ create table tb_category_user(
     foreign key(id_category) references tb_category(id_category)
 );
 
-create table tb_customer_layout(
-	id_customer int not null auto_increment,
-    cd_background varchar(7),
-    cd_fontColor varchar(7),
-    cd_backgroundSecondary varchar(7),
-    id_user int,
-    primary key(id_customer),
-    foreign key(id_user) references tb_user(id_user)
-);
-
 create table tb_customer(
 	id_customer int not null auto_increment,
     nm_merchant varchar(255),
@@ -47,6 +37,16 @@ create table tb_customer(
     id_user int,
     primary key(id_customer),
     foreign key(id_user) references tb_user(id_user)
+);
+
+create table tb_customer_layout(
+	id_customerLayout int not null auto_increment,
+    cd_background varchar(7),
+    cd_fontColor varchar(7),
+    cd_backgroundSecondary varchar(7),
+    id_customer int,
+    primary key(id_customerLayout),
+    foreign key(id_customer) references tb_customer(id_customer)
 );
 
 create table tb_photo(
@@ -63,9 +63,9 @@ create table tb_sale(
     vl_sale decimal(10,2),
     nm_plano varchar(25),
     cd_status varchar(10),
-    id_customer int,
+    id_user int,
     primary key(id_sale),
-    foreign key(id_customer) references tb_customer(id_customer)
+    foreign key(id_user) references tb_user(id_user)
 );
 
 create table tb_feedback(
@@ -105,15 +105,16 @@ insert into tb_category_user values
 (2, 3);
 
 insert into tb_customer values
-(null, "Paulo Empreendimentos", "pauloempreendimentos@gmail.com", "13988121415", "111111111111111", "Peruibe", "SP","Vendemos e alugamos materiais de pesca e aquarios", "1", 2); 
+(null, "Paulo Empreendimentos", "pauloempreendimentos@gmail.com", "13988121415", "111111111111111", "Peruibe", "SP","Vendemos e alugamos materiais de pesca e aquarios", "1", 3),
+(null, "Andrey Shopping", "andreyshopping@gmail.com", "139760002", "222222222222222222", "Santos", "SP","Shopping de moda e estilos variados...", "1", 2); 
 
 insert into tb_sale values
 (null, "2022-02-16 11:51:00", "29.99", "Mensal", "ATIVADO", 1);
 
 insert into tb_photo values
-(null, "www.apilogoali.com/img/foto1.png", 3),
-(null, "www.apilogoali.com/img/foto2.png", 3),
-(null, "www.apilogoali.com/img/foto3.png", 3),
+(null, "www.apilogoali.com/img/foto1.png", 1),
+(null, "www.apilogoali.com/img/foto2.png", 1),
+(null, "www.apilogoali.com/img/foto3.png", 1),
 (null, "www.apilogoali.com/img/foto4.png", 2),
 (null, "www.apilogoali.com/img/foto5.png", 2);
 
