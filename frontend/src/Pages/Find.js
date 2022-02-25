@@ -30,10 +30,11 @@ function Find() {
                     <Feather
                         name="search"
                         size={24}
-                        color='#000'
+                        color='#FFF'
                     />
                     <TextInput
                         placeholder='O que está procurando?'
+                        placeholderTextColor={'#FFF'}
                         style={styles.input}
                     />
                 </View>
@@ -171,13 +172,17 @@ const styles = StyleSheet.create({
         elevation: 2,
         paddingHorizontal: 10,
         height: 37,
-        borderRadius: 10
+        borderRadius: 10,
+        backgroundColor: '#0B329B',
+        
     },
     input: {
         fontFamily: 'Montserrat_500Medium',
         paddingHorizontal: 10,
         fontSize: 13,
-        width: '90%'
+        width: '90%',
+        color: '#FFF'
+
     },
     contentNew: {
         flexDirection: 'row',
