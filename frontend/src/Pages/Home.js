@@ -28,7 +28,7 @@ function Home() {
             style={{ backgroundColor: '#FFF' }}
         >
 
-            <View style={styles.header}>
+            {/* <View style={styles.header}>
                 <View style={styles.inputArea}>
                     <Feather
                         name="search"
@@ -41,7 +41,7 @@ function Home() {
                     />
                 </View>
 
-            </View>
+            </View> */}
 
             {/* flat list => api */}
 

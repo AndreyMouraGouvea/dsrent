@@ -42,9 +42,12 @@ function Footer() {
                         />
                     ),
                     tabBarStyle: {
-                        backgroundColor: '#121212',
+                        backgroundColor: '#0B329B',
                         borderTopColor: 'transparent',
                     },
+                    tabBarLabelStyle: {
+                        color: '#FFF'
+                    }
                     // tabBarActiveTintColor: '#FFF'
 
                 }}
@@ -53,6 +56,7 @@ function Footer() {
                 name="find"
                 component={Find}
                 options={{
+                    headerShown: false,
                     tabBarBadge: 2,
                     tabBarLabel: 'Pesquisar',
                     tabBarIcon: () => (
@@ -66,9 +70,12 @@ function Footer() {
                         />
                     ),
                     tabBarStyle: {
-                        backgroundColor: '#121212',
+                        backgroundColor: '#0B329B',
                         borderTopColor: 'transparent',
                     },
+                    tabBarLabelStyle: {
+                        color: '#FFF'
+                    }
                     // tabBarActiveTintColor: '#FFF'
 
 
@@ -77,6 +84,7 @@ function Footer() {
                 name="shop"
                 component={Shop}
                 options={{
+                    headerShown: false,
                     tabBarBadge: 1,
                     tabBarLabel: 'Loja',
                     tabBarIcon: () => (
@@ -90,10 +98,14 @@ function Footer() {
                         />
                     ),
                     tabBarStyle: {
-                        backgroundColor: '#121212',
+                        backgroundColor: '#0B329B',
+                        color: '#fff',
                         borderTopColor: 'transparent',
-                    },                    
-                    // tabBarActiveTintColor: '#FFF'
+                    },   
+                    tabBarLabelStyle: {
+                        color: '#FFF'
+                    }                 
+
                 }}
             />
         </Tab.Navigator>
