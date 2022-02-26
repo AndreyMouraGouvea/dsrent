@@ -53,11 +53,8 @@ function Footer() {
                     tabBarStyle: {
                         backgroundColor: '#0B329B',
                         borderTopColor: 'transparent',
-                    },
-                    tabBarLabelStyle: {
-                        // color: '#CCC'
-                    },
-                    // tabBarActiveTintColor: '#FFF'
+                    }
+
 
                 }}
             />
@@ -84,12 +81,7 @@ function Footer() {
                     tabBarStyle: {
                         backgroundColor: '#0B329B',
                         borderTopColor: 'transparent',
-                    },
-                    // tabBarLabelStyle: {
-                    //     color: '#FFF'
-                    // }
-                    // tabBarActiveTintColor: '#FFF'
-
+                    }
 
                 }} />
             <Tab.Screen
@@ -116,10 +108,7 @@ function Footer() {
                         backgroundColor: '#0B329B',
                         color: '#fff',
                         borderTopColor: 'transparent',
-                    },   
-                    // tabBarLabelStyle: {
-                    //     color: '#FFF'
-                    // }                 
+                    }
 
                 }}
             />
