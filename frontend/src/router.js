@@ -6,6 +6,8 @@ import Home from './Pages/Home';
 import Detail from './Pages/Detail';
 import Find from './Pages/Find'
 import Shop from './Pages/Shop'
+import Register from './Pages/Register';
+import Login from './Pages/Login'
 import { Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
@@ -178,17 +180,7 @@ function Routes() {
                         title: 'Procurar',
                         headerTitleStyle: {
                             fontFamily: 'Montserrat_700Bold'
-                        },
-                        headerRight: () => (
-                            <TouchableOpacity style={{ marginRight: 15 }}>
-                                <Feather
-                                    name="shopping-bag"
-                                    size={24}
-                                    color="#000"
-                                />
-                            </TouchableOpacity>
-
-                        )
+                        }
                     }}
                 />
 
@@ -210,6 +202,38 @@ function Routes() {
                             </TouchableOpacity>
 
                         )
+                    }}
+                />
+
+                <Stack.Screen
+                    name="login"
+                    component={Login}
+                    options={{
+                        title: 'LOGO ALI',
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_700Bold'
+                        },
+                        headerRight: () => (
+                            <TouchableOpacity style={{ marginRight: 15 }}>
+                                <Feather
+                                    name="shopping-bag"
+                                    size={24}
+                                    color="#000"
+                                />
+                            </TouchableOpacity>
+
+                        )
+                    }}
+                />
+
+                <Stack.Screen
+                    name="register"
+                    component={Register}
+                    options={{
+                        title: 'Cadastro',
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_700Bold'
+                        }
                     }}
                 />
 
