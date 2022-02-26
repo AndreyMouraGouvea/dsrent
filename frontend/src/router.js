@@ -22,9 +22,10 @@ function Footer() {
             options={{
                 tabBarStyle: {
                     paddingBottom: 5,
-                    paddingTop: 5
+                    paddingTop: 5,
+                    backgroundColor: '#0B329B',
+                    borderTopColor: 'transparent',
                 },
-                tabBarActiveTintColor: '#FFF'
             }}
         >
 
@@ -32,14 +33,20 @@ function Footer() {
                 name="home"
                 component={Home}
                 options={{
+
                     headerShown: false,
                     tabBarLabel: 'Início',
-                    tabBarIcon: () => (
+                    tabBarActiveTintColor: '#FFF',
+                    tabBarInactiveTintColor: '#728085',
+
+                    tabBarIcon: ({ focused, color }) => (
 
                         <Feather
                             name="home"
+                            name={focused ? "home" : "home"}
                             size={24}
-                            color= '#FFF'
+                            color={color}
+                            // color= '#FFF'
 
                         />
                     ),
@@ -48,8 +55,8 @@ function Footer() {
                         borderTopColor: 'transparent',
                     },
                     tabBarLabelStyle: {
-                        color: '#FFF'
-                    }
+                        // color: '#CCC'
+                    },
                     // tabBarActiveTintColor: '#FFF'
 
                 }}
@@ -61,12 +68,15 @@ function Footer() {
                     headerShown: false,
                     tabBarBadge: 2,
                     tabBarLabel: 'Pesquisar',
-                    tabBarIcon: () => (
+                    tabBarActiveTintColor: '#FFF',
+                    tabBarInactiveTintColor: '#728085',
+                    tabBarIcon: ({ focused, color }) => (
 
                         <Feather
                             name="search"
+                            name={focused ? "search" : "search"}
                             size={24}
-                            color='#FFF'
+                            color={color}
 
 
                         />
@@ -75,9 +85,9 @@ function Footer() {
                         backgroundColor: '#0B329B',
                         borderTopColor: 'transparent',
                     },
-                    tabBarLabelStyle: {
-                        color: '#FFF'
-                    }
+                    // tabBarLabelStyle: {
+                    //     color: '#FFF'
+                    // }
                     // tabBarActiveTintColor: '#FFF'
 
 
@@ -89,12 +99,15 @@ function Footer() {
                     headerShown: false,
                     tabBarBadge: 1,
                     tabBarLabel: 'Loja',
-                    tabBarIcon: () => (
+                    tabBarActiveTintColor: '#FFF',
+                    tabBarInactiveTintColor: '#728085',
+                    tabBarIcon: ({ focused, color }) => (
 
                         <Feather
                             name="shopping-bag"
+                            name={focused ? "shopping-bag" : "shopping-bag"}
                             size={24}
-                            color='#FFF'
+                            color={color}
 
 
                         />
@@ -104,9 +117,9 @@ function Footer() {
                         color: '#fff',
                         borderTopColor: 'transparent',
                     },   
-                    tabBarLabelStyle: {
-                        color: '#FFF'
-                    }                 
+                    // tabBarLabelStyle: {
+                    //     color: '#FFF'
+                    // }                 
 
                 }}
             />
