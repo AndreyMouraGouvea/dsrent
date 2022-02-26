@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
 
 function Login() {
+
+    const navigation = useNavigation();
 
     return (
 
@@ -26,7 +29,9 @@ function Login() {
 
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Entrar</Text>
+                    <Text style={styles.buttonText}
+                    onPress={ () => navigation.navigate('home')}
+                    >Entrar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Cadastrar</Text>
