@@ -2,12 +2,13 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Home from './Pages/Home';
 import Detail from './Pages/Detail';
 import Find from './Pages/Find'
 import Shop from './Pages/Shop'
 import Register from './Pages/Register';
-import Login from './Pages/Login'
+import Login from './Pages/Login';
 import { Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
@@ -42,7 +43,6 @@ function Footer() {
                     tabBarIcon: ({ focused, color }) => (
 
                         <Feather
-                            name="home"
                             name={focused ? "home" : "home"}
                             size={24}
                             color={color}
@@ -70,7 +70,6 @@ function Footer() {
                     tabBarIcon: ({ focused, color }) => (
 
                         <Feather
-                            name="search"
                             name={focused ? "search" : "search"}
                             size={24}
                             color={color}
@@ -96,7 +95,6 @@ function Footer() {
                     tabBarIcon: ({ focused, color }) => (
 
                         <Feather
-                            name="shopping-bag"
                             name={focused ? "shopping-bag" : "shopping-bag"}
                             size={24}
                             color={color}
@@ -138,7 +136,8 @@ function Routes() {
                         headerRight: () => (
                             <TouchableOpacity style={{
                                 marginRight: 15,
-                            }}>
+                            }}
+                            >
 
                                 <Feather
                                     name="user"
@@ -148,7 +147,7 @@ function Routes() {
 
                                 />
                             </TouchableOpacity>
-
+                        
                         )
                     }}
 
@@ -238,6 +237,7 @@ function Routes() {
                         }
                     }}
                 />
+
 
 
 
