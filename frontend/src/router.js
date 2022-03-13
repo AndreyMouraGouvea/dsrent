@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native';
@@ -9,17 +10,19 @@ import Find from './Pages/Find'
 import Shop from './Pages/Shop'
 import Register from './Pages/Register';
 import Login from './Pages/Login';
+import Profile from './Pages/Profile';
 import { Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+
 function Footer() {
 
     return (
 
-        <Tab.Navigator 
+        <Tab.Navigator
             options={{
                 tabBarStyle: {
                     paddingBottom: 5,
@@ -46,7 +49,7 @@ function Footer() {
                             name={focused ? "home" : "home"}
                             size={24}
                             color={color}
-                            // color= '#FFF'
+                        // color= '#FFF'
 
                         />
                     ),
@@ -99,7 +102,6 @@ function Footer() {
                             size={24}
                             color={color}
 
-
                         />
                     ),
                     tabBarStyle: {
@@ -137,17 +139,16 @@ function Routes() {
                             <TouchableOpacity style={{
                                 marginRight: 15,
                             }}
+                            
                             >
 
                                 <Feather
                                     name="user"
                                     size={24}
                                     color="#000"
-
-
                                 />
                             </TouchableOpacity>
-                        
+
                         )
                     }}
 
@@ -232,6 +233,17 @@ function Routes() {
                     component={Register}
                     options={{
                         title: 'Cadastro',
+                        headerTitleStyle: {
+                            fontFamily: 'Montserrat_700Bold'
+                        }
+                    }}
+                />
+
+                <Stack.Screen
+                    name="profile"
+                    component={Profile}
+                    options={{
+                        title: 'Perfil',
                         headerTitleStyle: {
                             fontFamily: 'Montserrat_700Bold'
                         }
