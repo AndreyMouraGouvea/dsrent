@@ -21,7 +21,7 @@ O banco de dados foi modelado em MySQL.
 http://localhost:8000/api/customer
 
 - Encontrar algum customer pelo ID: (GET)
-http://localhost:8000/api/customer/(id do customer)
+http://localhost:8000/api/customer/ + (id do customer)
 
 - Criar um novo customer: (POST)
 http://localhost:8000/api/customer
@@ -29,12 +29,12 @@ http://localhost:8000/api/customer
 uf_state, ds_servico, id_user)
 
 - Alterar dados de algum customer: (PUT)
-http://localhost:8000/api/customer/(id do customer)
+http://localhost:8000/api/customer/ + (id do customer)
 (dados que podem ser alterados: nm_customer, ds_email, nr_telefone, ds_local, nm_city,
 uf_state, ds_servico, id_user)
 
 - Deletar algum customer: (DELETE)
-http://localhost:8000/api/customer/(id do customer)
+http://localhost:8000/api/customer/ + (id do customer)
 
 ## EM BREVE
 
