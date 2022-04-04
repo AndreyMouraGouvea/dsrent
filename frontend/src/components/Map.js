@@ -1,29 +1,24 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native'
-import { ScrollView, TextInput } from 'react-native-gesture-handler';
+import * as React from 'react';
+import MapView from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
-function Map() {
-
-    return (
-
-        <>
-        <Text style={styles.title}>MapTexto</Text>
-        </>
-        
-    )
-
+export default function Map() {
+  return (
+    <View style={styles.container}>
+      <MapView style={styles.map} />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-
-
-    title: {
-        paddingHorizontal: 15,
-        fontFamily: 'Montserrat_700Bold',
-        fontSize: 18,
-        color: '#4f4a4a'
-    }
-
-})
-
-export default Map
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  map: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
+});
