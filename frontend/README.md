@@ -25,3 +25,5 @@
 *expo install react-native-stars
 
 *expo install react-native/stack
+
+*expo install react-native-maps

@@ -7,6 +7,7 @@ import Find from './Find';
 import New from '../components/New';
 import House from '../components/House';
 import Recommended from '../components/Recommended';
+import Map from '../components/Map';
 import Shop from './Shop';
 
 
@@ -45,7 +46,11 @@ function Home() {
 
             {/* flat list => api */}
 
-            <View style={styles.contentNew}>
+                <Map />
+
+                {/* ------------------------//----------------- */}
+                
+            {/* <View style={styles.contentNew}>
                 <Text style={styles.title}>Novidades</Text>
 
 
@@ -146,8 +151,8 @@ function Home() {
                     offer='10%'
                 />
 
-            </ScrollView>
-
+            </ScrollView> */}
+            {/* deletion */}
     
         </ScrollView>
 
