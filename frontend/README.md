@@ -26,4 +26,4 @@
 
 *expo install react-native/stack
 
-*expo install react-native-maps
+*expo install react-native-maps or *expo install react-native-maps@0.29.4
