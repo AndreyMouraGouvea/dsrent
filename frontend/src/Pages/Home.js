@@ -23,13 +23,16 @@ function Home() {
 
 
     return (
+        
+        <Map />
+        
 
-        <ScrollView
-            showsVerticalScrollIndicator={false}
-            style={{ backgroundColor: '#FFF' }}
-        >
+        // <ScrollView
+        //     showsVerticalScrollIndicator={false}
+        //     style={{ backgroundColor: '#FFF' }}
+        // >
 
-            {/* <View style={styles.header}>
+            /* <View style={styles.header}>
                 <View style={styles.inputArea}>
                     <Feather
                         name="search"
@@ -42,15 +45,15 @@ function Home() {
                     />
                 </View>
 
-            </View> */}
+            </View> */
 
-            {/* flat list => api */}
 
-                <Map />
 
-                {/* ------------------------//----------------- */}
+           
+
+            /* ------------------------//----------------- */
                 
-            {/* <View style={styles.contentNew}>
+            /* <View style={styles.contentNew}>
                 <Text style={styles.title}>Novidades</Text>
 
 
@@ -151,10 +154,10 @@ function Home() {
                     offer='10%'
                 />
 
-            </ScrollView> */}
-            {/* deletion */}
+            </ScrollView> */
+            /* deletion */
     
-        </ScrollView>
+        // </ScrollView>
 
     )
 

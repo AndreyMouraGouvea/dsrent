@@ -14,7 +14,8 @@ function Map() {
 
   return (
 
-    <View style={styles.container}>
+    // <View style={styles.container}>
+    <View>
       {/* <GooglePlacesAutocomplete
         placeholder='Search'
         onPress={(data, details = null) => {
@@ -25,11 +26,40 @@ function Map() {
           key: 'AIzaSyB3YB8Sd-DiKYY-9uN9Sg1qMFkTa95TA7Q',
           language: 'en',
         }}
-        styles={{row: {backgroundColor: '#516'} }}
+        
    
 
-      /> */}
-      
+      />  */}
+      <GooglePlacesAutocomplete
+        placeholder='Enter Location'
+        minLength={2}
+        autoFocus={false}
+        returnKeyType={'default'}
+        fetchDetails={true}
+        styles={{
+          textInputContainer: {
+            backgroundColor: 'red',
+          },
+          textInput: {
+            height: 38,
+            color: 'grey',
+            fontSize: 16,
+          },
+          predefinedPlacesDescription: {
+            color: '#1faadb',
+          },
+          container: {
+            flex: 0,
+            position: 'absolute',
+            width: '100%',
+            zIndex: 1
+          },
+          listView: {
+             backgroundColor: '#FFF'
+          }
+        }}
+      />
+
       <MapView style={styles.map}
         initialRegion={{
           latitude: -24.288397941221866,
