@@ -33,3 +33,5 @@
 *yarn add react-native-google-places-autocomplete
 
 *expo install expo-contants
+
+*expo install typescrit, @types/react, @types/react-native
