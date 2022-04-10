@@ -16,8 +16,12 @@ function Map() {
 
     // <View style={styles.container}>
     <View>
-      {/* <GooglePlacesAutocomplete
-        placeholder='Search'
+      <GooglePlacesAutocomplete
+        placeholder='Digite a localização'
+        minLength={2}
+        autoFocus={false}
+        returnKeyType={'default'}
+        fetchDetails={true}
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
           console.log(data, details);
@@ -26,23 +30,13 @@ function Map() {
           key: 'AIzaSyB3YB8Sd-DiKYY-9uN9Sg1qMFkTa95TA7Q',
           language: 'en',
         }}
-        
-   
-
-      />  */}
-      <GooglePlacesAutocomplete
-        placeholder='Enter Location'
-        minLength={2}
-        autoFocus={false}
-        returnKeyType={'default'}
-        fetchDetails={true}
         styles={{
           textInputContainer: {
-            backgroundColor: 'red',
+            backgroundColor: '#FFF',
           },
           textInput: {
             height: 38,
-            color: 'grey',
+            color: '#5d5d5d',
             fontSize: 16,
           },
           predefinedPlacesDescription: {
@@ -55,7 +49,7 @@ function Map() {
             zIndex: 1
           },
           listView: {
-             backgroundColor: '#FFF'
+            backgroundColor: '#FFF'
           }
         }}
       />
