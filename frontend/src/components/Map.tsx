@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import MapView, { LatLng, PROVIDER_GOOGLE } from 'react-native-maps';
+import React, { useState, useRef } from 'react';
+import MapView, { LatLng, PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { GooglePlaceDetail, GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import Constants from 'expo-constants';
@@ -8,6 +8,7 @@ import InputAutocomplete from './InputAutoComplete';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 // https://docs.expo.dev/versions/latest/sdk/map-view/
 // https://www.npmjs.com/package/react-native-google-places-autocomplete
+// https://www.npmjs.com/package/react-native-maps-directions
 // AIzaSyB3YB8Sd-DiKYY-9uN9Sg1qMFkTa95TA7Q
 //  https://www.youtube.com/watch?v=KD6zbyyAdTo&ab_channel=FabioBergmann 14:11
 
@@ -28,28 +29,45 @@ const INITIAL_POSITION = {
 
 function Map() {
 
-  const [origin, setOrigin] = useState<LatLng | null>()
-  const [destination, setDestionation] = useState<LatLng | null>()
+  const [origin, setOrigin] = useState<LatLng | null>();
+  const [destination, setDestionation] = useState<LatLng | null>();
+  const mapRef = useRef<MapView>(null);
+
+
+  const moveTo = async (position: LatLng) => {
+    const camera = await mapRef.current?.getCamera()
+    if (camera) {
+      camera.center = position;
+      mapRef.current?.animateCamera(camera, {duration: 1000})
+    }
+  }
+
+
   const onPlaceSelected = (
     details: GooglePlaceDetail | null,
     flag: 'origin' | 'destination'
-    ) => {
-      const set = flag === 'origin' ? setOrigin : setDestionation
-      const position = {
-        latitude: details?.geometry.location.lat || 0,
-        longitude: details?.geometry.location.lng || 0
-      };
-      set(position);
+  ) => {
+    const set = flag === 'origin' ? setOrigin : setDestionation
+    const position = {
+      latitude: details?.geometry.location.lat || 0,
+      longitude: details?.geometry.location.lng || 0
+    };
+    set(position);
+    moveTo(position);
   };
 
 
   return (
     <View style={styles.container}>
       <MapView
+        ref={mapRef}
         style={styles.map}
         provider={PROVIDER_GOOGLE}
         initialRegion={INITIAL_POSITION}
-      />
+      >
+      { origin && <Marker coordinate={origin} />}
+      { destination && <Marker coordinate={destination} />}
+      </MapView>
       <View style={styles.searchContainer}>
         <InputAutocomplete
           label='Origem'
