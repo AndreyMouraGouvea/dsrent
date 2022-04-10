@@ -2,10 +2,12 @@ import React, { useState, useRef } from 'react';
 import MapView, { LatLng, PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { GooglePlaceDetail, GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import MapViewDirections from 'react-native-maps-directions';
 import Constants from 'expo-constants';
 import { GOOGLE_API_KEY } from '../../enviroment';
 import InputAutocomplete from './InputAutoComplete';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
 // https://docs.expo.dev/versions/latest/sdk/map-view/
 // https://www.npmjs.com/package/react-native-google-places-autocomplete
 // https://www.npmjs.com/package/react-native-maps-directions
@@ -31,6 +33,7 @@ function Map() {
 
   const [origin, setOrigin] = useState<LatLng | null>();
   const [destination, setDestionation] = useState<LatLng | null>();
+  const [showDirections, setShowDirections] = useState(false)
   const mapRef = useRef<MapView>(null);
 
 
@@ -38,7 +41,14 @@ function Map() {
     const camera = await mapRef.current?.getCamera()
     if (camera) {
       camera.center = position;
-      mapRef.current?.animateCamera(camera, {duration: 1000})
+      mapRef.current?.animateCamera(camera, { duration: 1000 })
+    }
+  };
+
+  const traceRoute = () => {
+    if (origin && destination) {
+      setShowDirections(true)
+      mapRef.current.fitToCoordinates([origin, destination])
     }
   }
 
@@ -65,9 +75,19 @@ function Map() {
         provider={PROVIDER_GOOGLE}
         initialRegion={INITIAL_POSITION}
       >
-      { origin && <Marker coordinate={origin} />}
-      { destination && <Marker coordinate={destination} />}
+        {origin && <Marker coordinate={origin} />}
+        {destination && <Marker coordinate={destination} />}
+        {showDirections && origin && destination && (
+          <MapViewDirections
+            origin={origin}
+            destination={destination}
+            apikey={GOOGLE_API_KEY}
+            strokeColor='#6644ff'
+            strokeWidth={4}
+          />)}
       </MapView>
+
+
       <View style={styles.searchContainer}>
         <InputAutocomplete
           label='Origem'
@@ -83,7 +103,10 @@ function Map() {
             onPlaceSelected(details, 'destination')
           }
         />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={traceRoute}
+        >
           <Text style={styles.buttonText}>Traçar Rota</Text>
         </TouchableOpacity>
       </View>

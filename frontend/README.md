@@ -35,3 +35,5 @@
 *expo install expo-contants
 
 *expo install typescrit, @types/react, @types/react-native
+
+*yarn add react-native-maps-directions
