@@ -22,6 +22,7 @@ function App() {
 
     // return <AppLoading />
     return <Splash />
+            
 
   }
 

@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 8,
     top: Constants.statusBarHeight,
+    zIndex: 1
 
   },
   input: {
