@@ -1,10 +1,13 @@
 import React from 'react';
-import MapView, { Provider, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import Constants from 'expo-constants'
+import Constants from 'expo-constants';
+import { GOOGLE_API_KEY } from '../../enviroment';
 // https://docs.expo.dev/versions/latest/sdk/map-view/
 // https://www.npmjs.com/package/react-native-google-places-autocomplete
+// AIzaSyB3YB8Sd-DiKYY-9uN9Sg1qMFkTa95TA7Q
+//  https://www.youtube.com/watch?v=KD6zbyyAdTo&ab_channel=FabioBergmann 14:11
 
 
 const { width, height } = Dimensions.get('window');
@@ -19,10 +22,10 @@ const INITIAL_POSITION = {
   latitudeDelta: LATITUDE_DELTA,
   longitudeDelta: LONGITUDE_DELTA,
 };
-const GOOGLE_API_KEY = 'AIzaSyB3YB8Sd-DiKYY-9uN9Sg1qMFkTa95TA7Q';
 
 
-// AIzaSyB3YB8Sd-DiKYY-9uN9Sg1qMFkTa95TA7Q
+
+
 
 
 function Map() {
@@ -34,6 +37,7 @@ function Map() {
         initialRegion={INITIAL_POSITION}
       />
       <View style={styles.searchContainer}>
+        <Text>Origem</Text>
       <GooglePlacesAutocomplete
         styles={{
           textInput: styles.input
@@ -83,7 +87,8 @@ const styles = StyleSheet.create({
 
   },
   input: {
-
+    borderColor: '#888',
+    borderWidth: 1
   }
 });
 
