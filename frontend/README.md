@@ -27,3 +27,9 @@
 *expo install react-native/stack
 
 *expo install react-native-maps or *expo install react-native-maps@0.29.4
+
+*expo install react-native-maps
+
+*yarn add react-native-google-places-autocomplete
+
+*expo install expo-contants
