@@ -29,12 +29,17 @@ const INITIAL_POSITION = {
 function Map() {
 
   const [origin, setOrigin] = useState<LatLng | null>()
-  const [destination, setDestionarion] = useState<LatLng | null>()
+  const [destination, setDestionation] = useState<LatLng | null>()
   const onPlaceSelected = (
     details: GooglePlaceDetail | null,
     flag: 'origin' | 'destination'
     ) => {
-
+      const set = flag === 'origin' ? setOrigin : setDestionation
+      const position = {
+        latitude: details?.geometry.location.lat || 0,
+        longitude: details?.geometry.location.lng || 0
+      };
+      set(position);
   };
 
 
