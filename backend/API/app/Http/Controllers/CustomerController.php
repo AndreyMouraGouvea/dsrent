@@ -19,7 +19,8 @@ class CustomerController extends Controller
         $customer->nm_customer  =   $request->nm_customer;
         $customer->ds_email     =   $request->ds_email;
         $customer->nr_telefone  =   $request->nr_telefone;
-        $customer->ds_local     =   $request->ds_local;
+        $customer->ds_lat       =   $request->ds_lat;
+        $customer->ds_long      =   $request->ds_long;
         $customer->nm_city      =   $request->nm_city;
         $customer->uf_state     =   $request->uf_state;
         $customer->ds_servico   =   $request->ds_servico;
@@ -33,8 +34,8 @@ class CustomerController extends Controller
 
     public function getCustomer($id){
         //pega customer pelo id
-        if(Customer::where('id_customer', $id)->exists()){
-            $customer = Customer::where('id_customer', $id)->get()->toJson(JSON_PRETTY_PRINT);
+        if(Customer::where('id', $id)->exists()){
+            $customer = Customer::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($customer, 200);
         } 
         else{
@@ -46,16 +47,18 @@ class CustomerController extends Controller
 
     public function updateCustomer(Request $request, $id){
         //atualizar dados do customer
-        if(Customer::where('id_customer', $id)->exists()){
+        if(Customer::where('id', $id)->exists()){
             $customer = Customer::find($id);
-            $customer->nm_customer  =       is_null($request->nm_customer)  ?   $request->nm_customer : $request->nm_customer;
-            $customer->ds_email     =       is_null($request->ds_email)     ?   $request->ds_email    : $request->ds_email;
-            $customer->nr_telefone  =       is_null($request->nr_telefone)  ?   $request->nr_telefone : $request->nr_telefone;
-            $customer->ds_local     =       is_null($request->ds_local)     ?   $request->ds_local    : $request->ds_local;
-            $customer->nm_city      =       is_null($request->nm_city)      ?   $request->nm_city     : $request->nm_city;
-            $customer->uf_state     =       is_null($request->uf_state)     ?   $request->uf_state    : $request->uf_state;
-            $customer->ds_servico   =       is_null($request->ds_servico)   ?   $request->ds_servico  : $request->ds_servico;
-            $customer->id_user      =       is_null($request->id_user)      ?   $request->id_user     : $request->id_user;
+            $customer->nm_customer  =       is_null($request->nm_customer)  ?   $customer->nm_customer : $request->nm_customer;
+            $customer->ds_email     =       is_null($request->ds_email)     ?   $customer->ds_email    : $request->ds_email;
+            $customer->nr_telefone  =       is_null($request->nr_telefone)  ?   $customer->nr_telefone : $request->nr_telefone;
+            $customer->ds_lat       =       is_null($request->ds_lat)       ?   $customer->ds_lat      : $request->ds_lat;
+            $customer->ds_long      =       is_null($request->ds_long)      ?   $customer->ds_long     : $request->ds_long;
+            $customer->nm_city      =       is_null($request->nm_city)      ?   $customer->nm_city     : $request->nm_city;
+            $customer->uf_state     =       is_null($request->uf_state)     ?   $customer->uf_state    : $request->uf_state;
+            $customer->ds_servico   =       is_null($request->ds_servico)   ?   $customer->ds_servico  : $request->ds_servico;
+            $customer->cd_status    =       is_null($request->cd_status)    ?   $customer->cd_status   : $request->cd_status;
+            $customer->id_user      =       is_null($request->id_user)      ?   $customer->id_user     : $request->id_user;
             $customer->save();
 
             return response()->json([
@@ -71,5 +74,18 @@ class CustomerController extends Controller
 
     public function deleteCustomer($id){
         //apaga customer
+        if(Customer::where('id', $id)->exists()){
+            $customer = Customer::find($id);
+            $customer->delete();
+
+            return response()->json([
+                "message" => "Customer apagado com sucesso!"
+            ], 404);
+        }
+        else{
+            return response()->json([
+                "message" => "Falha ao encontrar customer"
+            ], 404);
+        }
     }
 }

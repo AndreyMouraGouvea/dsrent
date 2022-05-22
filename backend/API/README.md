@@ -1,9 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
@@ -36,10 +30,47 @@ uf_state, ds_servico, id_user)
 - Deletar algum customer: (DELETE)
 http://localhost:8000/api/customer/ + (id do customer)
 
+### Users
+
+- Listar todos os users: (GET)
+http://localhost:8000/api/user
+
+- Encontrar algum user pelo ID: (GET)
+http://localhost:8000/api/user/ + (id do user)
+
+- Criar um novo user: (POST)
+http://localhost:8000/api/user
+(dados a serem enviados: nm_user, ds_email, ds_password, ds_foto)
+
+- Alterar dados de algum user: (PUT)
+http://localhost:8000/api/user/ + (id do user)
+(dados que podem ser alterados: nm_user, ds_email, ds_password, ds_foto)
+
+- Deletar algum user: (DELETE)
+http://localhost:8000/api/user/ + (id do user)
+
+### Feedbacks
+
+- Retornar todos os feedbacks relacionados ao customer: (GET)
+http://localhost:8000/api/feedback/customer/ + (id do customer)
+
+- Buscar o feedback pelo id: (GET)
+http://localhost:8000/api/feedback/ + (id do feedback)
+
+- Retornar todos os feedbacks feitos pelo user: (GET)
+http://localhost:8000/api/feedback/user/ + (id do user)
+
+- Criar um novo feedback: (POST)
+http://localhost:8000/api/feedback
+(dados a serem enviados: nr_feedback, ds_feedback, id_user)
+
+- Alterar dados de algum feedback: (PUT)
+http://localhost:8000/api/feedback/ + (id do feedback)
+(dados que podem ser alterados: nr_feedback, ds_feedback, id_user)
+
+- Deletar algum user: (DELETE)
+http://localhost:8000/api/feedback/ + (id do feedback)
+
 ## EM BREVE
 
 Logo traremos mais atualizações na nossa API. Haverá várias outras ferramentas e muitas oportunidades!
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
