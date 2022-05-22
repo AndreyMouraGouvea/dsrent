@@ -139,7 +139,7 @@ function Routes() {
                             <TouchableOpacity style={{
                                 marginRight: 15,
                             }}
-                            
+                                
                             >
 
                                 <Feather

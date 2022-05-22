@@ -172,7 +172,8 @@ const styles = StyleSheet.create({
     elevation: 4,
     padding: 8,
     borderRadius: 8,
-    top: Constants.statusBarHeight,
+    top: Constants.statusBarHeight - 50,
+    // marginTop: 5
 
   },
   input: {
