@@ -60,7 +60,9 @@ function StackRoutes() {
                     title: 'Procurar',
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
-                    }
+                    },
+                    
+
                 }}
             />
 

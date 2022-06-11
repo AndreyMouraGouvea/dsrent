@@ -10,6 +10,7 @@ import New from '../components/New';
 import House from '../components/House';
 import Recommended from '../components/Recommended';
 import Login from '../components/Login';
+import HeaderAll from '../components/HeaderAll';
 
 
 
@@ -29,6 +30,7 @@ function Shop() {
             showsVerticalScrollIndicator={false}
             style={{ backgroundColor: '#FFF' }}
         >
+            <HeaderAll />
             <ScrollView
             showsHorizontalScrollIndicator={false}
             style={{ paddingHorizontal: 15 }}

@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import New from '../components/New';
 import House from '../components/House';
 import Recommended from '../components/Recommended';
+import HeaderAll from '../components/HeaderAll'
 
 
 function Find() {
@@ -24,7 +25,7 @@ function Find() {
             showsVerticalScrollIndicator={false}
             style={{ backgroundColor: '#FFF' }}
         >
-
+            <HeaderAll />
             <View style={styles.header}>
                 <View style={styles.inputArea}>
                     <Feather
