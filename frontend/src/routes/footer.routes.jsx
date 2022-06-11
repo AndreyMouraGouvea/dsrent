@@ -21,6 +21,7 @@ function FooterRoutes() {
                     backgroundColor: '#0B329B',
                     borderTopColor: 'transparent',
                 },
+                tabBarHideOnKeyboard: true
             }}
         >
 
@@ -33,6 +34,7 @@ function FooterRoutes() {
                     tabBarLabel: 'Início',
                     tabBarActiveTintColor: '#FFF',
                     tabBarInactiveTintColor: '#728085',
+                    tabBarHideOnKeyboard: true,
 
                     tabBarIcon: ({ focused, color }) => (
 
@@ -40,6 +42,7 @@ function FooterRoutes() {
                             name={focused ? "home" : "home"}
                             size={24}
                             color={color}
+                            
                         // color= '#FFF'
 
                         />
@@ -49,7 +52,7 @@ function FooterRoutes() {
                         borderTopColor: 'transparent',
                     }
 
-
+                        
                 }}
             />
             <Tab.Screen
@@ -61,6 +64,7 @@ function FooterRoutes() {
                     tabBarLabel: 'Pesquisar',
                     tabBarActiveTintColor: '#FFF',
                     tabBarInactiveTintColor: '#728085',
+                    tabBarHideOnKeyboard: true,
                     tabBarIcon: ({ focused, color }) => (
 
                         <Feather
@@ -86,6 +90,7 @@ function FooterRoutes() {
                     tabBarLabel: 'Loja',
                     tabBarActiveTintColor: '#FFF',
                     tabBarInactiveTintColor: '#728085',
+                    tabBarHideOnKeyboard: true,
                     tabBarIcon: ({ focused, color }) => (
 
                         <Feather

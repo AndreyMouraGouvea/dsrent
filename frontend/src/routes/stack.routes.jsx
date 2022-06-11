@@ -24,25 +24,10 @@ function StackRoutes() {
                 name="footer"
                 component={Footer}
                 options={{
-                    title: 'LOGO ALI',
-                    headerTitleStyle: {
-                        fontFamily: 'Montserrat_700Bold'
-                    },
-                    headerRight: () => (
-                        <TouchableOpacity style={{
-                            marginRight: 15,
-                        }}
-                            
-                        >
-                            <Feather
-                                name="user"
-                                size={24}
-                                color="#000"
-                            />
-                        </TouchableOpacity>
-
-                    )
+                    headerShown: false,
+                    
                 }}
+            
 
             />
 
@@ -54,6 +39,7 @@ function StackRoutes() {
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },
+                    
                     headerRight: () => (
                         <TouchableOpacity style={{ marginRight: 15 }}>
                             <Feather

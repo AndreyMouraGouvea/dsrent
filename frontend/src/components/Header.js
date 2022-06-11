@@ -12,7 +12,7 @@ function Header() {
         <View style={styles.container}>
             <Text style={styles.title}>LOGO ALI</Text>
             <TouchableOpacity
-                onPress={ () => navigation.navigate('login')  }>
+                onPress={ () => navigation.navigate('profile')  }>
                 <Feather
                     name='user'
                     size={26}
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         flexDirection: 'row',
-        height: 150,
+        height: 200,
         backgroundColor: '#FFF',
         justifyContent: 'space-between',
         paddingTop: 16,
