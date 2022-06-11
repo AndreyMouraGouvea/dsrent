@@ -16,7 +16,7 @@ function App() {
     Montserrat_500Medium,
     Montserrat_700Bold
 
-
+    
   })
 
   if (!fontsLoaded) {
