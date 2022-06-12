@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     searchContainer: {
       position: 'absolute',
       width: '90%',
-      backgroundColor: '#FFF',
+      backgroundColor: '#121212',
       shadowColor: '#000',
       shadowOffset: {
         width: 2,
@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
     },
     inputTitle: {
       fontFamily: 'Montserrat_500Medium',
-      fontSize: 16
-    }
+      fontSize: 16,
+      }
   });
 
 

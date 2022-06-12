@@ -91,7 +91,7 @@ function StackRoutes() {
                 name="login"
                 component={Login}
                 options={{
-                    title: 'LOGO ALI',
+                    title: "C'HERE",
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },

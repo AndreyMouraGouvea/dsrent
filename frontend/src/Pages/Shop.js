@@ -28,7 +28,7 @@ function Shop() {
 
         <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ backgroundColor: '#FFF' }}
+            style={{ backgroundColor: '#121212' }}
         >
             <HeaderAll />
             <ScrollView
