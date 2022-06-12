@@ -11,7 +11,7 @@ function Register() {
     return (
         <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ backgroundColor: '#FFF' }}
+            style={{ backgroundColor: '#121212' }}
         >
 
             <View style={styles.container}>
@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#121212'
 
     },
     header: {
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         textAlign: 'center',
         fontWeight: 'bold',
+        color: '#FFF'
 
 
     },
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
         width: '90%',
         color: '#FFF',
         marginVertical: 20,
-        backgroundColor: '#0B329B',
+        backgroundColor: '#333333',
         borderRadius: 10,
         paddingHorizontal: 10
 
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
         width: '90%',
         color: '#FFF',
         marginVertical: 20,
-        backgroundColor: '#0B329B',
+        backgroundColor: '#333333',
         borderRadius: 10,
         paddingHorizontal: 10
 
@@ -106,7 +108,7 @@ const styles = StyleSheet.create({
         width: '90%',
         color: '#FFF',
         marginVertical: 20,
-        backgroundColor: '#0B329B',
+        backgroundColor: '#333333',
         borderRadius: 10,
         paddingHorizontal: 10
 
@@ -115,7 +117,7 @@ const styles = StyleSheet.create({
         width: '90%',
         color: '#FFF',
         marginVertical: 20,
-        backgroundColor: '#0B329B',
+        backgroundColor: '#333333',
         borderRadius: 10,
         paddingHorizontal: 10
 
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
         width: '40%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#0B329B',
+        backgroundColor: '#3706B3',
         borderRadius: 10,
         elevation: 2,
         height: 70,
