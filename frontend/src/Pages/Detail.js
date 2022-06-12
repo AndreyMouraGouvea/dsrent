@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#FFF'
+        backgroundColor: '#121212'
     },
     swiperContent: {
         flexDirection: 'row',
@@ -98,12 +98,12 @@ const styles = StyleSheet.create({
     house: {
         fontFamily: 'Montserrat_700Bold',
         fontSize: 18,
-        color: '#4F4A4A'
+        color: '#FFF'
     },
     rating: {
         fontFamily: 'Montserrat_500Medium',
         fontSize: 9,
-        color: '#4F4A4A'
+        color: '#FFF'
     },
     myStarStyle: {
         color: '#E7A74E',
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         fontFamily: 'Montserrat_700Bold',
         fontSize: 16,
-        color: '#000',
+        color: '#FFF',
     },
     description: {
         fontFamily: 'Montserrat_500Medium',

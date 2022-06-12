@@ -35,21 +35,14 @@ function StackRoutes() {
                 name="detail"
                 component={Detail}
                 options={{
-                    title: 'Detalhe',
+                    title: 'Detalhes',
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },
-                    
-                    headerRight: () => (
-                        <TouchableOpacity style={{ marginRight: 15 }}>
-                            <Feather
-                                name="shopping-bag"
-                                size={24}
-                                color="#000"
-                            />
-                        </TouchableOpacity>
-
-                    )
+                    headerTintColor: '#BB86FC',
+                    headerStyle: {
+                        backgroundColor: '#121212'
+                    }
                 }}
             />
 
