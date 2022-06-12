@@ -126,6 +126,13 @@ function StackRoutes() {
                     title: 'Perfil',
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
+                    },
+                    headerShown: false,
+                    headerBackgroundContainerStyle: {
+                        backgroundColor: '#121212'
+                    },
+                    headerBackground: {
+                        
                     }
                 }}
             />
