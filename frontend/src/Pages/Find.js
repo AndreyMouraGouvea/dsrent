@@ -23,7 +23,7 @@ function Find() {
 
         <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ backgroundColor: '#FFF' }}
+            style={{ backgroundColor: '#121212' }}
         >
             <HeaderAll />
             <View style={styles.header}>
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        marginVertical: 20
+        marginVertical: 20,
     },
     inputArea: {
         paddingHorizontal: 15,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         height: 37,
         borderRadius: 10,
-        backgroundColor: '#0B329B',
+        backgroundColor: '#333333',
         
     },
     input: {
@@ -182,7 +182,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         fontSize: 13,
         width: '90%',
-        color: '#FFF'
+        color: '#FFF',
+        
 
     },
     contentNew: {
@@ -194,7 +195,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         fontFamily: 'Montserrat_700Bold',
         fontSize: 18,
-        color: '#4f4a4a'
+        color: '#FFF'
     }
 
 })

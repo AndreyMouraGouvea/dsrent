@@ -18,7 +18,7 @@ function FooterRoutes() {
                 tabBarStyle: {
                     paddingBottom: 5,
                     paddingTop: 5,
-                    backgroundColor: '#0B329B',
+                    backgroundColor: '#121212',
                     borderTopColor: 'transparent',
                 },
                 tabBarHideOnKeyboard: true
@@ -32,7 +32,7 @@ function FooterRoutes() {
 
                     headerShown: false,
                     tabBarLabel: 'Início',
-                    tabBarActiveTintColor: '#FFF',
+                    tabBarActiveTintColor: '#BB86FC',
                     tabBarInactiveTintColor: '#728085',
                     tabBarHideOnKeyboard: true,
 
@@ -48,7 +48,7 @@ function FooterRoutes() {
                         />
                     ),
                     tabBarStyle: {
-                        backgroundColor: '#0B329B',
+                        backgroundColor: '#121212',
                         borderTopColor: 'transparent',
                     }
 
@@ -62,7 +62,7 @@ function FooterRoutes() {
                     headerShown: false,
                     tabBarBadge: 2,
                     tabBarLabel: 'Pesquisar',
-                    tabBarActiveTintColor: '#FFF',
+                    tabBarActiveTintColor: '#BB86FC',
                     tabBarInactiveTintColor: '#728085',
                     tabBarHideOnKeyboard: true,
                     tabBarIcon: ({ focused, color }) => (
@@ -76,7 +76,7 @@ function FooterRoutes() {
                         />
                     ),
                     tabBarStyle: {
-                        backgroundColor: '#0B329B',
+                        backgroundColor: '#121212',
                         borderTopColor: 'transparent',
                     }
 
@@ -86,9 +86,9 @@ function FooterRoutes() {
                 component={Shop}
                 options={{
                     headerShown: false,
-                    tabBarBadge: 1,
+                    tabBarBadge: 3,
                     tabBarLabel: 'Loja',
-                    tabBarActiveTintColor: '#FFF',
+                    tabBarActiveTintColor: '#BB86FC',
                     tabBarInactiveTintColor: '#728085',
                     tabBarHideOnKeyboard: true,
                     tabBarIcon: ({ focused, color }) => (
@@ -101,7 +101,7 @@ function FooterRoutes() {
                         />
                     ),
                     tabBarStyle: {
-                        backgroundColor: '#0B329B',
+                        backgroundColor: '#121212',
                         color: '#fff',
                         borderTopColor: 'transparent',
                     }

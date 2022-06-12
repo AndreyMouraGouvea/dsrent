@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons'
+import { Feather } from '@expo/vector-icons'
 
 
 function New(props) {
@@ -40,9 +41,10 @@ function New(props) {
                 </View>
                 <View style={{ width: '20%' }}>
                     <Ionicons
-                        name='ios-add-circle'
+                        name='add-circle'
                         size={24}
-                        color='#000'
+                        color='#BB86FC'
+                        backgroundColor='#FFF'
                     />
 
                 </View>
@@ -58,15 +60,17 @@ const styles = StyleSheet.create({
 
     container: {
         marginTop: 20,
-        backgroundColor: '#FFF',
+        backgroundColor: '#121212',
         height: 250,
         width: 200,
         elevation: 2,
-        borderRadius: 10,
+        borderRadius: 12,
         padding: 15,
         marginRight: 30,
         marginLeft: 2,
         marginBottom: 5,
+        borderColor: '#2C2C2C',
+        borderWidth: 2
     },
     cover: {
         width: 170,
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'Montserrat_700Bold',
         fontSize: 12,
-        color: '#4F4A4A'
+        color: '#FFF'
     },
     dot: {
         width: 4,
@@ -99,17 +103,18 @@ const styles = StyleSheet.create({
     description: {
         fontFamily: 'Montserrat_400Regular',
         fontSize: 9,
-        color: '#4F4A4A'
+        color: '#FFF'
     },
     footer: {
         flexDirection: 'row',
         marginTop: 5,
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
     },
     price: {
         fontSize: 15,
-        fontFamily: 'Montserrat_700Bold'
+        fontFamily: 'Montserrat_700Bold',
+        color: '#FFF'
     }
 
 

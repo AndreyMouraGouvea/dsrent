@@ -8,7 +8,6 @@ function Profile() {
     const navigation = useNavigation();
 
     return (
-
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.headerText}>Tela de Perfil</Text>
@@ -39,6 +38,7 @@ function Profile() {
             </View>
         </View>
 
+
     )
 
 }
@@ -48,14 +48,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#121212'
 
     },
     inputContainerLogin: {
         width: '90%',
         marginVertical: 30,
         color: '#FFF',
-        backgroundColor: '#0B329B',
+        backgroundColor: '#333333',
         borderRadius: 10,
         paddingHorizontal: 10
 
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     inputContainerPassword: {
         width: '90%',
         color: '#FFF',
-        backgroundColor: '#0B329B',
+        backgroundColor: '#333333',
         borderRadius: 10,
         paddingHorizontal: 10
 
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         textAlign: 'center',
         fontWeight: 'bold',
+        color: '#FFF'
 
 
     },
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
         width: '40%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#0B329B',
+        backgroundColor: '#3706b3',
         borderRadius: 10,
         elevation: 2,
         height: 70,

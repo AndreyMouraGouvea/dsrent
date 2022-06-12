@@ -118,6 +118,7 @@ function Map() {
           onPlaceSelected={(details) =>
             onPlaceSelected(details, 'origin')
           }
+          
         />
         <InputAutocomplete
           label='Destino'
@@ -148,7 +149,7 @@ function Map() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#121212',
     alignItems: 'center',
     justifyContent: 'center',
     fontFamily: 'Montserrat_500Medium',
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '90%',
     fontFamily: 'Montserrat_500Medium',
-    backgroundColor: '#FFF',
+    backgroundColor: '#FFF', //cor de fundo
     shadowColor: '#000',
     shadowOffset: {
       width: 2,
@@ -181,7 +182,8 @@ const styles = StyleSheet.create({
     borderWidth: 1
   },
   button: {
-    backgroundColor: '#0B329B',
+    backgroundColor: '#3706B3',
+    opacity: 1.0,
     paddingVertical: 12,
     borderRadius: 8,
     marginTop: 8

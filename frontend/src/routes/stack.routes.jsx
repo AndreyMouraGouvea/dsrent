@@ -91,10 +91,11 @@ function StackRoutes() {
                 name="login"
                 component={Login}
                 options={{
-                    title: 'LOGO ALI',
+                    title: "C'HERE",
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },
+                    headerShown: false,
                     headerRight: () => (
                         <TouchableOpacity style={{ marginRight: 15 }}>
                             <Feather
@@ -112,10 +113,17 @@ function StackRoutes() {
                 name="register"
                 component={Register}
                 options={{
+                    headerTintColor: '#BB86FC',
                     title: 'Cadastro',
                     headerTitleStyle: {
-                        fontFamily: 'Montserrat_700Bold'
-                    }
+                        fontFamily: 'Montserrat_700Bold',
+                        
+                    },
+                    headerStyle: {
+                        backgroundColor: '#121212',
+                        
+                    },
+                    
                 }}
             />
 
@@ -126,6 +134,13 @@ function StackRoutes() {
                     title: 'Perfil',
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
+                    },
+                    headerShown: false,
+                    headerBackgroundContainerStyle: {
+                        backgroundColor: '#121212'
+                    },
+                    headerBackground: {
+                        
                     }
                 }}
             />

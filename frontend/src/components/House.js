@@ -35,7 +35,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: 260,
         height: 70,
-        backgroundColor: '#FFF',
+        backgroundColor: '#121212',
+        borderWidth: 2,
+        borderColor: '#2C2C2C',
         elevation: 2,
         padding: 6,
         marginVertical: 5,
@@ -58,10 +60,12 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 9,
-        fontFamily: 'Montserrat_500Medium'
+        fontFamily: 'Montserrat_500Medium',
+        color: '#FFF'
     },
     price: {
-        fontSize: 12
+        fontSize: 12,
+        color: '#FFF'
     }
 
 })

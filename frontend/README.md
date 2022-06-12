@@ -37,3 +37,17 @@
 *expo install typescrit, @types/react, @types/react-native
 
 *yarn add react-native-maps-directions
+
+* new colors
+* #001E26
+* #68A49F
+* #21585A
+* DARK GREY - #121212
+* ELEVATION =  0 - 24
+* #BB86FC
+* #3706B3
+* #03DAC5
+* #000
+* #181b1c
+* #333333
+* border color: #2c2c2c
