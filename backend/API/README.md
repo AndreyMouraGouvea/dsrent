@@ -1,7 +1,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## API LogoAli
+## API C'Here
 
 A API do LogoALi é feita em PHP com a framework Laravel. É projetada no
 modelo RESTful.
