@@ -71,6 +71,25 @@ http://localhost:8000/api/feedback/ + (id do feedback)
 - Deletar algum user: (DELETE)
 http://localhost:8000/api/feedback/ + (id do feedback)
 
+### Photos
+
+- Retornar todos as fotos relacioadas ao customer: (GET)
+http://localhost:8000/api/photo/customer/ + (id do customer)
+
+- Buscar foto pelo id: (GET)
+http://localhost:8000/api/photo/ + (id da foto)
+
+- Criar uma nova foto: (POST)
+http://localhost:8000/api/photo
+(dados a serem enviados: id_customer e image - que é o arquivo)
+
+- Alterar dados de uma foto: (PUT)
+http://localhost:8000/api/photo/ + (id da foto)
+(dados que podem ser alterados: nm_photo, ds_url, id_customer)
+
+- Deletar alguma foto: (DELETE)
+http://localhost:8000/api/photo + (id da foto)
+
 ## EM BREVE
 
-Logo traremos mais atualizações na nossa API. Haverá várias outras ferramentas e muitas oportunidades!
+Logo traremos mais atualizações na nossa API. Haverá mais ferramentas e muitas oportunidades!
