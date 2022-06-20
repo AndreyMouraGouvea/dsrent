@@ -3,7 +3,7 @@
 
 ## API C'Here
 
-A API do LogoALi é feita em PHP com a framework Laravel. É projetada no
+A API do C'Here é feita em PHP com a framework Laravel. É projetada no
 modelo RESTful.
 O banco de dados foi modelado em MySQL.
 
