@@ -10,5 +10,5 @@ class User extends Model
     
     protected $table = 'tb_user';
 
-    protected $fillable = ['id', 'nm_user', 'ds_email', 'ds_password', 'ds_foto'];
+    protected $fillable = ['id', 'nm_user', 'ds_email', 'ds_password', 'ds_photo'];
 }

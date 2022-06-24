@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -18,8 +19,15 @@ class UserController extends Controller
         $users = new User;
         $users->nm_user         =   $request->nm_user;
         $users->ds_email        =   $request->ds_email;
-        $users->ds_password     =   $request->ds_password;
-        $users->ds_foto         =   $request->ds_foto;
+        $users->ds_password     =   MD5($request->ds_password);
+
+        $uploadFolder = 'img'; //pasta
+        $image = $request->file('image'); //arquivo
+        $image_uploaded_path = $image->store($uploadFolder, 'public'); //caminho
+        $path = Storage::disk('public')->url($image_uploaded_path); //caminho que fica salvo no banco
+
+        $users->ds_photo         =   $path;
+
         $users->save();
 
         return response()->json([
