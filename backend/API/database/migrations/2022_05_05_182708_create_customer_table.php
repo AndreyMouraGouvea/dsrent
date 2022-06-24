@@ -24,6 +24,7 @@ return new class extends Migration
             $table->char('uf_state', 2);
             $table->string('ds_servico', 255);
             $table->boolean('cd_status');
+            $table->text('ds_photo');
             $table->integer('id_user');
             $table->foreign('id_user')->references('id')->on('tb_user');
         });

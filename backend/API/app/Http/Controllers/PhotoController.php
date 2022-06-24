@@ -54,7 +54,7 @@ class PhotoController extends Controller
             $photos->id_customer    =  $request->id_customer; //id do customer
             $photos->nm_photo       =  $name; //nome do arquivo  
             $photos->ds_url         =  $path; // salva caminho no banco
-
+            
             $photos->save(); 
 
             return response()->json([

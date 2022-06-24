@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
 {
@@ -24,7 +25,15 @@ class CustomerController extends Controller
         $customer->nm_city      =   $request->nm_city;
         $customer->uf_state     =   $request->uf_state;
         $customer->ds_servico   =   $request->ds_servico;
+
+        $uploadFolder = 'img'; //pasta
+        $image = $request->file('image'); //arquivo
+        $image_uploaded_path = $image->store($uploadFolder, 'public'); //caminho
+        $path = Storage::disk('public')->url($image_uploaded_path); //caminho que fica salvo no banco
+
+        $customer->ds_photo     =   $path;
         $customer->id_user      =   $request->id_user;
+
         $customer->save();
 
         return response()->json([
@@ -89,3 +98,4 @@ class CustomerController extends Controller
         }
     }
 }
+

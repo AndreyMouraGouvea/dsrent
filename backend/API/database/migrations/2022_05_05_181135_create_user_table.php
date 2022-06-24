@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->string('nm_user', 45);
             $table->string('ds_email', 255);
-            $table->string('ds_password', 50);
-            $table->string('ds_foto', 45);
+            $table->text('ds_password');
+            $table->text('ds_photo');
         });
     }
 
