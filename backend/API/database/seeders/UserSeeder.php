@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'nm_user'       => Str::random(10),
             'ds_email'      => Str::random(10).'@gmail.com',
             'ds_password'   => Hash::make('password'),
-            'ds_photo'       => Str::random(10).'.png',
+            'ds_photo'       => 'www.chere.com/foto.png',
         ]);
     }
 }

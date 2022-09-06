@@ -1,0 +1,428 @@
+@font-face {
+    font-family: logo;
+    src: url(fonts/\Montserrat-Bold.otf);
+}
+@font-face {
+    font-family: textoSite;
+    src: url(fonts/\Montserrat-Regular.otf);
+}
+body{
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    width: 5px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: #b900de;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #5e00aa;
+    border-radius: 20px;
+}
+
+/*-----------------Header da página-----------------*/
+.header{
+    position: fixed;
+    z-index: 50;
+
+    height: 10%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    background: linear-gradient(to right, #b900ded2, #8300eed3);
+    transition: all 0.3s ease-in-out;
+}
+.header:hover{
+    background: linear-gradient(to right, #b900de, #8300ee);
+}
+.header h3{
+    color: #fff;
+    font-size: 30px;
+    font-family: logo;
+}
+.header .options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 15%;
+}
+.header .options .menu{
+    background: none;
+    border: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    width: 5vh;
+    height: 5vh;
+}
+.header .options .menu:hover{
+    cursor: pointer;
+}
+.header .options .menu .bar1{
+    width: 100%;
+    height: 2px;
+    transition: all 0.3s ease-in-out;
+}
+.header .options .menu .bar2{
+    width: 75%;
+    height: 2px;
+    transition: all 0.3s ease-in-out;
+}
+.header .options .menu .bar1, .header .options .menu .bar2{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20vh;
+}
+.header .options .menu:hover .bar1, .header .options .menu:hover .bar2{
+    background: rgba(255, 255, 255, 1);
+}
+.header .perfil{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .perfil button{
+    background: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+
+    width: 60%;
+    transition: all 0.3s ease-in-out;
+}
+.header .perfil button:hover{
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+.header .perfil span{
+    height: 5.5vh;
+    width: 5.5vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: 15vh;
+    border: 3px solid rgb(0, 133, 177);
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+/*-----------------Menu da página-----------------*/
+.menuLateral{
+    height: 100vh;
+    width: 30vw;
+
+    position: fixed;
+    z-index: 51;
+
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.5s ease-in-out;
+}
+.menuLateral .header{
+    height: 10%;
+    position: relative;
+
+    background: linear-gradient(to right, #b900de, #8300ee);
+}
+.menuLateral .header button{
+    background: none;
+    border: none;
+
+    font-size: 1.3em;
+    font-family: textoSite;
+    color: #fff;
+
+    margin-left: 5%;
+    transition: all 0.3s ease-in-out;
+}
+.menuLateral .header button:hover{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.815);
+}
+.menuLateral .options{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.menuLateral .options a{
+    width: 80%;
+    height: 7.5vh;
+    margin: 2% 0;
+    padding: 0 2%;
+
+    display: flex;
+    align-items: center;
+
+    color: rgb(44, 44, 44);
+    text-decoration: none;
+    font-size: 1.3em;
+    font-family: textoSite;
+
+    border-bottom: 2px solid #6a00f4;
+    transition: all 0.3s ease-in-out;
+}
+.menuLateral .options a:hover{
+    color: #fff;
+    background-color: #bc00dd;
+    text-decoration: none;
+}
+
+
+/*-----------------Corpo da página-----------------*/
+.content{
+    background-image: radial-gradient(farthest-corner at 35vh 3vw,
+      #bc00dd, #6a00f4);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  
+    min-height: 100vh;
+    width: 100vw;
+}
+.content .welcome{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: 95vh;
+    width: 100vw;
+}
+.content .welcome .info{
+    width: 45vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content .welcome .info h3{
+    font-size: 3em;
+    font-family: logo;
+
+    text-align: center;
+}
+.content .welcome .info p{
+    font-size: 1.5em;
+    font-family: textoSite;
+
+    text-align: center;
+}
+.content .welcome .smartphone{
+    height: 75vh;
+    width: 40vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .welcome .smartphone img{
+    height: 100%;
+}
+
+.content .formArea{
+    min-height: 100vh;
+    width: 100vw;
+
+    background-color: #fff;
+    color: #000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content .formArea h3{
+    font-size: 2em;
+    font-family: logo;
+
+    color: #8300ee;
+}
+.content .formArea p{
+    font-size: 1.3em;
+    font-family: textoSite;
+    text-align: center;
+
+    color: rgb(44, 44, 44);
+    width: 80vw;
+}
+.content .formArea iframe{
+    height: 100vh;
+    width: 75vw;
+
+    margin: 2% 0;
+}
+
+.content .sobre{
+    min-height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content .sobre h3{
+    font-size: 2em;
+    font-family: logo;
+}
+.content .sobre .dados{
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.content .sobre .dados p{
+    font-size: 1.3em;
+    font-family: textoSite;
+    text-align: center;
+
+    width: 40vw;
+}
+.content .sobre .img{
+    width: 40vw;
+    height: 75vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .sobre .img img{
+    height: 100%;
+
+    -webkit-filter: drop-shadow(2px 2px 0 white) 
+                    drop-shadow(-2px -2px 0 white);
+    filter:drop-shadow(2px 2px 0 white) 
+           drop-shadow(-2px -2px 0 white);
+}
+@media only screen and (max-width: 1000px) {
+    .content .sobre .img{
+        width: 40vw;
+        height: 45vh;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .menuLateral{
+        height: 100vh;
+        width: 50vw;
+    }
+
+    .content .welcome{
+        display: flex;
+        flex-direction: column;
+    
+        min-height: 95vh;
+        width: 100vw;
+    }
+    .content .welcome .info{
+        width: 80vw;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .content .welcome .info h3{
+        font-size: 2.5em;
+    }
+    .content .welcome .info p{
+        font-size: 1.3em;
+    }
+    .content .welcome .smartphone{
+        display: none;
+    }
+
+    .content .formArea{
+        min-height: 100vh;
+        width: 100vw;
+    
+        background-color: #fff;
+        color: #000;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content .formArea h3{
+        font-size: 2em;
+        text-align: center;
+    
+        color: #8300ee;
+    }
+    .content .formArea p{
+        font-size: 1.3em;
+        text-align: center;
+        width: 80vw;
+    }
+    .content .formArea iframe{
+        height: 100vh;
+        width: 90vw;
+    
+        margin: 2% 0;
+    }
+
+    .content .sobre{
+        min-height: 100vh;
+        width: 100vw;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content .sobre h3{
+        font-size: 2em;
+        font-family: logo;
+    }
+    .content .sobre .dados{
+        width: 100vw;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .content .sobre .dados p{
+        font-size: 1em;    
+        width: 80vw;
+    }
+    .content .sobre .img{
+        width: 40vw;
+        height: 45vh;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

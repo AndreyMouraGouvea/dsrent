@@ -25,6 +25,7 @@ class UserController extends Controller
         $image = $request->file('image'); //arquivo
         $image_uploaded_path = $image->store($uploadFolder, 'public'); //caminho
         $path = Storage::disk('public')->url($image_uploaded_path); //caminho que fica salvo no banco
+        $name = basename($image_uploaded_path); //nome do arquivo
 
         $users->ds_photo         =   $path;
 

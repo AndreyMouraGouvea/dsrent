@@ -24,6 +24,7 @@ class CustomerController extends Controller
         $customer->ds_long      =   $request->ds_long;
         $customer->nm_city      =   $request->nm_city;
         $customer->uf_state     =   $request->uf_state;
+        $customer->cd_status    =   $request->cd_status;
         $customer->ds_servico   =   $request->ds_servico;
 
         $uploadFolder = 'img'; //pasta

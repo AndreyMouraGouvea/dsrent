@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('vl_sale', $precision = 10, $scale = 2);
             $table->string('nm_plano', 25);            
             $table->boolean('cd_status'); 
-            $table->integer('id_user');           
+            $table->integer('id_user')->unsigned();           
             $table->foreign('id_user')->references('id')->on('tb_user');            
         });
     }

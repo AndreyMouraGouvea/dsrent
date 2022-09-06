@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_feedback_customer', function (Blueprint $table) {
-            $table->integer('id_feedback');
-            $table->integer('id_user');
-            $table->integer('id_customer');
+            $table->integer('id_feedback')->unsigned();
+            $table->integer('id_user')->unsigned();
+            $table->integer('id_customer')->unsigned();
             
             $table->foreign('id_feedback')->references('id')->on('tb_feedback');
             $table->foreign('id_user')->references('id')->on('tb_user');

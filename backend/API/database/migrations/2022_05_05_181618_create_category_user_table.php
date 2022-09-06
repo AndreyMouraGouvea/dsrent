@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tb_category_user', function (Blueprint $table) {
-            $table->integer('id_category');
-            $table->integer('id_user');
+            $table->integer('id_category')->unsigned();
+            $table->integer('id_user')->unsigned();
             
             $table->foreign('id_category')->references('id')->on('tb_category');
             $table->foreign('id_user')->references('id')->on('tb_user');

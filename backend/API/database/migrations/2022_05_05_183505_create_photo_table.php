@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('nm_photo', 255);
             $table->string('ds_url', 255);
-            $table->integer('id_customer');
+            $table->integer('id_customer')->unsigned();
             $table->foreign('id_customer')->references('id')->on('tb_customer');
         });
     }

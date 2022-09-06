@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('nr_feedback');
             $table->string('ds_feedback', 255);
-            $table->integer('id_user');
+            $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('tb_user');
         });
     }

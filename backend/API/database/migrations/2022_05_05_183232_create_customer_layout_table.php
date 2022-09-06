@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cd_background', 7);
             $table->string('cd_fontColor', 7);
             $table->string('cd_backgroundSecondary', 7);
-            $table->integer('id_customer');
+            $table->integer('id_customer')->unsigned();
             $table->foreign('id_customer')->references('id')->on('tb_customer');
         });
     }

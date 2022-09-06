@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 5; $i++){
+        //for($i = 0; $i < 5; $i++){
             $this->call([
                 UserSeeder::class,
                 CustomerSeeder::class,
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
                 FeedbackSeeder::class,
                 // ProductsTableSeeder::class,
             ]);
-        }
+        //}
         
     }
 }

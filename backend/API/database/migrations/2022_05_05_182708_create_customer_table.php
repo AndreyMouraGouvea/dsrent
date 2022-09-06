@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('ds_servico', 255);
             $table->boolean('cd_status');
             $table->text('ds_photo');
-            $table->integer('id_user');
+            $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('tb_user');
         });
     }
