@@ -1,6 +1,6 @@
-create database db_Logoali;
+create database db_Chere;
 
-use db_Logoali;
+use db_Chere;
 
 create table tb_category(
 	id int not null auto_increment,
