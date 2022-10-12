@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, StatusBar } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons'
 
@@ -9,65 +10,80 @@ function Profile() {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
-            {/* <View style={styles.header}>
+         <ScrollView
+                showsVerticalScrollIndicator={false}
+                style={{ backgroundColor: '#121212' }}
+            > 
+                <View style={styles.container}>
+                    {/* <View style={styles.header}>
                 <Text style={styles.headerText}>Teste</Text>
             </View> */}
-            <View style={styles.profileContainer}>
-                <Feather
-                    name='user'
-                    size={26}
-                    color='#BB86FC'
-                    style={styles.icon}
-                />
-            </View>
-            <View style={styles.buttonEditContainer}>
-                <TouchableOpacity style={styles.buttonSend}
-                    onPress={() => alert('Enviar Foto')}
-                // () => navigation.navigate('home')
-                >
-                    <Text style={styles.buttonText}>Enviar Foto</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonEdit}
-                    onPress={() => alert('Editar perfil')}
-                // () => navigation.navigate('home')
-                >
-                    <Text style={styles.buttonText}>Editar Perfil</Text>
-                </TouchableOpacity>
-            </View>
+                    <View style={styles.profileContainer}>
+                        {/* tirar profile container para arrumar layout */}
+                        <View style={styles.imageProfileContainer}>
+                            <Feather
+                                name='user'
+                                size={40}
+                                color='#BB86FC'
+                                style={styles.icon}
+                            />
+                        </View>
+                        <View style={styles.buttonEditContainer}>
+                            <TouchableOpacity style={styles.buttonSend}
+                                onPress={() => alert('Enviar Foto')}
+                            // () => navigation.navigate('home')
+                            >
+                                <Text style={styles.buttonText}>Enviar Foto</Text>
+                            </TouchableOpacity>
 
-            <View style={styles.inputContainerLogin}>
-                <TextInput style={styles.input}
-                    placeholder='Nome que a pessoa escolheu'
-                    placeholderTextColor={'#FFF'}
-                    editable={false}
-                />
-            </View>
-            <View style={styles.inputContainerPassword}>
-                <TextInput style={styles.input}
-                    placeholder='E-mail que a pessoa escolheu'
-                    placeholderTextColor={'#FFF'}
-                    editable={false}
-                />
-            </View>
-            <View style={styles.inputContainerLogin}>
-                <TextInput style={styles.input}
-                    placeholder='Telefone que a pessoa escolheu'
-                    placeholderTextColor={'#FFF'}
-                    editable={false}
-                />
-            </View>
-            <View style={styles.inputContainerPassword}>
-                <TextInput style={styles.input}
-                    placeholder='Endereço que a pessoa escolheu'
-                    placeholderTextColor={'#FFF'}
-                    editable={false}
-                />
-            </View>
+                        </View>
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.buttonEdit}
+                            onPress={() => alert('Editar perfil')}
+                        // () => navigation.navigate('home')
+                        >
+                            <Text style={styles.buttonText}>Editar Perfil</Text>
+                        </TouchableOpacity>
+                    </View>
 
-            {/* <View style={styles.buttonContainer}>
+                    <View style={styles.inputContainer}>
+                        <TextInput style={styles.input}
+                            placeholder='Nome que a pessoa escolheu'
+                            placeholderTextColor={'#FFF'}
+                            editable={false}
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput style={styles.input}
+                            placeholder='E-mail que a pessoa escolheu'
+                            placeholderTextColor={'#FFF'}
+                            editable={false}
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput style={styles.input}
+                            placeholder='Telefone que a pessoa escolheu'
+                            placeholderTextColor={'#FFF'}
+                            editable={false}
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <TextInput style={styles.input}
+                            placeholder='Endereço que a pessoa escolheu'
+                            placeholderTextColor={'#FFF'}
+                            editable={false}
+                        />
+                    </View>
+                    <View style={styles.inputContainerPassword}>
+                        <TextInput style={styles.input}
+                            placeholder='Endereço que a pessoa escolheu'
+                            placeholderTextColor={'#FFF'}
+                            editable={false}
+                        />
+                    </View>
+
+                    {/* <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button}
                 onPress={ () => navigation.navigate('home')}
                 >
@@ -78,7 +94,8 @@ function Profile() {
                     <Text style={styles.buttonText}>Cadastrar</Text>
                 </TouchableOpacity>
             </View> */}
-        </View>
+                </View>
+            </ScrollView>
 
 
     )
@@ -91,21 +108,33 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#121212'
+        backgroundColor: '#121212',
+        marginTop: 20
 
     },
     profileContainer: {
-        width: '20%',
-        height: '12%',
+        width: '80%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row', //editar essa parte
+    },
+    imageProfileContainer: {
+        marginTop: 30,
+        width: '30%', //editar width
+        height: '35%', //editar height
         borderRadius: 50,
         borderWidth: 3,
+        marginBottom: 5,
         borderColor: '#BB86FC',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'space-around'
     },
-    inputContainerLogin: {
+    icon: {
+
+    },
+    inputContainer: {
         width: '90%',
-        marginVertical: 30,
+        marginVertical: 15,
         color: '#FFF',
         backgroundColor: '#333333',
         borderRadius: 10,
@@ -115,9 +144,11 @@ const styles = StyleSheet.create({
     inputContainerPassword: {
         width: '90%',
         color: '#FFF',
+        marginVertical: 15,
         backgroundColor: '#333333',
         borderRadius: 10,
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        marginBottom: 25
 
     },
     input: {
@@ -160,13 +191,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
+        marginVertical: 5,
     },
     buttonContainer: {
         width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
-        marginVertical: '10%'
+        marginTop: '-10%',
+        marginBottom: '10%'
     },
     button: {
         width: '40%',
@@ -180,7 +213,7 @@ const styles = StyleSheet.create({
 
     },
     buttonSend: {
-        width: '50%',
+        width: '60%',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#BB86FC',
@@ -188,6 +221,8 @@ const styles = StyleSheet.create({
         elevation: 2,
         height: 70,
         paddingHorizontal: 5,
+        marginTop: 30,
+        marginRight: 20
     },
     buttonEdit: {
         width: '50%',
