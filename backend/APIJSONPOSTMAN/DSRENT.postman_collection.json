@@ -1,0 +1,714 @@
+{
+	"info": {
+		"_postman_id": "0399e6f1-aebb-42e5-942f-5fa29ffa01ab",
+		"name": "DSRENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19181982"
+	},
+	"item": [
+		{
+			"name": "Todos Vendedores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/customer",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendedor por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/customer/2",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"customer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Vendedor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nm_customer",
+							"value": "AJAZ",
+							"type": "text"
+						},
+						{
+							"key": "ds_email",
+							"value": "brenopiedadeneves@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "nr_telefone",
+							"value": "13988080102",
+							"type": "text"
+						},
+						{
+							"key": "ds_lat",
+							"value": "-24.293327248011565",
+							"type": "text"
+						},
+						{
+							"key": "ds_long",
+							"value": "-46.965230614339404",
+							"type": "text"
+						},
+						{
+							"key": "nm_city",
+							"value": "Peruíbe",
+							"type": "text"
+						},
+						{
+							"key": "uf_state",
+							"value": "SP",
+							"type": "text"
+						},
+						{
+							"key": "cd_status",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "ds_servico",
+							"value": "Festas",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Andrey/Downloads/breno.jpg"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://chere.com.br/api/customer",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Dados Vendedor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nm_customer",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ds_email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "nr_telefone",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ds_lat",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ds_long",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "nm_city",
+							"value": "Peruibe",
+							"type": "text"
+						},
+						{
+							"key": "uf_state",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ds_servico",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://chere.com.br/api/customer/2",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"customer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Vendedor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/user/{id}",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"user",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todos Usuários",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/user",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuário por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/user/1",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nm_user",
+							"value": "Breno Neves",
+							"type": "text"
+						},
+						{
+							"key": "ds_email",
+							"value": "brenopiedadeneves@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "ds_password",
+							"value": "breno123",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Andrey/Downloads/breno.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://chere.com.br/api/user",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Usuário",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nm_user",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ds_email",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ds_password",
+							"value": "breno1234",
+							"type": "text"
+						},
+						{
+							"key": "ds_photo",
+							"type": "file",
+							"src": "/C:/Users/Andrey/Downloads/breno.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://chere.com.br/api/user/4",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"user",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Usuário",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/user/3",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"user",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/feedback/3",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"feedback",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback por Vendedor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/feedback/customer/2",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"feedback",
+						"customer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Feedback por Usuário",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/feedback/user/4",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"feedback",
+						"user",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Feedback",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nr_feedback",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "ds_feedback",
+							"value": "O serviço é muito bem feito",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "id_customer",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://chere.com.br/api/feedback",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Feedback",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nr_feedback",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "ds_feedback",
+							"value": "Teste alteracao",
+							"type": "text"
+						},
+						{
+							"key": "id_user",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://chere.com.br/api/feedback/3",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"feedback",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Feedback",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/feedback/{id}",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"feedback",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fotos Vendedor por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/photo/customer/2",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"photo",
+						"customer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Foto por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/photo/5",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"photo",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Foto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_customer",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Andrey/Downloads/paisage.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://chere.com.br/api/photo",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"photo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Foto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nm_photo",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "ds_url",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "id_customer",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://chere.com.br/api/photo/5",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"photo",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Foto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://chere.com.br/api/photo/5",
+					"protocol": "http",
+					"host": [
+						"chere",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"photo",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
