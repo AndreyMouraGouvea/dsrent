@@ -1,87 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C'Here</title>
+<?php
 
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <header class="header">
-        <div class="options">
-            <button class="menu" id="menu" onclick="openMenu()">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar1"></div>
-            </button>
-        </div>        
-        <h3>C'Here</h3>
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Http\Request;
 
-        <div class="perfil">
-            
-        </div>
-    </header>
+define('LARAVEL_START', microtime(true));
 
-    <section class="menuLateral" id="menuLateral">
-        <div class="header">
-            <button id="close" onclick="closeMenu()">X</button>
-        </div>
-        <div class="options">
-            <a href="#welcome">Home</a>
-            <a href="#pesquisa">Pesquisa</a>
-            <a href="#sobre">Sobre nós</a>
-        </div>
-    </section>
+/*
+|--------------------------------------------------------------------------
+| Check If The Application Is Under Maintenance
+|--------------------------------------------------------------------------
+|
+| If the application is in maintenance / demo mode via the "down" command
+| we will load this file so that any pre-rendered content can be shown
+| instead of starting the framework, which could cause an exception.
+|
+*/
 
-    <section class="content">
-        <div class="welcome" id="welcome">
-            <div class="info">
-                <h3>O melhor do país<br>na palma da sua mão!</h3>
-                <p>Um APP para te deixar por dentro de todos os eventos próximos de você!</p>
-            </div>
-            <div class="smartphone">
-                <img src="img/celular.png" alt="">
-            </div>
-        </div>
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
 
-        <div class="formArea" id="pesquisa">
-            <h3>Pesquisa sobre relevância</h3>
-            <p>Nosso projeto está em fase de desenvolvimento.<br>Com o intuito de oferecermos um APP com 
-                um melhor desempenho, nós da C'Here pedimos que você responda este formulário com algumas 
-                perguntas simples que são de grande importância para nós.<br>Agradecemos sua compreensão!
-            </p>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfxgGRXHGIg6_z6rRkIXSpKCLe0OlAyv2M9NJN-UjVBBDyrLQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
-        </div>
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| this application. We just need to utilize it! We'll simply require it
+| into the script here so we don't need to manually load our classes.
+|
+*/
 
-        <div class="sobre" id="sobre">
-            <h3>Sobre o C'Here</h3>
-            <div class="dados">
-                <div class="img">
-                    <img src="./img/logo.png" alt="">
-                </div>
+require __DIR__.'/../vendor/autoload.php';
 
-                <p>A ideia do projeto surgiu no final de 2021, quando a pandemia da COVID-19 estava chegando ao fim.
-                    Neste período, percebemos que as pessoas estavam ansiosas para saírem de casa para se divertirem, assim como faziam antes do período pandêmico. 
-                    <br><br>
-                    Muitos eventos foram criados, sendo eles focados em músicas, tecnologias, comidas e muito mais, com o objetivo de atrair pessoas com interesses em comum.
-                    Porém, muitos deles tiveram poucos resultados. A maioria das pessoas não tinham ouvido falar deles e nem tiveram informações sobre tais eventos.
-                    <br><br>
-                    Com o intuito de solucionar essa falta de divulgação e de informação, surgiu a ideia de criar o C'Here, um aplicativo capaz de reunir informações de vários eventos 
-                    próximos ao usuário.
-                </p>
-            </div>
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request using
+| the application's HTTP kernel. Then, we will send the response back
+| to this client's browser, allowing them to enjoy our application.
+|
+*/
 
-            
-        </div>
-        
-    </section>
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-    <footer>
+$kernel = $app->make(Kernel::class);
 
-    </footer>
-    
-    <script src="./js/script.js"></script>
-</body>
-</html>
+$response = $kernel->handle(
+    $request = Request::capture()
+)->send();
+
+$kernel->terminate($request, $response);

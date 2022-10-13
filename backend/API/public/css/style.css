@@ -141,6 +141,8 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
 
     transition: all 0.5s ease-in-out;
+
+    display: none;
 }
 .menuLateral .header{
     height: 10%;
@@ -338,6 +340,9 @@ body::-webkit-scrollbar-thumb {
     .menuLateral{
         height: 100vh;
         width: 50vw;
+    }
+    .menuLateral .options a{
+        font-size: 1em;
     }
 
     .content .welcome{

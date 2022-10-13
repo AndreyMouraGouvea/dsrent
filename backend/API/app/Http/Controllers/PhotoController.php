@@ -44,12 +44,17 @@ class PhotoController extends Controller
                 ], 404);
             }
 
-            $uploadFolder = 'img'; //pasta
-            $image = $request->file('image'); //arquivo
-            $image_uploaded_path = $image->store($uploadFolder, 'public'); //caminho
+            $uploadFolder = 'img/api-img'; //pasta
+            $image = $request->image; //arquivo
 
-            $path = Storage::disk('public')->url($image_uploaded_path); //caminho que fica salvo no banco
-            $name = basename($image_uploaded_path); //nome do arquivo
+            $extension = $image->extension();
+            $name = md5($request->filename . strtotime("now")) . '.' . $extension;//md5($image->image->getClientOriginalName() . strtotime("now")) . '.' . $extension;
+
+            $request->image->move(public_path('img/api-img'), $name);
+            //$image_uploaded_path = $image->public_path('img/api-img'); //caminho
+
+            $path = url($uploadFolder . "/" . $name); //caminho que fica salvo no banco
+            //$name = basename($image_uploaded_path); //nome do arquivo
 
             $photos->id_customer    =  $request->id_customer; //id do customer
             $photos->nm_photo       =  $name; //nome do arquivo  
