@@ -27,12 +27,19 @@ class CustomerController extends Controller
         $customer->cd_status    =   $request->cd_status;
         $customer->ds_servico   =   $request->ds_servico;
 
-        $uploadFolder = 'img'; //pasta
-        $image = $request->file('image'); //arquivo
-        $image_uploaded_path = $image->store($uploadFolder, 'public'); //caminho
-        $path = Storage::disk('public')->url($image_uploaded_path); //caminho que fica salvo no banco
+        $uploadFolder = 'img/api-img'; //pasta
+        $image = $request->image; //arquivo
 
-        $customer->ds_photo     =   $path;
+        $extension = $image->extension();
+        $name = md5($request->filename . strtotime("now")) . '.' . $extension;//md5($image->image->getClientOriginalName() . strtotime("now")) . '.' . $extension;
+
+        $request->image->move(public_path('img/api-img'), $name);
+        //$image_uploaded_path = $image->public_path('img/api-img'); //caminho
+
+        $path = url($uploadFolder . "/" . $name); //caminho que fica salvo no banco
+        //$name = basename($image_uploaded_path); //nome do arquivo
+
+        $customer->ds_photo     =   $path; // salva caminho no banco
         $customer->id_user      =   $request->id_user;
 
         $customer->save();

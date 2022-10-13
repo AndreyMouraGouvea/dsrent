@@ -19,7 +19,7 @@ http://localhost:8000/api/customer/ + (id do customer)
 
 - Criar um novo customer: (POST)
 http://localhost:8000/api/customer
-(dados a serem enviados: nm_customer, ds_email, nr_telefone, ds_local, nm_city,
+(dados a serem enviados: nm_customer, ds_email, nr_telefone, ds_lat, ds_long, nm_city,
 uf_state, ds_servico, image, id_user)
 
 - Alterar dados de algum customer: (PUT)
