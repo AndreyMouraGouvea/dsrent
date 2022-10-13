@@ -22,7 +22,7 @@ function App() {
   if (!fontsLoaded) {
 
     // return <AppLoading />
-    return <Splash />
+    return <></>
             
 
   }
