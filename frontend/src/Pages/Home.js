@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +10,7 @@ import Recommended from '../components/Recommended';
 import Map from '../components/Map';
 import Shop from './Shop';
 import Header from '../components/Header';
+
 
 
 
@@ -25,8 +26,10 @@ function Home() {
 
     return (
         <>
+        <SafeAreaView style={{flex: 1, backgroundColor: "#121212"}}>
             <Header />
             <Map />
+        </SafeAreaView>
         </>
 
 
