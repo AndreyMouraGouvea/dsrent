@@ -21,13 +21,19 @@ class UserController extends Controller
         $users->ds_email        =   $request->ds_email;
         $users->ds_password     =   MD5($request->ds_password);
 
-        $uploadFolder = 'img'; //pasta
-        $image = $request->file('image'); //arquivo
-        $image_uploaded_path = $image->store($uploadFolder, 'public'); //caminho
-        $path = Storage::disk('public')->url($image_uploaded_path); //caminho que fica salvo no banco
-        $name = basename($image_uploaded_path); //nome do arquivo
+        $uploadFolder = 'img/api-img'; //pasta
+        $image = $request->image; //arquivo
 
-        $users->ds_photo         =   $path;
+        $extension = $image->extension();
+        $name = md5($request->filename . strtotime("now")) . '.' . $extension;//md5($image->image->getClientOriginalName() . strtotime("now")) . '.' . $extension;
+
+        $request->image->move(public_path('img/api-img'), $name);
+        //$image_uploaded_path = $image->public_path('img/api-img'); //caminho
+
+        $path = url($uploadFolder . "/" . $name); //caminho que fica salvo no banco
+        //$name = basename($image_uploaded_path); //nome do arquivo
+
+        $users->ds_photo     =   $path; // salva caminho no banco
 
         $users->save();
 
