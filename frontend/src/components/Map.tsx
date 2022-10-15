@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import MapView, { LatLng, PROVIDER_GOOGLE, Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, SafeAreaView } from 'react-native';
 import { GooglePlaceDetail, GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import MapViewDirections from 'react-native-maps-directions';
 import Constants from 'expo-constants';
@@ -90,6 +90,9 @@ function Map() {
 
 
   return (
+    <SafeAreaView style={{flex: 1, backgroundColor: "#121212"}}>
+
+    
     <View style={styles.container}>
       <MapView
         ref={mapRef}
@@ -143,12 +146,14 @@ function Map() {
       </View>
 
     </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    top: Constants.statusBarHeight - 20,
     backgroundColor: '#121212',
     alignItems: 'center',
     justifyContent: 'center',

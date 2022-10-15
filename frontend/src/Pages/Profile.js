@@ -10,6 +10,7 @@ function Profile() {
     const navigation = useNavigation();
 
     return (
+        <SafeAreaView style={{ flex: 1, backgroundColor: "#121212" }}>
          <ScrollView
                 showsVerticalScrollIndicator={false}
                 style={{ backgroundColor: '#121212' }}
@@ -95,7 +96,8 @@ function Profile() {
                 </TouchableOpacity>
             </View> */}
                 </View>
-            </ScrollView>
+            </ScrollView> 
+        </SafeAreaView>
 
 
     )

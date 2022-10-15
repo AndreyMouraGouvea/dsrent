@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
@@ -26,20 +26,22 @@ function Shop() {
 
     return (
 
-        <ScrollView
-            showsVerticalScrollIndicator={false}
-            style={{ backgroundColor: '#121212' }}
-        >
-            <HeaderAll />
+        <SafeAreaView style={{ flex: 1, backgroundColor: "#121212" }}>
             <ScrollView
-            showsHorizontalScrollIndicator={false}
-            style={{ paddingHorizontal: 15 }}
+                showsVerticalScrollIndicator={false}
+                style={{ backgroundColor: '#121212' }}
             >
-                <Login />
+                <HeaderAll />
+                <ScrollView
+                    showsHorizontalScrollIndicator={false}
+                    style={{ paddingHorizontal: 15 }}
+                >
+                    <Login />
+
+                </ScrollView>
 
             </ScrollView>
-    
-        </ScrollView>
+        </SafeAreaView>
 
     )
 
