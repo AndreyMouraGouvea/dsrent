@@ -12,20 +12,34 @@ function Profile() {
 
     const [result, setResult] = useState('');
 
-    const userID = '5';
+    const userID = '2';
 
     async function handleProfile() {
 
         const response = await API.get(`api/user/${userID}`);
         setResult(response.data[0]);
         // alert(result.nm_user)
-        // console.log(response.data[0].id);
+        console.log(response.data[0].id);
         // alert(response.data[0].nm_user)
-        
-    }
-    handleProfile();
 
-{/*}
+    }
+
+    useEffect(() => {
+        handleProfile();
+    }, []);
+
+    {/*
+
+    const Divider = () => {
+        return (
+            <View style={{ marginBottom: 10, borderBottomColor: 'red', borderWidth: 2 }}>
+            </View>
+        )
+    }
+    /*}
+
+
+    {/*}
     function getUser() {
         API.get(`api/user/${userID}`)
         .then(response => {
@@ -40,12 +54,12 @@ function Profile() {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "#121212" }}>
-         <ScrollView
+            <ScrollView
                 showsVerticalScrollIndicator={false}
                 style={{ backgroundColor: '#121212' }}
-            > 
-            
-            
+            >
+
+
                 <View style={styles.container}>
                     <View style={styles.profileContainer}>
                         {/* tirar profile container para arrumar layout */}
@@ -76,7 +90,28 @@ function Profile() {
                         </TouchableOpacity>
                     </View>
 
-                    
+                    {/* 
+                    <FlatList
+                        data={result}
+                        ItemSeparatorComponent={Divider}
+                        keyExtractor={result}
+                        renderItem={({ item }) => {
+                            return (
+                                <View style={styles.inputContainer}>
+                                    <TextInput style={styles.input}
+                                        placeholder='Nome que a pessoa escolheu'
+                                        value={item.nm_user}
+                                        placeholderTextColor={'#FFF'}
+                                        editable={false}
+                                    />
+                                </View>
+                            );
+
+                        }}
+                    />
+                    */}
+
+
 
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input}
@@ -97,11 +132,12 @@ function Profile() {
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input}
                             placeholder='Telefone que a pessoa escolheu'
-                            value={response.data[0].ds_email}
+                            value={result.ds_password}
                             placeholderTextColor={'#FFF'}
                             editable={false}
-                        />
+                            />
                     </View>
+                            {/* 
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input}
                             placeholder='Endereço que a pessoa escolheu'
@@ -118,6 +154,7 @@ function Profile() {
                         />
                     </View>
 
+                */}
                     {/* <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button}
                 onPress={ () => navigation.navigate('home')}
@@ -130,7 +167,7 @@ function Profile() {
                 </TouchableOpacity>
             </View> */}
                 </View>
-            </ScrollView> 
+            </ScrollView>
         </SafeAreaView>
 
 
