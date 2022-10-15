@@ -1,13 +1,42 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, StatusBar } from 'react-native'
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, StatusBar, FlatList } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons'
+import API from '../components/Api';
 
 
 function Profile() {
 
     const navigation = useNavigation();
+
+    const [result, setResult] = useState('');
+
+    const userID = '5';
+
+    async function handleProfile() {
+
+        const response = await API.get(`api/user/${userID}`);
+        setResult(response.data[0]);
+        // alert(result.nm_user)
+        // console.log(response.data[0].id);
+        // alert(response.data[0].nm_user)
+        
+    }
+    handleProfile();
+
+{/*}
+    function getUser() {
+        API.get(`api/user/${userID}`)
+        .then(response => {
+            const data = response.data
+            results = JSON.stringify(data)
+            alert(results)
+            console.log(results)
+
+        }).catch(error => console.log(error))
+    }
+{*/}
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: "#121212" }}>
@@ -15,10 +44,9 @@ function Profile() {
                 showsVerticalScrollIndicator={false}
                 style={{ backgroundColor: '#121212' }}
             > 
+            
+            
                 <View style={styles.container}>
-                    {/* <View style={styles.header}>
-                <Text style={styles.headerText}>Teste</Text>
-            </View> */}
                     <View style={styles.profileContainer}>
                         {/* tirar profile container para arrumar layout */}
                         <View style={styles.imageProfileContainer}>
@@ -31,7 +59,7 @@ function Profile() {
                         </View>
                         <View style={styles.buttonEditContainer}>
                             <TouchableOpacity style={styles.buttonSend}
-                                onPress={() => alert('Enviar Foto')}
+                                onPress={handleProfile}
                             // () => navigation.navigate('home')
                             >
                                 <Text style={styles.buttonText}>Enviar Foto</Text>
@@ -48,9 +76,12 @@ function Profile() {
                         </TouchableOpacity>
                     </View>
 
+                    
+
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input}
                             placeholder='Nome que a pessoa escolheu'
+                            value={result.nm_user}
                             placeholderTextColor={'#FFF'}
                             editable={false}
                         />
@@ -58,6 +89,7 @@ function Profile() {
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input}
                             placeholder='E-mail que a pessoa escolheu'
+                            value={result.ds_email}
                             placeholderTextColor={'#FFF'}
                             editable={false}
                         />
@@ -65,6 +97,7 @@ function Profile() {
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input}
                             placeholder='Telefone que a pessoa escolheu'
+                            value={response.data[0].ds_email}
                             placeholderTextColor={'#FFF'}
                             editable={false}
                         />
@@ -72,6 +105,7 @@ function Profile() {
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.input}
                             placeholder='Endereço que a pessoa escolheu'
+                            // value={response.data[0].ds_photo}
                             placeholderTextColor={'#FFF'}
                             editable={false}
                         />
