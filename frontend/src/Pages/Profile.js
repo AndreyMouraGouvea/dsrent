@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, ActivityIndicator, StatusBar, FlatList } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, ActivityIndicator, StatusBar, FlatList, Image } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import Constants from 'expo-constants';
 import { useNavigation } from '@react-navigation/native';
@@ -23,6 +23,7 @@ function Profile() {
         setLoading(false)
         // alert(result.nm_user)
         console.log(response.data[0].id);
+        console.log(response.data[0].ds_photo)
         // alert(response.data[0].nm_user)
 
     }
@@ -56,11 +57,17 @@ function Profile() {
                         <View style={styles.profileContainer}>
                             {/* tirar profile container para arrumar layout */}
                             <View style={styles.imageProfileContainer}>
-                                <Feather
+                                {/* <Feather
                                     name='user'
                                     size={40}
                                     color='#BB86FC'
                                     style={styles.icon}
+                                /> */}
+                                <Image 
+                                    style={styles.imageProfile}   
+                                    source={{
+                                        uri: `https://avatars.githubusercontent.com/u/74060661?v=4`
+                                    }}
                                 />
                             </View>
                             <View style={styles.buttonEditContainer}>
@@ -182,7 +189,7 @@ const styles = StyleSheet.create({
 
     },
     loadingContainer: {
-        top: Constants.statusBarHeight + 300,
+        top: Constants.statusBarHeight + 310,
         justifyContent: "center",
         alignItems: "center"
 
@@ -197,7 +204,7 @@ const styles = StyleSheet.create({
         width: '80%',
         alignItems: 'center',
         justifyContent: 'space-between',
-        flexDirection: 'row', //editar essa parte
+        flexDirection: 'row', //editar essa parter
     },
     imageProfileContainer: {
         marginTop: 30,
@@ -208,10 +215,12 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         borderColor: '#BB86FC',
         alignItems: 'center',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
     },
-    icon: {
-
+    imageProfile: {
+        width: 100,
+        height: 100,
+        borderRadius: 50
     },
     inputContainer: {
         width: '90%',
@@ -279,8 +288,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
-        marginTop: '-10%',
-        marginBottom: '10%'
+        marginTop: '-5%',
+        marginBottom: '10%',
     },
     button: {
         width: '40%',
