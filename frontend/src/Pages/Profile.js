@@ -14,7 +14,7 @@ function Profile() {
     const [result, setResult] = useState('');
     const [loading, setLoading] = useState(true);
 
-    const userID = '2';
+    const userID = '5';
 
     async function handleProfile() {
 
@@ -23,7 +23,7 @@ function Profile() {
         setLoading(false)
         // alert(result.nm_user)
         console.log(response.data[0].id);
-        console.log(response.data[0].ds_photo)
+        // console.log(response.data[0].ds_photo)
         // alert(response.data[0].nm_user)
 
     }
@@ -66,7 +66,7 @@ function Profile() {
                                 <Image 
                                     style={styles.imageProfile}   
                                     source={{
-                                        uri: `https://avatars.githubusercontent.com/u/74060661?v=4`
+                                        uri: `${result.ds_photo}`
                                     }}
                                 />
                             </View>
