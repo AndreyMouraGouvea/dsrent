@@ -36,6 +36,10 @@ function StackRoutes() {
                 component={Detail}
                 options={{
                     title: 'Detalhes',
+                    headerBackTitle: 'Voltar',
+                    headerBackTitleStyle: {
+                        fontFamily: 'Montserrat_500Medium'
+                    },
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },
@@ -108,6 +112,10 @@ function StackRoutes() {
                 options={{
                     headerTintColor: '#BB86FC',
                     title: 'Cadastro',
+                    headerBackTitle: 'Voltar',
+                    headerBackTitleStyle: {
+                        fontFamily: 'Montserrat_500Medium'
+                    },
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold',
                         
