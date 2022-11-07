@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-nativ
 import { useNavigation } from '@react-navigation/native';
 
 
-function Login() {
+function Event() {
 
     const navigation = useNavigation();
 
@@ -11,7 +11,7 @@ function Login() {
 
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Login | Cadastro</Text>
+                <Text style={styles.headerText}>Novo Evento</Text>
             </View>
             <View style={styles.inputContainerLogin}>
                 <TextInput style={styles.input}
@@ -35,12 +35,6 @@ function Login() {
                 <TouchableOpacity style={styles.button}
                 onPress={ () => navigation.navigate('register')}>
                     <Text style={styles.buttonText}>Cadastrar</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.eventButtonContainer}>
-                <TouchableOpacity style={styles.buttonEvent}
-                onPress={ () => navigation.navigate('event')}>
-                <Text style={styles.buttonText}>Novo Evento</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -129,31 +123,14 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
 
     },
-    buttonEvent: {
-        width: '55%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#3706B3',
-        borderRadius: 10,
-        height: 70,
-        marginTop: '-20%'
-        
-    },
     buttonText: {
         color: '#FFF',
         fontFamily: 'Montserrat_700Bold',
         paddingHorizontal: 10,
         fontSize: 22
 
-    },
-    eventButtonContainer: {
-        width: '100%',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        marginVertical: '15%',
-    },
+    }
 
 })
 
-export default Login
+export default Event
