@@ -58,22 +58,25 @@ function Profile() {
                                         uri: `${result.ds_photo}`
                                     }}
                                 />
+                                <TouchableOpacity style={styles.buttonEditPic}>
+                                    <Entypo name="edit" size={24} color="#FFF" />
+                                </TouchableOpacity>
                             </View>
-                            <View style={styles.buttonEditContainer}>
+                            {/* <View style={styles.buttonEditContainer}>
                                 <TouchableOpacity style={styles.buttonSend}
                                     onPress={handleProfile}
                                 // () => navigation.navigate('home')
                                 >
                                     <Text style={styles.buttonText}>Enviar Foto</Text>
                                 </TouchableOpacity>
-                            </View>
+                            </View> */}
                         </View>
                         <View style={styles.buttonContainer}>
                             <TouchableOpacity style={styles.buttonEdit}
                                 onPress={() => alert('Editar perfil')}
                             // () => navigation.navigate('home')
                             >
-                                <Entypo name="edit" size={24} color="#FFF" />
+
                                 <Text style={styles.buttonText}>Editar Perfil</Text>
                             </TouchableOpacity>
                         </View>
@@ -191,9 +194,9 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     profileContainer: {
-        width: '80%',
+        width: '90%',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         flexDirection: 'row', //editar essa parter
     },
     imageProfileContainer: {
@@ -201,16 +204,22 @@ const styles = StyleSheet.create({
         width: '30%', //editar width
         height: '35%', //editar height
         borderRadius: 50,
-        borderWidth: 3,
         marginBottom: 5,
         borderColor: '#BB86FC',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         justifyContent: 'space-around',
     },
+    buttonEditPic:{
+        padding: 3,
+        borderWidth: 3,
+        borderColor: '#3706b3',
+        borderRadius: 50,
+        backgroundColor: '#3706b3'
+    },
     imageProfile: {
-        width: 100,
-        height: 100,
-        borderRadius: 50
+        width: 150,
+        height: 150,
+        borderRadius: 75 
     },
     inputContainer: {
         width: '90%',
