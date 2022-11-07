@@ -15,13 +15,25 @@ function Event() {
             </View>
             <View style={styles.inputContainerLogin}>
                 <TextInput style={styles.input}
-                    placeholder='Digite seu Login'
+                    placeholder='Digite o nome do evento'
                     placeholderTextColor={'#FFF'}
                 />
             </View>
             <View style={styles.inputContainerPassword}>
                 <TextInput style={styles.input}
-                    placeholder='Digite sua Senha'
+                    placeholder='Digite o endereço do evento'
+                    placeholderTextColor={'#FFF'}
+                />
+            </View>
+            <View style={styles.inputContainerPassword}>
+                <TextInput style={styles.input}
+                    placeholder='Digite o horário do evento'
+                    placeholderTextColor={'#FFF'}
+                />
+            </View>
+            <View style={styles.inputContainerPassword}>
+                <TextInput style={styles.input}
+                    placeholder='Digite a descrição do evento'
                     placeholderTextColor={'#FFF'}
                 />
             </View>
