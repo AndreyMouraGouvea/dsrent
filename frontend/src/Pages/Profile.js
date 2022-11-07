@@ -208,6 +208,8 @@ const styles = StyleSheet.create({
         borderColor: '#BB86FC',
         alignItems: 'flex-end',
         justifyContent: 'space-around',
+        marginLeft: '10%'
+        
     },
     buttonEditPic:{
         padding: 3,
