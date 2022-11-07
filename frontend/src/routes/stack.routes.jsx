@@ -8,6 +8,7 @@ import Shop from '../Pages/Shop';
 import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import Profile from '../Pages/Profile';
+import Event from '../Pages/Event';
 
 import Footer from './footer.routes';
 
@@ -25,9 +26,9 @@ function StackRoutes() {
                 component={Footer}
                 options={{
                     headerShown: false,
-                    
+
                 }}
-            
+
 
             />
 
@@ -58,7 +59,7 @@ function StackRoutes() {
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },
-                    
+
 
                 }}
             />
@@ -118,13 +119,13 @@ function StackRoutes() {
                     },
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold',
-                        
+
                     },
                     headerStyle: {
                         backgroundColor: '#121212',
-                        
+
                     },
-                    
+
                 }}
             />
 
@@ -141,7 +142,25 @@ function StackRoutes() {
                         backgroundColor: '#121212'
                     },
                     headerBackground: {
-                        
+
+                    }
+                }}
+            />
+
+            <Stack.Screen
+                name="event"
+                component={Event}
+                options={{
+                    title: 'Evento',
+                    headerTitleStyle: {
+                        fontFamily: 'Montserrat_700Bold'
+                    },
+                    headerShown: false,
+                    headerBackgroundContainerStyle: {
+                        backgroundColor: '#121212'
+                    },
+                    headerBackground: {
+
                     }
                 }}
             />

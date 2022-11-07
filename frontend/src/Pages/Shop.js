@@ -37,6 +37,7 @@ function Shop() {
                     style={{ paddingHorizontal: 15 }}
                 >
                     <Login />
+                    
 
                 </ScrollView>
 
