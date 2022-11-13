@@ -37,7 +37,7 @@ function Event() {
     const [date, setDate] = useState(new Date());
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
-    const [text, setText] = useState('Selecione o horário do evento');
+    const [text, setText] = useState('Selecione data do evento');
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
@@ -46,7 +46,7 @@ function Event() {
 
         let tempDate = new Date(currentDate);
         let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
-        let fTime = 'Hours: ' + tempDate.getHours() + ' | Minutes: ' + tempDate.getMinutes();
+        let fTime = 'Horas: ' + tempDate.getHours() + ' | Minutos: ' + tempDate.getMinutes();
         setText(fDate + '\n' + fTime)
 
         console.log(fDate + ' (' + fTime + ')')
