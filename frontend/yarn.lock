@@ -5291,6 +5291,11 @@ mockdate@^3.0.2:
   resolved "https://registry.npmjs.org/mockdate/-/mockdate-3.0.5.tgz"
   integrity sha512-iniQP4rj1FhBdBYS/+eQv7j1tadJ9lJtdzgOpvsOHng/GbcDh2Fhdeq+ZRldrPYdXvCyfFUmFeEwEGXZB5I/AQ==
 
+moment@^2.22.0:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
 morgan@^1.9.0:
   version "1.10.0"
   resolved "https://registry.npmjs.org/morgan/-/morgan-1.10.0.tgz"
@@ -6008,6 +6013,13 @@ react-native-codegen@^0.0.6:
     flow-parser "^0.121.0"
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
+
+react-native-datepicker@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/react-native-datepicker/-/react-native-datepicker-1.7.2.tgz#58d0822591a0ac9b32aba082650222a0ee29669d"
+  integrity sha512-ses0N1y44fYBmlejYwR2i+dGnQQ8v5/gacX2CrbFJiWxbcQaRuxexsZPB9YQuQkAy+uKz5Gti3Lrp3dh9BfkzA==
+  dependencies:
+    moment "^2.22.0"
 
 react-native-gesture-handler@~2.1.0:
   version "2.1.3"

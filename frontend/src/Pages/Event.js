@@ -3,8 +3,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, Platform, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
-import Constants from 'expo-constants';
-import DateTimePicker from '@react-native-community/datetimepicker'
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 
 function Event() {
@@ -12,6 +11,8 @@ function Event() {
     const navigation = useNavigation();
 
     const [image, setImage] = useState(null);
+    const [image2, setImage2] = useState(null);
+    const [image3, setImage3] = useState(null);
 
     useEffect(async () => {
         if (Platform.OS !== 'web') {
@@ -33,30 +34,35 @@ function Event() {
             setImage(result.uri)
         }
     }
-
-    const [date, setDate] = useState(new Date());
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
-    const [text, setText] = useState('Selecione data do evento');
-
-    const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        setShow(Platform.OS === 'ios');
-        setDate(currentDate);
-
-        let tempDate = new Date(currentDate);
-        let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
-        let fTime = 'Horas: ' + tempDate.getHours() + ' | Minutos: ' + tempDate.getMinutes();
-        setText(fDate + '\n' + fTime)
-
-        console.log(fDate + ' (' + fTime + ')')
+    const PickImage2 = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            aspect: [4, 3],
+            quality: 1
+        })
+        console.log(result)
+        if (!result.cancelled) {
+            setImage2(result.uri)
+        }
+    }
+    const PickImage3 = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            aspect: [4, 3],
+            quality: 1
+        })
+        console.log(result)
+        if (!result.cancelled) {
+            setImage3(result.uri)
+        }
     }
 
-    // https://www.youtube.com/watch?v=Imkw-xFFLeE&ab_channel=Indently
-    const showMode = (currentMode) => {
-        setShow(true);
-        setMode(currentMode)
-    }
+    // DATE TIME PICKER
+
+
+
+
+    
 
     return (
 
@@ -71,7 +77,7 @@ function Event() {
                 {/* novo */}
                 <View style={styles.imageContainer}>
                     <TouchableOpacity onPress={PickImage}>
-                        <Text style={styles.imageText}>Selecione a imagem</Text>
+                        <Text style={styles.imageText}>Selecione a imagem de capa</Text>
                         <View style={{ alignItems: 'center' }}>
                             {image && <Image source={{ uri: image }} style={{
                                 width: 200,
@@ -80,7 +86,32 @@ function Event() {
                                 marginBottom: 15
                             }} />}
                         </View>
-
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.imageContainer}>
+                    <TouchableOpacity onPress={PickImage2}>
+                        <Text style={styles.imageText}>Selecione a segunda imagem</Text>
+                        <View style={{ alignItems: 'center' }}>
+                            {image2 && <Image source={{ uri: image2 }} style={{
+                                width: 200,
+                                height: 200,
+                                borderRadius: 100,
+                                marginBottom: 15
+                            }} />}
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.imageContainer}>
+                    <TouchableOpacity onPress={PickImage3}>
+                        <Text style={styles.imageText}>Selecione a terceira imagem</Text>
+                        <View style={{ alignItems: 'center' }}>
+                            {image3 && <Image source={{ uri: image3 }} style={{
+                                width: 200,
+                                height: 200,
+                                borderRadius: 100,
+                                marginBottom: 15
+                            }} />}
+                        </View>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.inputContainer}>
@@ -96,46 +127,33 @@ function Event() {
                     />
                 </View>
                 <View style={styles.inputContainer}>
-                    <TouchableOpacity onPress={() => showMode('date')}>
+                    <TouchableOpacity onPress={showDatePicker}>
                         <TextInput style={styles.input}
-                            value={text}
                             placeholder='Selecione a data do evento'
                             placeholderTextColor={'#FFF'}
                             editable={false}
                         />
+                        {/* DATE PICKER */}
 
-                            {show && (
-                                <DateTimePicker 
-                                testID='dateTimePicker'
-                                value={date}
-                                mode={mode}
-                                is24Hour={true}
-                                display= 'default'
-                                onChange={onChange}
-                                />
-                            )}
 
+
+
+
+
+                        
                     </TouchableOpacity>
                 </View>
                 <View style={styles.inputContainer}>
-                    <TouchableOpacity onPress={() => showMode('time')}>
+                    <TouchableOpacity>
                         <TextInput style={styles.input}
-                            value={text}
                             placeholder='Selecione o horário do evento'
                             placeholderTextColor={'#FFF'}
                             editable={false}
+
                         />
 
-                            {show && (
-                                <DateTimePicker 
-                                testID='dateTimePicker'
-                                value={date}
-                                mode={mode}
-                                is24Hour={true}
-                                display= 'default'
-                                onChange={onChange}
-                                />
-                            )}
+
+                            
 
                     </TouchableOpacity>
                 </View>
@@ -268,6 +286,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         fontSize: 22
 
+    },
+    dateComponent: {
+        width: 350
     }
 
 })
