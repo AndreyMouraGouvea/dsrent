@@ -57,9 +57,6 @@ function Event() {
         }
     }
 
-    // DATE TIME PICKER
-
-
 
 
     
@@ -127,15 +124,13 @@ function Event() {
                     />
                 </View>
                 <View style={styles.inputContainer}>
-                    <TouchableOpacity onPress={showDatePicker}>
+                    <TouchableOpacity>
                         <TextInput style={styles.input}
                             placeholder='Selecione a data do evento'
                             placeholderTextColor={'#FFF'}
                             editable={false}
                         />
                         {/* DATE PICKER */}
-
-
 
 
 
@@ -151,7 +146,6 @@ function Event() {
                             editable={false}
 
                         />
-
 
                             
 
