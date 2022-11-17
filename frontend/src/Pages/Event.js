@@ -57,12 +57,52 @@ function Event() {
         }
     }
 
-    // DATE TIME PICKER
+    // DATE PICKER
+
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+    const [text, setText] = useState('Data: ');
+    const [textDate, setTextDate] = useState('');
+    const [textHour, setTextHour] = useState('');
+
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShow(Platform.OS === 'ios');
+        setDate(currentDate);
+
+        let tempDate = new Date(currentDate);
+        let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
+        setText(fDate)
+        setTextDate(fDate)
+
+        console.log(fDate)
+    }
+
+    // time
+
+    const onChangeTime = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShow(Platform.OS === 'ios');
+
+        let tempDate2 = new Date(currentDate);
+        let fTime2 = ''+ tempDate2.getHours() + ':'+ tempDate2.getMinutes();
+
+        setTextHour(fTime2)
+
+        console.log(fTime2)
+    }
+
+
+
+    const showMode = (currentMode) => {
+        setShow(true);
+        setMode(currentMode)
+    }
 
 
 
 
-    
 
     return (
 
@@ -127,7 +167,7 @@ function Event() {
                     />
                 </View>
                 <View style={styles.inputContainer}>
-                    <TouchableOpacity onPress={showDatePicker}>
+                    <TouchableOpacity onPress={() => showMode('date')}>
                         <TextInput style={styles.input}
                             placeholder='Selecione a data do evento'
                             placeholderTextColor={'#FFF'}
@@ -135,16 +175,39 @@ function Event() {
                         />
                         {/* DATE PICKER */}
 
+                        {show && (
+                            <DateTimePicker
+                                testID='dateTimePicker'
+                                value={date}
+                                mode={mode}
+                                is24Hour={true}
+                                display='default'
+                                onChange={onChange}
+
+                            />)}
+
+                        {textDate ?
+                            <View style={styles.inputContainerDate}>
+                                <TouchableOpacity>
+                                    <TextInput style={styles.input}
+                                        value={text}
+                                        placeholderTextColor={'#FFF'}
+                                        editable={false}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                            :
+                            <></>
+
+                        }
 
 
 
 
-
-                        
                     </TouchableOpacity>
                 </View>
                 <View style={styles.inputContainer}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => showMode('time')}>
                         <TextInput style={styles.input}
                             placeholder='Selecione o horário do evento'
                             placeholderTextColor={'#FFF'}
@@ -152,15 +215,46 @@ function Event() {
 
                         />
 
+                        {/* TIME PICKER */}
 
-                            
+                        {show && (
+                            <DateTimePicker
+                                testID='dateTimePicker'
+                                value={date}
+                                mode={mode}
+                                is24Hour={true}
+                                display='default'
+                                onChange={onChangeTime}
+
+                            />)}
+
+                        {textHour ?
+                            <View style={styles.inputContainerDate}>
+                                <TouchableOpacity>
+                                    <TextInput style={styles.input}
+                                        value={textHour}
+                                        placeholderTextColor={'#FFF'}
+                                        editable={false}
+                                    />
+                                </TouchableOpacity>
+                            </View>
+                            :
+                            <></>
+
+                        }
+
+
 
                     </TouchableOpacity>
                 </View>
-                <View style={styles.inputContainer}>
-                    <TextInput style={styles.input}
+                <View style={styles.inputDescriptionContainer}>
+                    <TextInput style={styles.inputDescription}
                         placeholder='Digite a descrição do evento'
                         placeholderTextColor={'#FFF'}
+                        multiline={true}
+                        maxFontSizeMultiplier={1}
+                        maxLength={300}
+
                     />
                 </View>
 
@@ -209,6 +303,18 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingHorizontal: 10,
     },
+    inputDescriptionContainer: {
+        width: '90%',
+        marginVertical: 15,
+        color: '#FFF',
+        backgroundColor: '#333333',
+        borderRadius: 10,
+        paddingHorizontal: 10,
+        paddingTop: 5,
+        paddingBottom: 6,
+        justifyContent: 'flex-start',
+        alignContent: 'flex-start',
+    },
     imageText: {
         fontSize: 13,
         paddingTop: 5,
@@ -243,6 +349,16 @@ const styles = StyleSheet.create({
         shadowRadius: 16.00,
 
         elevation: 24,
+
+    },
+    inputDescription: {
+        fontSize: 13,
+        color: '#FFF',
+        fontFamily: 'Montserrat_500Medium',
+        paddingHorizontal: 10,
+        height: 150,
+        lineHeight: 5,
+
 
     },
     header: {
