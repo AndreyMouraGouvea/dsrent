@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         height: 60,
-        backgroundColor: '#121212',
+        backgroundColor: '#b900ded2',
         justifyContent: 'space-between',
         paddingTop: 16,
         paddingLeft: 15,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'Montserrat_700Bold',
         fontSize: 20,
-        color: '#BB86FC'
+        color: '#ffffff'
 
     },
     icon: {

@@ -58,29 +58,29 @@ function Find() {
                 >
 
                     <New
-                        cover={require('../assets/house1.jpg')}
-                        name='Casa de Praia'
-                        description='Casa nova uma quadra do mar, lugar seguro e monitorado 24 horas'
-                        price='R$ 824,90'
+                        cover={require('../assets/cannil.jpg')}
+                        name='Show no Cannil'
+                        description='Música ao vivo e promoção de bebidas - A partir das 20h'
+                        price='R$ 10,90'
                         onPress={() => navigation.navigate('detail')}
 
                     />
 
                     <New
-                        cover={require('../assets/house2.jpg')}
-                        name='Casa Floripa'
-                        description='Casa nova uma quadra do mar, lugar seguro e monitorado 24 horas'
-                        price='R$ 1500,00'
+                        cover={require('../assets/feira.jpg')}
+                        name='Feira Livre'
+                        description='Venha com sua família para aproveitar o melhor de saudável natural que a terra provê'
+                        price='Gratuíto'
                         onPress={() => navigation.navigate('detail')}
 
 
                     />
 
                     <New
-                        cover={require('../assets/house3.jpg')}
-                        name='Rancho SP'
-                        description='Casa nova uma quadra do mar, lugar seguro e monitorado 24 horas'
-                        price='R$ 953,90'
+                        cover={require('../assets/showpraia.jpg')}
+                        name='Show na Praia'
+                        description='Pica-pau irá apresentar a partir das 10h da manhã no quiosque 10'
+                        price='Gratuíto'
                         onPress={() => navigation.navigate('detail')}
 
 
@@ -101,20 +101,19 @@ function Find() {
                     style={{ paddingHorizontal: 15 }}
                 >
                     <House
-                        cover={require('../assets/house4.jpg')}
-                        price='R$ 954,80'
-                        description='Sobrado, três dormitórios, dois banheiros, piscina e churrasqueira'
+                        cover={require('../assets/lavie.jpg')}
+                        price='Gratuíto até 00h'
+                        description='La Vie - Show ao vivo e bebidas de qualidade ------ Dia 10/12'
                     />
                     <House
-                        cover={require('../assets/house5.jpg')}
-                        price='R$ 1030,90'
-                        description='Casa de frente ao mar, três suítes e cinco vagas de garagem'
+                        cover={require('../assets/totem.jpg')}
+                        price='R$ 30,90'
+                        description='TOTEM Beach Bar - Rock ao vivo todos finais de semana'
                     />
                     <House
-                        cover={require('../assets/house6.jpg')}
-                        price='R$ 1200,90'
-                        description='Possui 45m², uma suíte,
-                    cozinha equipada e uma linda vista da vida noturna'
+                        cover={require('../assets/hippie.jpeg')}
+                        price='Gratuíto'
+                        description='Feira Hippie em Peruíbe - Aberta para toda a família com itens culturais e naturais'
                     />
 
 
@@ -131,19 +130,19 @@ function Find() {
                 >
 
                     <Recommended
-                        cover={require('../assets/house1.jpg')}
-                        house='Casa Floripa'
-                        offer='20%'
+                        cover={require('../assets/mcdonalds.jpg')}
+                        house="Promoção Black Friday no McDonald's"
+                        offer='30%'
                     />
                     <Recommended
-                        cover={require('../assets/house4.jpg')}
-                        house='Casa São Paulo'
+                        cover={require('../assets/cannil.jpg')}
+                        house='Promoção em bebidas no Cannil'
                         offer='15%'
                     />
                     <Recommended
-                        cover={require('../assets/house6.jpg')}
-                        house='Rancho na Praia'
-                        offer='10%'
+                        cover={require('../assets/habibs.jpg')}
+                        house="Esfirras na metade do preço no Habib's"
+                        offer='50%'
                     />
 
                 </ScrollView>
