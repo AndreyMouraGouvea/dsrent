@@ -70,7 +70,7 @@ function Find() {
                         cover={require('../assets/feira.jpg')}
                         name='Feira Livre'
                         description='Venha com sua família para aproveitar o melhor de saudável natural que a terra provê'
-                        price='Gratuíto'
+                        price='Gratuito'
                         onPress={() => navigation.navigate('detail2')}
 
 
@@ -80,7 +80,7 @@ function Find() {
                         cover={require('../assets/showpraia.jpg')}
                         name='Show na Praia'
                         description='Pica-pau irá apresentar a partir das 10h da manhã no quiosque 10'
-                        price='Gratuíto'
+                        price='Gratuito'
                         onPress={() => navigation.navigate('detail3')}
 
 
@@ -102,7 +102,7 @@ function Find() {
                 >
                     <House
                         cover={require('../assets/lavie.jpg')}
-                        price='Gratuíto até 00h'
+                        price='Gratuito até 00h'
                         description='La Vie - Show ao vivo e bebidas de qualidade ------ Dia 10/12'
                     />
                     <House
@@ -112,7 +112,7 @@ function Find() {
                     />
                     <House
                         cover={require('../assets/hippie.jpeg')}
-                        price='Gratuíto'
+                        price='Gratuito'
                         description='Feira Hippie em Peruíbe - Aberta para toda a família com itens culturais e naturais'
                     />
 
