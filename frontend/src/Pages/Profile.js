@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, ActivityIndicator, StatusBar, FlatList, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, ActivityIndicator, Image } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import Constants from 'expo-constants';
 import { useNavigation } from '@react-navigation/native';

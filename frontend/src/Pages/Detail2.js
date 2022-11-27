@@ -10,70 +10,75 @@ function Detail2(props) {
 
     return (
 
-        <View style={styles.container}>
-            <View style={styles.swiperContent}>
-                <SwiperComponent2 />
-            </View>
-
-            <View style={styles.headerContent}>
-                <View style={{ width: '65%' }}>
-                    <Text style={styles.house}>Feira Livre</Text>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{ backgroundColor: '#121212', height: '100%' }}
+        >
+            <View style={styles.container}>
+                <View style={styles.swiperContent}>
+                    <SwiperComponent2 />
                 </View>
-                <View style={{ width: '35%' }}>
-                    <Text style={styles.rating}>Avaliações</Text>
-                    <View style={{ alignItems: 'center', flexDirection: 'row' }}>
-                        <Stars
-                            default={4}
-                            count={5}
-                            half={true}
-                            starSize={20}
-                            fullStar={<Ionicons name="md-star" size={24} style={styles.myStarStyle} />}
-                            emptyStar={<Ionicons name="md-star-outline" size={24} style={styles.myStarStyle} />}
-                            halfStar={<Ionicons name="md-star-half" size={24} style={styles.myStarStyle} />}
-                        />
+
+                <View style={styles.headerContent}>
+                    <View style={{ width: '65%' }}>
+                        <Text style={styles.house}>Feira Livre</Text>
+                    </View>
+                    <View style={{ width: '35%' }}>
+                        <Text style={styles.rating}>Avaliações</Text>
+                        <View style={{ alignItems: 'center', flexDirection: 'row' }}>
+                            <Stars
+                                default={4}
+                                count={5}
+                                half={true}
+                                starSize={20}
+                                fullStar={<Ionicons name="md-star" size={24} style={styles.myStarStyle} />}
+                                emptyStar={<Ionicons name="md-star-outline" size={24} style={styles.myStarStyle} />}
+                                halfStar={<Ionicons name="md-star-half" size={24} style={styles.myStarStyle} />}
+                            />
+                        </View>
                     </View>
                 </View>
+
+                <Text style={styles.price}>
+                    Gratuito
+                </Text>
+                <Text style={styles.description}>
+                    Venha com sua família para aproveitar o melhor de saudável natural que a terra provê
+                </Text>
+
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    style={{
+                        paddingHorizontal: 15,
+                        marginTop: 35
+                    }}
+                >
+                    <View style={styles.slide}>
+                        <Image
+                            source={require('../assets/feira4.jpg')}
+                            style={{ width: 90, height: 90, borderRadius: 8 }}
+                        />
+                    </View>
+
+                    <View style={styles.slide}>
+                        <Image
+                            source={require('../assets/feira5.jpg')}
+                            style={{ width: 90, height: 90, borderRadius: 8 }}
+                        />
+                    </View>
+
+                    <View style={styles.slide}>
+                        <Image
+                            source={require('../assets/feira6.jpg')}
+                            style={{ width: 90, height: 90, borderRadius: 8 }}
+                        />
+                    </View>
+                </ScrollView>
+
+
             </View>
-
-            <Text style={styles.price}>
-            Gratuito
-            </Text>
-            <Text style={styles.description}>
-            Venha com sua família para aproveitar o melhor de saudável natural que a terra provê
-            </Text>
-
-            <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                style={{
-                    paddingHorizontal: 15,
-                    marginTop: 35
-                }}
-            >
-                <View style={styles.slide}>
-                    <Image 
-                    source={require('../assets/feira4.jpg')}
-                    style={{ width: 90, height: 90, borderRadius: 8 }}
-                    />
-                </View>
-
-                <View style={styles.slide}>
-                    <Image 
-                    source={require('../assets/feira5.jpg')}
-                    style={{ width: 90, height: 90, borderRadius: 8 }}
-                    />
-                </View>
-
-                <View style={styles.slide}>
-                    <Image 
-                    source={require('../assets/feira6.jpg')}
-                    style={{ width: 90, height: 90, borderRadius: 8 }}
-                    />
-                </View>
-            </ScrollView>
-
-
-        </View>
+        </ScrollView>
     )
 
 }
@@ -133,7 +138,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         height: 90,
         borderRadius: 8,
-        marginRight: 20
+        marginRight: 20,
+        marginBottom: 30
     }
 
 
