@@ -9,71 +9,75 @@ import Stars from 'react-native-stars'
 function Detail3(props) {
 
     return (
-
-        <View style={styles.container}>
-            <View style={styles.swiperContent}>
-                <SwiperComponent3 />
-            </View>
-
-            <View style={styles.headerContent}>
-                <View style={{ width: '65%' }}>
-                    <Text style={styles.house}>Show na Praia</Text>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{ backgroundColor: '#121212', height: '100%' }}
+        >
+            <View style={styles.container}>
+                <View style={styles.swiperContent}>
+                    <SwiperComponent3 />
                 </View>
-                <View style={{ width: '35%' }}>
-                    <Text style={styles.rating}>Avaliações</Text>
-                    <View style={{ alignItems: 'center', flexDirection: 'row' }}>
-                        <Stars
-                            default={3.5}
-                            count={5}
-                            half={true}
-                            starSize={20}
-                            fullStar={<Ionicons name="md-star" size={24} style={styles.myStarStyle} />}
-                            emptyStar={<Ionicons name="md-star-outline" size={24} style={styles.myStarStyle} />}
-                            halfStar={<Ionicons name="md-star-half" size={24} style={styles.myStarStyle} />}
-                        />
+
+                <View style={styles.headerContent}>
+                    <View style={{ width: '65%' }}>
+                        <Text style={styles.house}>Show na Praia</Text>
+                    </View>
+                    <View style={{ width: '35%' }}>
+                        <Text style={styles.rating}>Avaliações</Text>
+                        <View style={{ alignItems: 'center', flexDirection: 'row' }}>
+                            <Stars
+                                default={3.5}
+                                count={5}
+                                half={true}
+                                starSize={20}
+                                fullStar={<Ionicons name="md-star" size={24} style={styles.myStarStyle} />}
+                                emptyStar={<Ionicons name="md-star-outline" size={24} style={styles.myStarStyle} />}
+                                halfStar={<Ionicons name="md-star-half" size={24} style={styles.myStarStyle} />}
+                            />
+                        </View>
                     </View>
                 </View>
+
+                <Text style={styles.price}>
+                    Gratuito
+                </Text>
+                <Text style={styles.description}>
+                    Pica-pau irá apresentar a partir das 10h da manhã no quiosque 10
+                </Text>
+
+                <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    style={{
+                        paddingHorizontal: 15,
+                        marginTop: 35
+                    }}
+                >
+                    <View style={styles.slide}>
+                        <Image
+                            source={require('../assets/showpraia3.jpg')}
+                            style={{ width: 90, height: 90, borderRadius: 8 }}
+                        />
+                    </View>
+
+                    <View style={styles.slide}>
+                        <Image
+                            source={require('../assets/showpraia5.jpg')}
+                            style={{ width: 90, height: 90, borderRadius: 8 }}
+                        />
+                    </View>
+
+                    <View style={styles.slide}>
+                        <Image
+                            source={require('../assets/showpraia6.jpg')}
+                            style={{ width: 90, height: 90, borderRadius: 8 }}
+                        />
+                    </View>
+                </ScrollView>
+
+
             </View>
-
-            <Text style={styles.price}>
-            Gratuito
-            </Text>
-            <Text style={styles.description}>
-            Pica-pau irá apresentar a partir das 10h da manhã no quiosque 10
-            </Text>
-
-            <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                style={{
-                    paddingHorizontal: 15,
-                    marginTop: 35
-                }}
-            >
-                <View style={styles.slide}>
-                    <Image 
-                    source={require('../assets/showpraia3.jpg')}
-                    style={{ width: 90, height: 90, borderRadius: 8 }}
-                    />
-                </View>
-
-                <View style={styles.slide}>
-                    <Image 
-                    source={require('../assets/showpraia5.jpg')}
-                    style={{ width: 90, height: 90, borderRadius: 8 }}
-                    />
-                </View>
-
-                <View style={styles.slide}>
-                    <Image 
-                    source={require('../assets/showpraia6.jpg')}
-                    style={{ width: 90, height: 90, borderRadius: 8 }}
-                    />
-                </View>
-            </ScrollView>
-
-
-        </View>
+        </ScrollView>
     )
 
 }
@@ -133,7 +137,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF',
         height: 90,
         borderRadius: 8,
-        marginRight: 20
+        marginRight: 20,
+        marginBottom: 30
     }
 
 
