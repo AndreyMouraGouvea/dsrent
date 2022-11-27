@@ -9,6 +9,8 @@ import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import Profile from '../Pages/Profile';
 import Event from '../Pages/Event';
+import Detail2 from '../Pages/Detail2';
+import Detail3 from '../Pages/Detail3';
 
 import Footer from './footer.routes';
 
@@ -50,6 +52,44 @@ function StackRoutes() {
                     }
                 }}
             />
+            <Stack.Screen
+                name="detail2"
+                component={Detail2}
+                options={{
+                    title: 'Detalhes',
+                    headerBackTitle: 'Voltar',
+                    headerBackTitleStyle: {
+                        fontFamily: 'Montserrat_500Medium'
+                    },
+                    headerTitleStyle: {
+                        fontFamily: 'Montserrat_700Bold'
+                    },
+                    headerTintColor: '#BB86FC',
+                    headerStyle: {
+                        backgroundColor: '#121212'
+                    }
+                }}
+            />
+            <Stack.Screen
+                name="detail3"
+                component={Detail3}
+                options={{
+                    title: 'Detalhes',
+                    headerBackTitle: 'Voltar',
+                    headerBackTitleStyle: {
+                        fontFamily: 'Montserrat_500Medium'
+                    },
+                    headerTitleStyle: {
+                        fontFamily: 'Montserrat_700Bold'
+                    },
+                    headerTintColor: '#BB86FC',
+                    headerStyle: {
+                        backgroundColor: '#121212'
+                    }
+                }}
+            />
+
+            
 
             <Stack.Screen
                 name="find"

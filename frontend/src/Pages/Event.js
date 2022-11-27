@@ -13,6 +13,9 @@ function Event() {
     const [image, setImage] = useState(null);
     const [image2, setImage2] = useState(null);
     const [image3, setImage3] = useState(null);
+    const [image4, setImage4] = useState(null);
+    const [image5, setImage5] = useState(null);
+    const [image6, setImage6] = useState(null);
 
     useEffect(async () => {
         if (Platform.OS !== 'web') {
@@ -56,6 +59,39 @@ function Event() {
             setImage3(result.uri)
         }
     }
+    const PickImage4 = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            aspect: [4, 3],
+            quality: 1
+        })
+        console.log(result)
+        if (!result.cancelled) {
+            setImage3(result.uri)
+        }
+    }
+    const PickImage5 = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            aspect: [4, 3],
+            quality: 1
+        })
+        console.log(result)
+        if (!result.cancelled) {
+            setImage3(result.uri)
+        }
+    }
+    const PickImage6 = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            aspect: [4, 3],
+            quality: 1
+        })
+        console.log(result)
+        if (!result.cancelled) {
+            setImage3(result.uri)
+        }
+    }
 
     // DATE PICKER
 
@@ -86,7 +122,7 @@ function Event() {
         setShow(Platform.OS === 'ios');
 
         let tempDate2 = new Date(currentDate);
-        let fTime2 = ''+ tempDate2.getHours() + ':'+ tempDate2.getMinutes();
+        let fTime2 = '' + tempDate2.getHours() + ':' + tempDate2.getMinutes();
 
         setTextHour(fTime2)
 
@@ -144,6 +180,45 @@ function Event() {
                 <View style={styles.imageContainer}>
                     <TouchableOpacity onPress={PickImage3}>
                         <Text style={styles.imageText}>Selecione a terceira imagem</Text>
+                        <View style={{ alignItems: 'center' }}>
+                            {image3 && <Image source={{ uri: image3 }} style={{
+                                width: 200,
+                                height: 200,
+                                borderRadius: 100,
+                                marginBottom: 15
+                            }} />}
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.imageContainer}>
+                    <TouchableOpacity onPress={PickImage4}>
+                        <Text style={styles.imageText}>Selecione a quarta imagem</Text>
+                        <View style={{ alignItems: 'center' }}>
+                            {image3 && <Image source={{ uri: image3 }} style={{
+                                width: 200,
+                                height: 200,
+                                borderRadius: 100,
+                                marginBottom: 15
+                            }} />}
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.imageContainer}>
+                    <TouchableOpacity onPress={PickImage5}>
+                        <Text style={styles.imageText}>Selecione a quinta imagem</Text>
+                        <View style={{ alignItems: 'center' }}>
+                            {image3 && <Image source={{ uri: image3 }} style={{
+                                width: 200,
+                                height: 200,
+                                borderRadius: 100,
+                                marginBottom: 15
+                            }} />}
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.imageContainer}>
+                    <TouchableOpacity onPress={PickImage6}>
+                        <Text style={styles.imageText}>Selecione a sexta imagem</Text>
                         <View style={{ alignItems: 'center' }}>
                             {image3 && <Image source={{ uri: image3 }} style={{
                                 width: 200,

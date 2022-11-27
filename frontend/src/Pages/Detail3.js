@@ -3,26 +3,27 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler'
 import SwiperComponent from '../components/Swiper';
+import SwiperComponent3 from '../components/Swiper3';
 import Stars from 'react-native-stars'
 
-function Detail(props) {
+function Detail3(props) {
 
     return (
 
         <View style={styles.container}>
             <View style={styles.swiperContent}>
-                <SwiperComponent />
+                <SwiperComponent3 />
             </View>
 
             <View style={styles.headerContent}>
                 <View style={{ width: '65%' }}>
-                    <Text style={styles.house}>Show no Cannil</Text>
+                    <Text style={styles.house}>Show na Praia</Text>
                 </View>
                 <View style={{ width: '35%' }}>
                     <Text style={styles.rating}>Avaliações</Text>
                     <View style={{ alignItems: 'center', flexDirection: 'row' }}>
                         <Stars
-                            default={5}
+                            default={3.5}
                             count={5}
                             half={true}
                             starSize={20}
@@ -35,10 +36,10 @@ function Detail(props) {
             </View>
 
             <Text style={styles.price}>
-            R$ 10,90
+            Gratuito
             </Text>
             <Text style={styles.description}>
-            Música ao vivo e promoção de bebidas - A partir das 20h
+            Pica-pau irá apresentar a partir das 10h da manhã no quiosque 10
             </Text>
 
             <ScrollView
@@ -51,21 +52,21 @@ function Detail(props) {
             >
                 <View style={styles.slide}>
                     <Image 
-                    source={require('../assets/cannil1.jpg')}
+                    source={require('../assets/showpraia3.jpg')}
                     style={{ width: 90, height: 90, borderRadius: 8 }}
                     />
                 </View>
 
                 <View style={styles.slide}>
                     <Image 
-                    source={require('../assets/cannil4.jpg')}
+                    source={require('../assets/showpraia5.jpg')}
                     style={{ width: 90, height: 90, borderRadius: 8 }}
                     />
                 </View>
 
                 <View style={styles.slide}>
                     <Image 
-                    source={require('../assets/cannil6.jpg')}
+                    source={require('../assets/showpraia6.jpg')}
                     style={{ width: 90, height: 90, borderRadius: 8 }}
                     />
                 </View>
@@ -138,4 +139,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Detail
+export default Detail3
