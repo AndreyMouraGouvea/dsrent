@@ -71,7 +71,7 @@ function Find() {
                         name='Feira Livre'
                         description='Venha com sua família para aproveitar o melhor de saudável natural que a terra provê'
                         price='Gratuíto'
-                        onPress={() => navigation.navigate('detail')}
+                        onPress={() => navigation.navigate('detail2')}
 
 
                     />
@@ -81,7 +81,7 @@ function Find() {
                         name='Show na Praia'
                         description='Pica-pau irá apresentar a partir das 10h da manhã no quiosque 10'
                         price='Gratuíto'
-                        onPress={() => navigation.navigate('detail')}
+                        onPress={() => navigation.navigate('detail3')}
 
 
                     />
@@ -141,7 +141,7 @@ function Find() {
                     />
                     <Recommended
                         cover={require('../assets/habibs.jpg')}
-                        house="Esfirras na metade do preço no Habib's"
+                        house="Esfirras pela metade do preço no Habib's"
                         offer='50%'
                     />
 

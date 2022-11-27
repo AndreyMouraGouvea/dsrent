@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, Image} from 'react-native';
 import Swiper from 'react-native-swiper';
 
-export default function SwiperComponent() {
+export default function SwiperComponent3() {
  return (
    <Swiper
    style={styles.wrapper}
@@ -26,21 +26,21 @@ export default function SwiperComponent() {
 
      <View style={styles.slide}>
       <Image
-      source={require('../assets/cannil5.jpg')}
+      source={require('../assets/showpraia4.jpg')}
       style={{ width: '100%', height: 400}}
       />
      </View>
 
      <View style={styles.slide}>
       <Image
-      source={require('../assets/cannil2.jpg')}
+      source={require('../assets/showpraia6.jpg')}
       style={{ width: '100%', height: 400}}
       />
      </View>
 
      <View style={styles.slide}>
       <Image
-      source={require('../assets/cannil3.jpg')}
+      source={require('../assets/showpraia.jpg')}
       style={{ width: '100%', height: 400}}
       />
      </View>

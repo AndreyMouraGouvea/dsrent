@@ -16,7 +16,7 @@ function Header() {
                 <Feather
                     name='user'
                     size={26}
-                    color='#BB86FC'
+                    color='#FFF'
                     style={styles.icon}
                 />
             </TouchableOpacity>
