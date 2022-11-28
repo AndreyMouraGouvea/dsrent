@@ -87,14 +87,14 @@ function FooterRoutes() {
                 options={{
                     headerShown: false,
                     tabBarBadge: 3,
-                    tabBarLabel: 'Loja',
+                    tabBarLabel: 'Evento',
                     tabBarActiveTintColor: '#BB86FC',
                     tabBarInactiveTintColor: '#728085',
                     tabBarHideOnKeyboard: true,
                     tabBarIcon: ({ focused, color }) => (
 
                         <Feather
-                            name={focused ? "shopping-bag" : "shopping-bag"}
+                            name={focused ? "activity" : "activity"}
                             size={24}
                             color={color}
 

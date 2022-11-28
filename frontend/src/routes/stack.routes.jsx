@@ -46,9 +46,9 @@ function StackRoutes() {
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },
-                    headerTintColor: '#BB86FC',
+                    headerTintColor: '#fff',
                     headerStyle: {
-                        backgroundColor: '#121212'
+                        backgroundColor: '#b900ded2'
                     }
                 }}
             />
@@ -64,9 +64,9 @@ function StackRoutes() {
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },
-                    headerTintColor: '#BB86FC',
+                    headerTintColor: '#fff',
                     headerStyle: {
-                        backgroundColor: '#121212'
+                        backgroundColor: '#b900ded2'
                     }
                 }}
             />
@@ -82,9 +82,9 @@ function StackRoutes() {
                     headerTitleStyle: {
                         fontFamily: 'Montserrat_700Bold'
                     },
-                    headerTintColor: '#BB86FC',
+                    headerTintColor: '#fff',
                     headerStyle: {
-                        backgroundColor: '#121212'
+                        backgroundColor: '#b900ded2'
                     }
                 }}
             />

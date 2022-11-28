@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontFamily: 'Montserrat_700Bold',
         paddingHorizontal: 10,
-        fontSize: 22
+        fontSize: 20
 
     }
 

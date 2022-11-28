@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         width: '45%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#3706B3',
+        backgroundColor: '#b900ded2',
         borderRadius: 10,
         elevation: 2,
         height: 70,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
         width: '55%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#3706B3',
+        backgroundColor: '#b900ded2',
         borderRadius: 10,
         height: 70,
         marginTop: '-20%'
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontFamily: 'Montserrat_700Bold',
         paddingHorizontal: 10,
-        fontSize: 22
+        fontSize: 20
 
     },
     eventButtonContainer: {
