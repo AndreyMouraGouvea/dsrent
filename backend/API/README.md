@@ -17,6 +17,9 @@ http://localhost:8000/api/customer
 - Encontrar algum customer pelo ID: (GET)
 http://localhost:8000/api/customer/ + (id do customer)
 
+- Encontrar algum customer por busca: (GET)
+http://localhost:8000/api/customer/busca/ + (palavra para buscar)
+
 - Criar um novo customer: (POST)
 http://localhost:8000/api/customer
 (dados a serem enviados: nm_customer, ds_email, nr_telefone, ds_lat, ds_long, nm_city,
