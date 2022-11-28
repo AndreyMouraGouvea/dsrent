@@ -7,7 +7,7 @@ function closeMenu(){
 
 closeMenu();
 
-const menuItems = document.querySelectorAll('.menuLateral .options a');
+/*const menuItems = document.querySelectorAll('.menuLateral .options a');
 const headerHeight = document.querySelector('.header').offsetHeight;
 
 menuItems.forEach(item => {
@@ -25,4 +25,4 @@ function scrollToIdOnClick(event){
         top: to - headerHeight,
         behavior: 'smooth',
     });
-}
+} */

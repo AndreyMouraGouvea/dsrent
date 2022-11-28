@@ -30,7 +30,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     z-index: 50;
 
-    height: 10%;
+    height: 10vh;
     width: 100%;
 
     display: flex;
@@ -93,38 +93,27 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
 }
-.header .perfil button{
-    background: none;
-    color: rgba(255, 255, 255, 0.75);
+.header .perfil a{
+    background: white;
+    color: rgba(0, 0, 0, 0.5);
     font-size: 15px;
-    border: none;
+    font-family: textoSite;
+    text-decoration: none;
 
     display: flex;
     flex-direction: row;
     justify-content:space-evenly;
     align-items: center;
 
-    width: 60%;
+    width: 15vh;
+    height: 5vh;
+    border-radius: 5vh;
+
     transition: all 0.3s ease-in-out;
 }
-.header .perfil button:hover{
-    color: rgba(255, 255, 255, 1);
+.header .perfil a:hover{
+    color: rgba(0, 0, 0, 1);
     cursor: pointer;
-}
-.header .perfil span{
-    height: 5.5vh;
-    width: 5.5vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    border-radius: 15vh;
-    border: 3px solid rgb(0, 133, 177);
-    color: rgba(255, 255, 255, 1);
-    text-decoration: none;
-    font-size: 1.1em;
 }
 
 /*-----------------Menu da página-----------------*/
@@ -240,6 +229,29 @@ body::-webkit-scrollbar-thumb {
 
     text-align: center;
 }
+.content .welcome .info .git{
+    height: 7.5vh;
+    width: 15vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5vh;
+    border: none;
+    background-color: white;
+
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1em;
+    font-family: textoSite;
+    text-decoration: none;
+
+    transition: all 0.3s ease-in-out;
+}
+.content .welcome .info .git:hover{
+    cursor: pointer;
+    color: rgba(0, 0, 0, 1);
+}
 .content .welcome .smartphone{
     height: 75vh;
     width: 40vw;
@@ -253,6 +265,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content .formArea{
+    margin-top: 10vh;
     min-height: 100vh;
     width: 100vw;
 
@@ -278,13 +291,14 @@ body::-webkit-scrollbar-thumb {
     width: 80vw;
 }
 .content .formArea iframe{
-    height: 100vh;
+    height: 275vh;
     width: 75vw;
 
     margin: 2% 0;
 }
 
 .content .sobre{
+    margin-top: 10vh;
     min-height: 100vh;
     width: 100vw;
 
@@ -326,6 +340,73 @@ body::-webkit-scrollbar-thumb {
     filter:drop-shadow(2px 2px 0 white) 
            drop-shadow(-2px -2px 0 white);
 }
+
+.content .login{
+    width: 50vw;
+    height: 75vh;
+
+    background: white;
+    color:rgb(44, 44, 44);
+    font-family: textoSite;
+
+    border-radius: 3vh;
+}
+.content .login .form{
+    padding: 3vh 3vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.content .login .form h3{
+    height: 5vh;
+    
+    display: flex;
+    align-items: center;
+}
+.content .login .form .campos{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.content .login .form .campos input{
+    width: 42vw;
+    height: 7.5vh;
+    padding: 0 1vw;
+
+    border-radius: 5vh;
+    border: none;
+
+    background: rgb(205, 205, 205);
+    font-size: .9em;
+}
+.content .login .form .enviar{
+    height: 20vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .login .form .enviar .botao{
+    width: 100%;
+    height: 7.5vh;
+
+    background: linear-gradient(to right, #b900ded2, #8300eed3);
+    color:rgba(255, 255, 255, 0.8);
+    font-size: 1.2em;
+
+    border: none;
+    border-radius: 5vh;
+
+    transition: all 0.3s ease-in-out;
+}
+.content .login .form .enviar .botao:hover{
+    background: linear-gradient(to right, #b900de, #8300ee);
+    color:rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 1000px) {
     .content .sobre .img{
         width: 40vw;

@@ -14,11 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
-Route::get('customer', 'CustomerController@getAllCustomers');
-Route::get('customer/{id}', 'CustomerController@getCustomer');
-Route::post('customer', 'CustomerController@createCustomer');
-Route::put('customer/{id}', 'CustomerController@updateCustomer');
-Route::delete('customer/{id}', 'CustomerController@deleteCustomer');
+Route::get('/sobre', function () {
+    return view('sobre');
+});
+
+Route::get('/pesquisa', function () {
+    return view('pesquisa');
+});
+
+Route::get('/planos', function () {
+    return view('planos');
+});
+
+Route::get('/login', 'App\Http\Controllers\UserController@index');
+Route::get('/login/checklogin', 'App\Http\Controllers\UserController@checklogin');
+Route::get('/login/successlogin', 'App\Http\Controllers\UserController@successlogin');
+Route::get('/login/logout', 'App\Http\Controllers\UserController@logout');

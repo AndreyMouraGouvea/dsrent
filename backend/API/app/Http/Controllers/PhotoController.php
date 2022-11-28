@@ -29,6 +29,12 @@ class PhotoController extends Controller
             ], 404);
         }
     }
+
+    public function getAllPhotosDB() {
+        //lista todos as photos
+        $photos = Photo::get()->toJson(JSON_PRETTY_PRINT);
+        return response($photos, 200);
+    }
   
     public function uploadPhoto(Request $request) {
         //Faz upload de photos

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller
 {
@@ -12,6 +12,12 @@ class CustomerController extends Controller
         //lista todos os customers
         $customers = Customer::get()->toJson(JSON_PRETTY_PRINT);
         return response($customers, 200);
+    }
+
+    public function getCustomerBusca($busca){
+        //pega todos customers por busca
+        $customer = DB::select('select * from tb_customer where nm_city like "%'.$busca.'%" or nm_customer like "%'.$busca.'%";');
+        return response($customer, 200);
     }
 
     public function createCustomer(Request $request){
@@ -76,6 +82,27 @@ class CustomerController extends Controller
             $customer->ds_servico   =       is_null($request->ds_servico)   ?   $customer->ds_servico  : $request->ds_servico;
             $customer->cd_status    =       is_null($request->cd_status)    ?   $customer->cd_status   : $request->cd_status;
             $customer->id_user      =       is_null($request->id_user)      ?   $customer->id_user     : $request->id_user;
+
+            //Test
+
+                $uploadFolder = 'img/api-img'; //pasta
+                $image = $request->image; //arquivo
+
+                $extension = $image->extension();
+                $name = md5($request->filename . strtotime("now")) . '.' . $extension;//md5($image->image->getClientOriginalName() . strtotime("now")) . '.' . $extension;
+
+                $request->image->move(public_path('img/api-img'), $name);
+                //$image_uploaded_path = $image->public_path('img/api-img'); //caminho
+
+                $path = url($uploadFolder . "/" . $name); //caminho que fica salvo no banco
+                //$name = basename($image_uploaded_path); //nome do arquivo
+
+                //$users->ds_photo     =   $path; // salva caminho no banco
+
+            //Fim Teste
+
+            $customer->ds_photo     =       is_null($request->ds_photo)     ?   $customer->ds_photo     : $path;
+
             $customer->save();
 
             return response()->json([

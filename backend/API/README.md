@@ -20,12 +20,12 @@ http://localhost:8000/api/customer/ + (id do customer)
 - Criar um novo customer: (POST)
 http://localhost:8000/api/customer
 (dados a serem enviados: nm_customer, ds_email, nr_telefone, ds_lat, ds_long, nm_city,
-uf_state, ds_servico, image, id_user)
+uf_state, ds_servico, image - arquivo, id_user)
 
-- Alterar dados de algum customer: (PUT)
+- Alterar dados de algum customer: (PATCH)
 http://localhost:8000/api/customer/ + (id do customer)
 (dados que podem ser alterados: nm_customer, ds_email, nr_telefone, ds_local, nm_city,
-uf_state, ds_servico, ds_photo, id_user)
+uf_state, ds_servico, image - arquivo, id_user)
 
 - Deletar algum customer: (DELETE)
 http://localhost:8000/api/customer/ + (id do customer)
@@ -40,11 +40,11 @@ http://localhost:8000/api/user/ + (id do user)
 
 - Criar um novo user: (POST)
 http://localhost:8000/api/user
-(dados a serem enviados: nm_user, ds_email, ds_password, image)
+(dados a serem enviados: nm_user, ds_email, ds_password, image - arquivo)
 
-- Alterar dados de algum user: (PUT)
+- Alterar dados de algum user: (PATCH)
 http://localhost:8000/api/user/ + (id do user)
-(dados que podem ser alterados: nm_user, ds_email, ds_password, ds_photo)
+(dados que podem ser alterados: nm_user, ds_email, ds_password, image - arquivo)
 
 - Deletar algum user: (DELETE)
 http://localhost:8000/api/user/ + (id do user)
@@ -64,7 +64,7 @@ http://localhost:8000/api/feedback/user/ + (id do user)
 http://localhost:8000/api/feedback
 (dados a serem enviados: nr_feedback, ds_feedback, id_user)
 
-- Alterar dados de algum feedback: (PUT)
+- Alterar dados de algum feedback: (PATCH)
 http://localhost:8000/api/feedback/ + (id do feedback)
 (dados que podem ser alterados: nr_feedback, ds_feedback, id_user)
 
@@ -83,7 +83,7 @@ http://localhost:8000/api/photo/ + (id da foto)
 http://localhost:8000/api/photo
 (dados a serem enviados: id_customer e image - que é o arquivo)
 
-- Alterar dados de uma foto: (PUT)
+- Alterar dados de uma foto: (PATCH)
 http://localhost:8000/api/photo/ + (id da foto)
 (dados que podem ser alterados: nm_photo, ds_url, id_customer)
 
