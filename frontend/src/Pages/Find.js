@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
@@ -6,18 +6,21 @@ import { useNavigation } from '@react-navigation/native';
 import New from '../components/New';
 import House from '../components/House';
 import Recommended from '../components/Recommended';
-import HeaderAll from '../components/HeaderAll'
+import HeaderAll from '../components/HeaderAll';
+import API from '../components/Api';
 
 
 function Find() {
-
 
     const navigation = useNavigation();
 
     // navigation.navigate('detail') 
 
+    async function searchEvent(search){
+        const response = await API.get('api/customer/busca/'+search);
 
-
+        console.log(response.data);
+    }
 
     return (
 
@@ -38,6 +41,7 @@ function Find() {
                             placeholder='O que está procurando?'
                             placeholderTextColor={'#FFF'}
                             style={styles.input}
+                            onChangeText={(data)=>searchEvent(data)}
                         />
                     </View>
 
