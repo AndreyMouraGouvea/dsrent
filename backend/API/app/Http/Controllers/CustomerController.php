@@ -16,7 +16,7 @@ class CustomerController extends Controller
 
     public function getCustomerBusca($busca){
         //pega todos customers por busca
-        $customer = DB::select('select * from tb_customer where nm_city like "%'.$busca.'%" or nm_customer like "%'.$busca.'%";');
+        $customer = DB::select('select * from tb_customer where upper(nm_city) like "%'.strtoupper($busca).'%" or upper(nm_customer) like "%'.strtoupper($busca).'%";');
         return response($customer, 200);
     }
 

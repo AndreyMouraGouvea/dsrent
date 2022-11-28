@@ -2,6 +2,8 @@
 <html>
 <head>
     <!-- Google tag (gtag.js) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9655257847798443"
+     crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3QREZVY0L"></script>
     <script>
        window.dataLayer = window.dataLayer || [];
