@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, FlatList, Dimensions } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -11,15 +11,20 @@ import API from '../components/Api';
 
 
 function Find() {
-
+    const [data, setData] = useState(null);
     const navigation = useNavigation();
 
     // navigation.navigate('detail') 
 
     async function searchEvent(search){
-        const response = await API.get('api/customer/busca/'+search);
-
-        console.log(response.data);
+        if(search != "" || search != " "){
+            const response = await API.get('api/customer/busca/'+search);
+            setData(response.data);
+        }
+        else{
+            const response = ""
+            setData(response.data);
+        }
     }
 
     return (
@@ -48,11 +53,22 @@ function Find() {
                 </View>
 
                 {/* flat list => api */}
+                <FlatList
+                    data={data}
+                    renderItem={({item}) => 
+                    (
+                        <View style={styles.resultadosBusca}>
+                            <House
+                                cover={{uri: `${item.ds_photo}`}}
+                                price={item.nm_customer}
+                                description={item.ds_servico}
+                            />
+                        </View>
+                    )}
+                />
 
                 <View style={styles.contentNew}>
                     <Text style={styles.title}>Novidades</Text>
-
-
                 </View>
 
                 <ScrollView
@@ -60,7 +76,6 @@ function Find() {
                     showsHorizontalScrollIndicator={false}
                     style={{ paddingHorizontal: 15 }}
                 >
-
                     <New
                         cover={require('../assets/cannil.jpg')}
                         name='Show no Cannil'
@@ -200,6 +215,12 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat_700Bold',
         fontSize: 18,
         color: '#FFF'
+    },
+    resultadosBusca: {
+        width: Dimensions.get('window').width,
+
+        flexDirection: 'column',
+        alignItems: 'center'
     }
 
 })

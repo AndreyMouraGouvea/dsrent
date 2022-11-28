@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import MapView, { MapMarker, Marker } from 'react-native-maps';
-import * as Location from 'expo-location'
+import * as Location from 'expo-location';
+import API from '../components/Api';
 
 function Geolocation() {
 
     const [location, setLocation] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
     const [region, setRegion] = useState(null);
+    const [city, setCity] = useState(null);
+    const [data, setData] = useState(null);
 
+    async function EventCity() {
+        const response = await API.get('api/customer/city/'+city);
+
+        setData(response.data);        
+    }
+  
 
     useEffect(() => {
         (async () => {
@@ -22,8 +31,11 @@ function Geolocation() {
             let location = await Location.getCurrentPositionAsync({});
             let address = await Location.reverseGeocodeAsync(location.coords);
             setLocation(location);
-            console.log(location)
-            console.log(address);
+
+            setCity(address[0].subregion);
+            EventCity();
+
+            console.log(data[1].ds_lat)
 
             setRegion({
                 latitude: location.coords.latitude,
@@ -43,7 +55,6 @@ function Geolocation() {
     } else if (location) {
         text = JSON.stringify(location);
     }
-
 
     return (
 
@@ -93,6 +104,28 @@ function Geolocation() {
                     pinColor={'#b900ded2'}
                     description={'O melhor do saudável natural que a terra provê'}
                     
+                />
+                <Marker coordinate={{
+                    latitude: -24.372094492943038,
+                    longitude: -47.02006113204599
+                    }} 
+                    title={"Passarela do Balça"}
+                    pinColor={'#b900ded2'}
+                    description={'Passe por cima do Rio Guaraú'}
+                    
+                />
+
+                <FlatList
+                    data={data}
+                    renderItem={({item}) => 
+                    (
+                    <Marker coordinate={{ 
+                        latitude: item.ds_lat, 
+                        longitude: item.ds_long }} 
+                        title={item.nm_customer}
+                        pinColor={'#b900ded2'}
+                        description={item.ds_servico}                                                
+                    />)}
                 />
 
 

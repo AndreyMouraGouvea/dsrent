@@ -15,11 +15,11 @@ function House(props) {
 
 
             <View style={styles.content}>
-                <Text style={styles.description}>
-                    {props.description}
-                </Text>
                 <Text style={styles.price}>
                     {props.price}
+                </Text>
+                <Text style={styles.description}>
+                    {props.description}
                 </Text>
             </View>
         </View>
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
 
     container: {
         flexDirection: 'row',
+        alignItems: 'center',
         width: 260,
         height: 70,
         backgroundColor: '#121212',
@@ -53,18 +54,18 @@ const styles = StyleSheet.create({
     },
     content: {
         width: '65%',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         paddingHorizontal: 10,
         height: '100%'
 
     },
     description: {
-        fontSize: 9,
+        fontSize: 10,
         fontFamily: 'Montserrat_500Medium',
         color: '#FFF'
     },
     price: {
-        fontSize: 12,
+        fontSize: 14,
         color: '#FFF'
     }
 
