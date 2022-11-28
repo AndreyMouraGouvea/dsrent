@@ -28,6 +28,7 @@ Route::post('customer'                  ,   'App\Http\Controllers\CustomerContro
 Route::patch('customer/{id}'            ,   'App\Http\Controllers\CustomerController@updateCustomer');
 Route::delete('customer/{id}'           ,   'App\Http\Controllers\CustomerController@deleteCustomer');
 Route::get('customer/busca/{busca}'     ,   'App\Http\Controllers\CustomerController@getCustomerBusca');
+Route::get('customer/city/{city}'       ,   'App\Http\Controllers\CustomerController@getCustomerCity');
 
 //Ações de Feedback
 Route::get('feedback/customer/{id}' , 'App\Http\Controllers\FeedbackController@getFeedbackCustomer'); //retorna todos os feedbacks relacionados ao customer

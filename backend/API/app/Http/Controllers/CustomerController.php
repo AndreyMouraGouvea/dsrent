@@ -20,6 +20,12 @@ class CustomerController extends Controller
         return response($customer, 200);
     }
 
+    public function getCustomerCity($city){
+        //pega customer por cidade
+        $customers = Customer::where('nm_city', $city)->get()->toJson(JSON_PRETTY_PRINT);
+        return response($customers, 200);
+    }
+
     public function createCustomer(Request $request){
         //criar um customer
         $customer = new Customer;

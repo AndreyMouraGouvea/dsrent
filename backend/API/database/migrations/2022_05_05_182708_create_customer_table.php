@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('nm_customer', 255);
             $table->string('ds_email', 255);
             $table->string('nr_telefone', 15);
-            $table->integer('ds_lat');
-            $table->integer('ds_long');
+            $table->string('ds_lat', 255);
+            $table->string('ds_long', 255);
             $table->string('nm_city');
             $table->char('uf_state', 2);
             $table->string('ds_servico', 255);
