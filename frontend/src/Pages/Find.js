@@ -17,7 +17,7 @@ function Find() {
     // navigation.navigate('detail') 
 
     async function searchEvent(search){
-        if(search != "" || search != " "){
+        if(search != ""){
             const response = await API.get('api/customer/busca/'+search);
             setData(response.data);
         }

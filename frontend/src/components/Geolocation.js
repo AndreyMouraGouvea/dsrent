@@ -15,7 +15,7 @@ function Geolocation() {
     async function EventCity() {
         const response = await API.get('api/customer/city/'+city);
 
-        setData(response.data);        
+        setData(response.data);
     }
   
 
@@ -34,8 +34,8 @@ function Geolocation() {
 
             setCity(address[0].subregion);
             EventCity();
-
-            console.log(data[1].ds_lat)
+            console.log(data[0])
+            console.log(data[1])
 
             setRegion({
                 latitude: location.coords.latitude,
@@ -119,13 +119,16 @@ function Geolocation() {
                     data={data}
                     renderItem={({item}) => 
                     (
-                    <Marker coordinate={{ 
-                        latitude: item.ds_lat, 
-                        longitude: item.ds_long }} 
-                        title={item.nm_customer}
-                        pinColor={'#b900ded2'}
-                        description={item.ds_servico}                                                
-                    />)}
+                        <Marker
+                            coordinate={{
+                                latitude: item.lat,
+                                longitude: item.long
+                            }} 
+                            title={item.nm_customer}
+                            pinColor={'#b900ded2'}
+                            description={item.ds_servico}
+                        />
+                    )}
                 />
 
 
