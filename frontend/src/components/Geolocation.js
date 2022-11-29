@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList, } from 'react-native';
 import MapView, { MapMarker, Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import API from '../components/Api';
@@ -10,14 +10,15 @@ function Geolocation() {
     const [errorMsg, setErrorMsg] = useState(null);
     const [region, setRegion] = useState(null);
     const [city, setCity] = useState(null);
-    const [data, setData] = useState(null);
 
-    async function EventCity() {
+    const [data, setData] = useState([]);
+
+    async function eventCity() {
         const response = await API.get('api/customer/city/'+city);
 
         setData(response.data);
     }
-  
+    
 
     useEffect(() => {
         (async () => {
@@ -33,9 +34,6 @@ function Geolocation() {
             setLocation(location);
 
             setCity(address[0].subregion);
-            EventCity();
-            console.log(data[0])
-            console.log(data[1])
 
             setRegion({
                 latitude: location.coords.latitude,
@@ -48,15 +46,22 @@ function Geolocation() {
         })();
     }, []);
 
-
+    eventCity();
+    
     let text = 'Esperando...';
     if (errorMsg) {
         text = errorMsg;
     } else if (location) {
         text = JSON.stringify(location);
     }
-
+ 
     return (
+        {
+            componetWillMount(){
+                this.index = 0;
+            }
+
+        },
 
         <View style={styles.container}>
             <MapView style={styles.mapView} initialRegion={region} showsUserLocation={true} >
@@ -114,26 +119,54 @@ function Geolocation() {
                     description={'Passe por cima do Rio Guaraú'}
                     
                 />
+                
+                <Marker coordinate={{
+                    latitude: -24.28868211269105,
+                    longitude: -46.97965891641005
+                    }} 
+                    title={"Feira Técnica"}
+                    pinColor={'#b900ded2'}
+                    description={'Evento promovido por alunos'}
+                    
+                />
 
-                <FlatList
+                {data.map((val, index) => {
+                    return (<Marker
+                            coordinate={{
+                            latitude: val.ds_lat,
+                            longitude: val.ds_long
+                            }}
+                            key={index}
+                            title = {val.nm_customer}
+                            />); 
+                })}
+
+                {/* {
+                    this.data.map((marker, index) => {
+                        return (
+                            <Marker key={index} coordinate={{latitude: marker.ds_lat, longitude: marker.ds_long}} />
+                        )
+                    })
+                } */}
+
+                {/* <FlatList
                     data={data}
                     renderItem={({item}) => 
                     (
-                        <Marker
-                            coordinate={{
-                                latitude: item.lat,
-                                longitude: item.long
+                        <Marker coordinate={{
+                            latitude: item.ds_lat,
+                            longitude: item.ds_long
                             }} 
                             title={item.nm_customer}
                             pinColor={'#b900ded2'}
                             description={item.ds_servico}
+                            
                         />
                     )}
-                />
-
+                /> */}
 
             </MapView>
-
+            
         </View>
     )
 }
