@@ -11,14 +11,38 @@ function Geolocation() {
     const [region, setRegion] = useState(null);
     const [city, setCity] = useState(null);
 
-    const [data, setData] = useState([]);
+    const [info, setData] = useState(null);
+    const [state, setState] = useState(null);
 
-    async function eventCity() {
-        const response = await API.get('api/customer/city/'+city);
+    // async function eventCity() {
+    //     const response = await API.get('api/customer/city/'+city);
 
-        setData(response.data);
-    }
-    
+    //     setData(response.data);
+    // }
+
+
+    // fetch(`http://chere.com.br/api/customer/city/${city}`)
+    //     .then(res => res.json())
+    //     .then(res => {
+    //         this.state = res
+    //     })
+    //     .catch(console.error);
+
+
+
+    // mapMarkers = () => {
+    //     return this.state.reports.map((report) => 
+    //         <Marker coordinate={{
+    //             latitude: report.ds_lat,
+    //             longitude: report.ds_long
+    //             }} 
+    //             title={report.nm_customer}
+    //             pinColor={'#b900ded2'}
+    //             description={report.ds_servico}
+                
+    //         />
+    //     )
+    // }
 
     useEffect(() => {
         (async () => {
@@ -34,6 +58,7 @@ function Geolocation() {
             setLocation(location);
 
             setCity(address[0].subregion);
+            eventCity();
 
             setRegion({
                 latitude: location.coords.latitude,
@@ -46,8 +71,6 @@ function Geolocation() {
         })();
     }, []);
 
-    eventCity();
-    
     let text = 'Esperando...';
     if (errorMsg) {
         text = errorMsg;
@@ -110,60 +133,8 @@ function Geolocation() {
                     description={'O melhor do saudável natural que a terra provê'}
                     
                 />
-                <Marker coordinate={{
-                    latitude: -24.372094492943038,
-                    longitude: -47.02006113204599
-                    }} 
-                    title={"Passarela do Balça"}
-                    pinColor={'#b900ded2'}
-                    description={'Passe por cima do Rio Guaraú'}
-                    
-                />
                 
-                <Marker coordinate={{
-                    latitude: -24.28868211269105,
-                    longitude: -46.97965891641005
-                    }} 
-                    title={"Feira Técnica"}
-                    pinColor={'#b900ded2'}
-                    description={'Evento promovido por alunos'}
-                    
-                />
-
-                {data.map((val, index) => {
-                    return (<Marker
-                            coordinate={{
-                            latitude: val.ds_lat,
-                            longitude: val.ds_long
-                            }}
-                            key={index}
-                            title = {val.nm_customer}
-                            />); 
-                })}
-
-                {/* {
-                    this.data.map((marker, index) => {
-                        return (
-                            <Marker key={index} coordinate={{latitude: marker.ds_lat, longitude: marker.ds_long}} />
-                        )
-                    })
-                } */}
-
-                {/* <FlatList
-                    data={data}
-                    renderItem={({item}) => 
-                    (
-                        <Marker coordinate={{
-                            latitude: item.ds_lat,
-                            longitude: item.ds_long
-                            }} 
-                            title={item.nm_customer}
-                            pinColor={'#b900ded2'}
-                            description={item.ds_servico}
-                            
-                        />
-                    )}
-                /> */}
+                {/* {this.mapMarkers()} */}
 
             </MapView>
             

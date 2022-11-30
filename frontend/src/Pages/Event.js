@@ -275,10 +275,6 @@ function Event() {
                             <></>
 
                         }
-
-
-
-
                     </TouchableOpacity>
                 </View>
                 <View style={styles.inputContainer}>

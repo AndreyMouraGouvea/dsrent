@@ -1,12 +1,54 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
+import React, {useState, useEffect} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Image } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import * as ImagePicker from 'expo-image-picker'; 
+import axios from "axios";
 
 
 function Register() {
+    const [name, setName] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [image, setImage] = useState(null);
 
     const navigation = useNavigation();
+
+    async function createUser(){
+        axios.post('api/user/',{
+            nm_user: name,
+            ds_email: email,
+            ds_password: password,
+            image: '12345'
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error)
+        });
+    }
+
+    const PickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            aspect: [4, 3],
+            quality: 1
+        })
+        console.log(result)
+        if (!result.cancelled) {
+            setImage(result.uri)
+        }
+    }
+
+    useEffect(async () => {
+        if (Platform.OS !== 'web') {
+            const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+            if (status !== 'granted') {
+                alert('Permissão negada!')
+            }
+        }
+    }, []);
 
     return (
         <ScrollView
@@ -18,35 +60,45 @@ function Register() {
                 <View style={styles.header}>
                     <Text style={styles.headerText}>Crie sua Conta</Text>
                 </View>
+                <View style={styles.imageContainer}>
+                    <TouchableOpacity onPress={PickImage}>
+                        <Text style={styles.imageText}>Selecione a imagem de capa</Text>
+                        <View style={{ alignItems: 'center' }}>
+                            {image && <Image source={{ uri: image }} style={{
+                                width: 200,
+                                height: 200,
+                                borderRadius: 100,
+                                marginBottom: 15
+                            }} />}
+                        </View>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.inputContainerName}>
                     <TextInput style={styles.input}
                         placeholder='Digite seu Nome'
                         placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setName(data)}
                     />
                 </View>
                 <View style={styles.inputContainerEmail}>
                     <TextInput style={styles.input}
                         placeholder='Digite seu Email'
                         placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setEmail(data)}
                     />
                 </View>
 
-                <View style={styles.inputContainerLogin}>
-                    <TextInput style={styles.input}
-                        placeholder='Digite seu Login'
-                        placeholderTextColor={'#FFF'}
-                    />
-                </View>
                 <View style={styles.inputContainerPassword}>
                     <TextInput style={styles.input}
                         placeholder='Digite sua Senha'
                         placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setPassword(data)}
                     />
                 </View>
 
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.button}
-                        onPress={() => navigation.navigate('login')}
+                        onPress={createUser} 
                     >
                         <Text style={styles.buttonText}>Cadastrar</Text>
                     </TouchableOpacity>
@@ -85,6 +137,20 @@ const styles = StyleSheet.create({
         color: '#FFF'
 
 
+    },
+    imageContainer: {
+        width: '90%',
+        marginVertical: 30,
+        color: '#FFF',
+        backgroundColor: '#121212',
+        borderRadius: 10,
+        paddingHorizontal: 10,
+        borderColor: '#BB86FC',
+        borderWidth: 3,
+        borderStyle: 'dotted',
+        justifyContent: 'center',
+        padding: 10,
+        paddingBottom: -12,
     },
     inputContainerName: {
         width: '90%',
@@ -152,7 +218,7 @@ const styles = StyleSheet.create({
         width: '45%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#3706B3',
+        backgroundColor: '#b900ded2',
         borderRadius: 10,
         elevation: 2,
         height: 70,
