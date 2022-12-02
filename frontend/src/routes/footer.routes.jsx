@@ -60,7 +60,6 @@ function FooterRoutes() {
                 component={Find}
                 options={{
                     headerShown: false,
-                    tabBarBadge: 2,
                     tabBarLabel: 'Pesquisar',
                     tabBarActiveTintColor: '#BB86FC',
                     tabBarInactiveTintColor: '#728085',
@@ -86,7 +85,6 @@ function FooterRoutes() {
                 component={Shop}
                 options={{
                     headerShown: false,
-                    tabBarBadge: 3,
                     tabBarLabel: 'Evento',
                     tabBarActiveTintColor: '#BB86FC',
                     tabBarInactiveTintColor: '#728085',

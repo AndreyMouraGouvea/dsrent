@@ -18,8 +18,7 @@ function Register() {
         axios.post('api/user/',{
             nm_user: name,
             ds_email: email,
-            ds_password: password,
-            image: '12345'
+            ds_password: password
         })
         .then(function (response) {
             console.log(response);
