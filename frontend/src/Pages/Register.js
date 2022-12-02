@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker'; 
 import axios from "axios";
+import FormData from 'form-data';
 
 
 function Register() {
@@ -15,16 +16,23 @@ function Register() {
     const navigation = useNavigation();
 
     async function createUser(){
-        axios.post('api/user/',{
-            nm_user: name,
-            ds_email: email,
-            ds_password: password
-        })
-        .then(function (response) {
+        let formData = new FormData();    //formdata object
+
+        formData.append('nm_user', name);   //append the values with key, value pair
+        formData.append('ds_email', email);
+        formData.append('ds_password', password);
+        formData.append('image', image, image.name);
+
+        const config = {     
+            headers: { 'content-type': 'multipart/form-data' }
+        }
+
+        axios.post("http://chere.com.br/api/user", formData, config)
+        .then(response => {
             console.log(response);
         })
-        .catch(function (error) {
-            console.log(error)
+        .catch(error => {
+            console.log(error);
         });
     }
 
@@ -34,19 +42,21 @@ function Register() {
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result)
-        if (!result.cancelled) {
-            setImage(result.uri)
+        console.log(result.assets)
+        if (!result.assets.cancelled) {
+            setImage(result.assets.uri)
         }
     }
 
-    useEffect(async () => {
-        if (Platform.OS !== 'web') {
-            const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-            if (status !== 'granted') {
-                alert('Permissão negada!')
+    useEffect(() => {
+        (async () => {
+            if (Platform.OS !== 'web') {
+                const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                if (status !== 'granted') {
+                    alert('Permissão negada!')
+                }
             }
-        }
+        })();
     }, []);
 
     return (
