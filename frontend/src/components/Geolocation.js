@@ -58,7 +58,7 @@ function Geolocation() {
             setLocation(location);
 
             setCity(address[0].subregion);
-            eventCity();
+            // eventCity();
 
             setRegion({
                 latitude: location.coords.latitude,
@@ -130,7 +130,43 @@ function Geolocation() {
                     }} 
                     title={"Feira Livre"}
                     pinColor={'#b900ded2'}
-                    description={'O melhor do saudável natural que a terra provê'}
+                    description={'O melhor do natural para a sua saúde'}
+                    
+                />
+                <Marker coordinate={{
+                    latitude: -24.28843999985555,
+                    longitude: -46.979593799954074
+                    }} 
+                    title={"Amostra Cultural"}
+                    pinColor={'#b900ded2'}
+                    description={'Amostra para celebrar os 100 anos da Semana de Arte Moderna'}
+                    
+                />
+                <Marker coordinate={{
+                    latitude: -24.36146611366831,
+                    longitude: -47.01731148459294
+                    }} 
+                    title={"Festa da Criança"}
+                    pinColor={'#b900ded2'}
+                    description={'Festa para as crianças do bairro'}
+                    
+                />
+                <Marker coordinate={{
+                    latitude: -24.294442100736127,
+                    longitude: -46.96668965317278
+                    }} 
+                    title={"Música ao vivo"}
+                    pinColor={'#b900ded2'}
+                    description={'Chope e música de qualidade'}
+                    
+                />
+                <Marker coordinate={{
+                    latitude: -24.295561524194234,
+                    longitude: -46.968461843133056
+                    }} 
+                    title={"DEU A LOUCA NO BOLICHE"}
+                    pinColor={'#b900ded2'}
+                    description={'Venha jogar concorrendo a um jantar de graça'}
                     
                 />
                 

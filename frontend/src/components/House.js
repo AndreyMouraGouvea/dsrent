@@ -1,11 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
 function House(props) {
 
     return (
 
-        <View style={styles.container}>
+        <TouchableOpacity
+            onPress={props.onPress}
+            style={styles.container}
+        >
             <View>
                 <Image 
                 source={props.cover}
@@ -22,7 +25,7 @@ function House(props) {
                     {props.description}
                 </Text>
             </View>
-        </View>
+        </TouchableOpacity>
 
     )
 

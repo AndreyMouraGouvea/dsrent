@@ -62,6 +62,7 @@ function Find() {
                                 cover={{uri: `${item.ds_photo}`}}
                                 price={item.nm_customer}
                                 description={item.ds_servico}
+                                onPress={() => navigation.navigate('detail')}
                             />
                         </View>
                     )}

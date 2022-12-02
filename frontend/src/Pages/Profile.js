@@ -10,7 +10,7 @@ function Profile() {
     const navigation = useNavigation();
     const [result, setResult] = useState('');
     const [loading, setLoading] = useState(true);
-    const userID = '5';
+    const userID = '3';
     async function handleProfile() {
         const response = await API.get(`api/user/${userID}`);
         setResult(response.data[0]);
