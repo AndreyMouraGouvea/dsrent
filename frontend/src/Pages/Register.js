@@ -151,6 +151,23 @@ const styles = StyleSheet.create({
         padding: 10,
         paddingBottom: -12,
     },
+    imageText: {
+        fontSize: 13,
+        paddingTop: 5,
+        color: '#BB86FC',
+        fontFamily: 'Montserrat_500Medium',
+        paddingHorizontal: 8,
+        height: 40,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 12,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 16.00,
+
+        elevation: 24,
+    },
     inputContainerName: {
         width: '90%',
         color: '#FFF',

@@ -17,14 +17,24 @@ function Event() {
     const [image5, setImage5] = useState(null);
     const [image6, setImage6] = useState(null);
 
-    useEffect(async () => {
+    async function handlePicture() {
         if (Platform.OS !== 'web') {
             const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
             if (status !== 'granted') {
                 alert('Permissão negada!')
             }
         }
-    }, [])
+    }
+    useEffect(() => {
+        try {
+            handlePicture();
+        } catch (error) {
+            console.log(error);
+        }
+        handlePicture();
+    }, []);
+
+
 
     const PickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -67,7 +77,7 @@ function Event() {
         })
         console.log(result)
         if (!result.cancelled) {
-            setImage3(result.uri)
+            setImage4(result.uri)
         }
     }
     const PickImage5 = async () => {
@@ -78,7 +88,7 @@ function Event() {
         })
         console.log(result)
         if (!result.cancelled) {
-            setImage3(result.uri)
+            setImage5(result.uri)
         }
     }
     const PickImage6 = async () => {
@@ -89,7 +99,7 @@ function Event() {
         })
         console.log(result)
         if (!result.cancelled) {
-            setImage3(result.uri)
+            setImage6(result.uri)
         }
     }
 
@@ -194,7 +204,7 @@ function Event() {
                     <TouchableOpacity onPress={PickImage4}>
                         <Text style={styles.imageText}>Selecione a quarta imagem</Text>
                         <View style={{ alignItems: 'center' }}>
-                            {image3 && <Image source={{ uri: image3 }} style={{
+                            {image4 && <Image source={{ uri: image4 }} style={{
                                 width: 200,
                                 height: 200,
                                 borderRadius: 100,
@@ -207,7 +217,7 @@ function Event() {
                     <TouchableOpacity onPress={PickImage5}>
                         <Text style={styles.imageText}>Selecione a quinta imagem</Text>
                         <View style={{ alignItems: 'center' }}>
-                            {image3 && <Image source={{ uri: image3 }} style={{
+                            {image5 && <Image source={{ uri: image5 }} style={{
                                 width: 200,
                                 height: 200,
                                 borderRadius: 100,
@@ -220,7 +230,7 @@ function Event() {
                     <TouchableOpacity onPress={PickImage6}>
                         <Text style={styles.imageText}>Selecione a sexta imagem</Text>
                         <View style={{ alignItems: 'center' }}>
-                            {image3 && <Image source={{ uri: image3 }} style={{
+                            {image6 && <Image source={{ uri: image6 }} style={{
                                 width: 200,
                                 height: 200,
                                 borderRadius: 100,
@@ -318,13 +328,16 @@ function Event() {
 
                     </TouchableOpacity>
                 </View>
+
                 <View style={styles.inputDescriptionContainer}>
                     <TextInput style={styles.inputDescription}
                         placeholder='Digite a descrição do evento'
                         placeholderTextColor={'#FFF'}
                         multiline={true}
                         maxFontSizeMultiplier={1}
-                        maxLength={300}
+                        maxLength={200}
+                        numberOfLines={5}
+
 
                     />
                 </View>
@@ -385,6 +398,7 @@ const styles = StyleSheet.create({
         paddingBottom: 6,
         justifyContent: 'flex-start',
         alignContent: 'flex-start',
+        height: 150
     },
     imageText: {
         fontSize: 13,
@@ -460,7 +474,7 @@ const styles = StyleSheet.create({
         width: '55%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#3706B3',
+        backgroundColor: '#b900ded2',
         borderRadius: 10,
         elevation: 2,
         height: 70,

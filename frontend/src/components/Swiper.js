@@ -33,7 +33,7 @@ export default function SwiperComponent() {
 
      <View style={styles.slide}>
       <Image
-      source={require('../assets/cannil2.jpg')}
+      source={require('../assets/cannil6.jpg')}
       style={{ width: '100%', height: 400}}
       />
      </View>
