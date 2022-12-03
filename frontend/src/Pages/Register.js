@@ -42,9 +42,9 @@ function Register() {
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result.assets)
-        if (!result.assets.cancelled) {
-            setImage(result.assets.uri)
+        console.log(result.assets[0].uri)
+        if (!result.assets[0].cancelled) {
+            setImage(result.assets[0].uri)
         }
     }
 
@@ -102,6 +102,7 @@ function Register() {
                         placeholder='Digite sua Senha'
                         placeholderTextColor={'#FFF'}
                         onChangeText={(data) => setPassword(data)}
+                        secureTextEntry={true}
                     />
                 </View>
 

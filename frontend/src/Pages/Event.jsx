@@ -4,12 +4,30 @@ import { View, Text, StyleSheet, TouchableOpacity, TextInput, Platform, Image } 
 import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import FormData from 'form-data';
+import { GEOLOCATION_API } from '../../enviroment';
+import axios from 'axios';
 
 
 function Event() {
 
     const navigation = useNavigation();
+    const [address, setAdress] = useState('');
+    const [street, setStreet] = useState(null);
+    const [number, setNumber] = useState(null);
 
+    const [name, setName] = useState(null);
+    const [phone, setPhone] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [lat, setLat] = useState(null);
+    const [long, setLong] = useState(null);
+    const [city, setCity] = useState(null);
+    const [uf, setUF] = useState(null);
+    const [status, setStatus] = useState(null);
+    const [service, setService] = useState(null);
+    const [userID, setUserID] = useState(null);
+
+    // images
     const [image, setImage] = useState(null);
     const [image2, setImage2] = useState(null);
     const [image3, setImage3] = useState(null);
@@ -17,23 +35,125 @@ function Event() {
     const [image5, setImage5] = useState(null);
     const [image6, setImage6] = useState(null);
 
-    async function handlePicture() {
-        if (Platform.OS !== 'web') {
-            const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-            if (status !== 'granted') {
-                alert('Permissão negada!')
-            }
-        }
+    //take full adress to take lat and long
+
+    const finalAddress = street + ', ' + number + ' - ' + city + ' - ' + uf;
+
+
+    async function getCoord() {
+        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${finalAddress}&language=pt-BR&key=${GEOLOCATION_API}`)
+
+        const data = await response.json();
+
+        setLat(data.results[0].geometry.location.lat); 
+        setLong(data.results[0].geometry.location.lng);
+
+        console.log(lat, long);
+            
+
     }
+
     useEffect(() => {
-        try {
-            handlePicture();
-        } catch (error) {
-            console.log(error);
-        }
-        handlePicture();
+        getCoord();
     }, []);
 
+
+    async function createEvent() {
+        let formData = new FormData();
+        let image2Data = new FormData();
+        let image3Data = new FormData();
+        let image4Data = new FormData();
+        let image5Data = new FormData();
+        let image6Data = new FormData();
+
+        setStatus('1');
+        setUserID('3');
+
+        formData.append('nm_customer', name);   //append the values with key, value pair
+        formData.append('ds_email', email);
+        formData.append('nr_telefone', phone);
+        formData.append('ds_lat', lat);
+        formData.append('ds_long', long);
+        formData.append('nm_city', city);
+        formData.append('uf_state', uf);
+        formData.append('cd_status', status);
+        formData.append('ds_servico', service);
+        formData.append('image', image, image.name);
+        formData.append('id_user', userID);
+
+        
+
+        const config = {
+            headers: { 'content-type': 'multipart/form-data' }
+        }
+
+        axios.post("http://chere.com.br/api/customer", formData, config)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+                console.log(formData.getHeaders)
+            });
+
+        // image 2
+        image2Data.append('id_customer', userID);
+        image2Data.append('image', image2, image2.name);
+
+        axios.post("http://chere.com.br/api/photo", image2Data, config)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        // image 3
+        image3Data.append('id_customer', userID);
+        image3Data.append('image', image3, image3.name);
+
+        axios.post("http://chere.com.br/api/photo", image3Data, config)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        image4Data.append('id_customer', userID);
+        image4Data.append('image', image4, image.name);
+
+        axios.post("http://chere.com.br/api/photo", image4Data, config)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        image5Data.append('id_customer', userID);
+        image5Data.append('image', image5, image.name);
+
+        axios.post("http://chere.com.br/api/photo", image5Data, config)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        image6Data.append('id_customer', userID);
+        image6Data.append('image', image6, image.name);
+
+        axios.post("http://chere.com.br/api/photo", image6Data, config)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+    }
 
 
     const PickImage = async () => {
@@ -42,9 +162,9 @@ function Event() {
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result)
-        if (!result.cancelled) {
-            setImage(result.uri)
+        console.log(result.assets[0].uri)
+        if (!result.assets[0].cancelled) {
+            setImage(result.assets[0].uri)
         }
     }
     const PickImage2 = async () => {
@@ -53,9 +173,9 @@ function Event() {
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result)
-        if (!result.cancelled) {
-            setImage2(result.uri)
+        console.log(result.assets[0].uri)
+        if (!result.assets[0].cancelled) {
+            setImage2(result.assets[0].uri)
         }
     }
     const PickImage3 = async () => {
@@ -64,9 +184,9 @@ function Event() {
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result)
-        if (!result.cancelled) {
-            setImage3(result.uri)
+        console.log(result.assets[0].uri)
+        if (!result.assets[0].cancelled) {
+            setImage3(result.assets[0].uri)
         }
     }
     const PickImage4 = async () => {
@@ -75,9 +195,9 @@ function Event() {
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result)
-        if (!result.cancelled) {
-            setImage4(result.uri)
+        console.log(result.assets[0].uri)
+        if (!result.assets[0].cancelled) {
+            setImage4(result.assets[0].uri)
         }
     }
     const PickImage5 = async () => {
@@ -86,9 +206,9 @@ function Event() {
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result)
-        if (!result.cancelled) {
-            setImage5(result.uri)
+        console.log(result.assets[0].uri)
+        if (!result.assets[0].cancelled) {
+            setImage5(result.assets[0].uri)
         }
     }
     const PickImage6 = async () => {
@@ -97,11 +217,23 @@ function Event() {
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result)
-        if (!result.cancelled) {
-            setImage6(result.uri)
+        console.log(result.assets[0].uri)
+        if (!result.assets[0].cancelled) {
+            setImage6(result.assets[0].uri)
         }
     }
+
+    useEffect(() => {
+        (async () => {
+            if (Platform.OS !== 'web') {
+                const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                if (status !== 'granted') {
+                    alert('Permissão negada!')
+                }
+            }
+        })();
+    }, []);
+
 
     // DATE PICKER
 
@@ -111,6 +243,7 @@ function Event() {
     const [text, setText] = useState('Data: ');
     const [textDate, setTextDate] = useState('');
     const [textHour, setTextHour] = useState('');
+
 
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
@@ -145,6 +278,10 @@ function Event() {
         setShow(true);
         setMode(currentMode)
     }
+
+
+
+    // taking the lat and long
 
 
 
@@ -243,12 +380,53 @@ function Event() {
                     <TextInput style={styles.input}
                         placeholder='Digite o nome do evento'
                         placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setName(data)}
                     />
                 </View>
                 <View style={styles.inputContainer}>
                     <TextInput style={styles.input}
-                        placeholder='Digite o endereço do evento'
+                        placeholder='Digite a rua do evento'
                         placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setStreet(data)}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite o número do evento'
+                        placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setNumber(data)}
+                        maxLength={5}
+                        keyboardType='numeric'
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite a cidade do evento'
+                        placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setCity(data)}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite o UF do estado - Ex. SP'
+                        placeholderTextColor={'#FFF'}
+                        maxLength={2}
+                        onChangeText={(data) => setUF(data.toUpperCase())}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite o telefone para contato'
+                        placeholderTextColor={'#FFF'}
+                        keyboardType='numeric'
+                        onChangeText={(data) => setPhone(data)}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite o e-mail para contato'
+                        placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setEmail(data)}
                     />
                 </View>
                 <View style={styles.inputContainer}>
@@ -329,14 +507,16 @@ function Event() {
                     </TouchableOpacity>
                 </View>
 
+
                 <View style={styles.inputDescriptionContainer}>
                     <TextInput style={styles.inputDescription}
                         placeholder='Digite a descrição do evento'
                         placeholderTextColor={'#FFF'}
                         multiline={true}
                         maxFontSizeMultiplier={1}
-                        maxLength={200}
+                        maxLength={150}
                         numberOfLines={5}
+                        onChangeText={(data) => setService(data)}
 
 
                     />
@@ -344,7 +524,7 @@ function Event() {
 
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity style={styles.button}
-                        onPress={() => navigation.navigate('home')}
+                        onPress={createEvent}
                     >
                         <Text style={styles.buttonText}>Criar Evento</Text>
                     </TouchableOpacity>
@@ -394,7 +574,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#333333',
         borderRadius: 10,
         paddingHorizontal: 10,
-        paddingTop: 5,
         paddingBottom: 6,
         justifyContent: 'flex-start',
         alignContent: 'flex-start',
@@ -442,7 +621,9 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat_500Medium',
         paddingHorizontal: 10,
         height: 150,
-        lineHeight: 5,
+        lineHeight: 10,
+
+
 
 
     },
