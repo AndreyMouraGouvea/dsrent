@@ -231,7 +231,9 @@ body::-webkit-scrollbar-thumb {
 }
 .content .welcome .info .git{
     height: 7.5vh;
-    width: 15vw;
+    width: 30vw;
+
+    margin-top: 2%;
 
     display: flex;
     align-items: center;
@@ -423,6 +425,27 @@ body::-webkit-scrollbar-thumb {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .header .options{
+        width: 20%;
+    }
+    .header .perfil{
+        width: 20%;
+    }
+    .header .perfil a{    
+        width: 20vh;
+        height: 5vh;
+        border-radius: 5vh;
+    
+        transition: all 0.3s ease-in-out;
+    }
+    .header .perfil a:hover{
+        color: rgba(0, 0, 0, 1);
+        cursor: pointer;
+    }
+    .content .welcome .info .git{
+        height: 7.5vh;
+        width: 80vw;
     }
 }
 @media only screen and (max-width: 700px) {
