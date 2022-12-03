@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import FormData from 'form-data';
-import { GOOGLE_API_KEY } from '../../enviroment';
 import { GEOLOCATION_API } from '../../enviroment';
 import axios from 'axios';
 
@@ -19,11 +18,12 @@ function Event() {
 
     const [name, setName] = useState(null);
     const [phone, setPhone] = useState(null);
+    const [email, setEmail] = useState(null);
     const [lat, setLat] = useState(null);
     const [long, setLong] = useState(null);
     const [city, setCity] = useState(null);
     const [uf, setUF] = useState(null);
-    const [status, setStatus] = useState('1');
+    const [status, setStatus] = useState(null);
     const [service, setService] = useState(null);
     const [userID, setUserID] = useState(null);
 
@@ -66,6 +66,9 @@ function Event() {
         let image5Data = new FormData();
         let image6Data = new FormData();
 
+        setStatus('1');
+        setUserID('3');
+
         formData.append('nm_customer', name);   //append the values with key, value pair
         formData.append('ds_email', email);
         formData.append('nr_telefone', phone);
@@ -78,6 +81,8 @@ function Event() {
         formData.append('image', image, image.name);
         formData.append('id_user', userID);
 
+        
+
         const config = {
             headers: { 'content-type': 'multipart/form-data' }
         }
@@ -88,6 +93,7 @@ function Event() {
             })
             .catch(error => {
                 console.log(error);
+                console.log(formData.getHeaders)
             });
 
         // image 2
@@ -414,6 +420,13 @@ function Event() {
                         placeholderTextColor={'#FFF'}
                         keyboardType='numeric'
                         onChangeText={(data) => setPhone(data)}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite o e-mail para contato'
+                        placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setEmail(data)}
                     />
                 </View>
                 <View style={styles.inputContainer}>
