@@ -407,6 +407,14 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
 }
 
+#map{
+    width: 100vw;
+    height: 90vh;
+    background: gray;
+
+    margin-top: 10vh;
+}
+
 @media only screen and (max-width: 1000px) {
     .content .sobre .img{
         width: 40vw;

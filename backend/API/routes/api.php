@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('user'           ,   'App\Http\Controllers\UserController@getAllUsers');
 Route::get('user/{id}'      ,   'App\Http\Controllers\UserController@getUser');
 Route::post('user'          ,   'App\Http\Controllers\UserController@createUser');
-Route::patch('user/{id}'      ,   'App\Http\Controllers\UserController@updateUser');
+Route::patch('user/{id}'    ,   'App\Http\Controllers\UserController@updateUser');
 Route::delete('user/{id}'   ,   'App\Http\Controllers\UserController@deleteUser');
 
 //Ações dos Customers
@@ -35,7 +35,7 @@ Route::get('feedback/customer/{id}' , 'App\Http\Controllers\FeedbackController@g
 Route::get('feedback/{id}'          , 'App\Http\Controllers\FeedbackController@getFeedback'); //retorna o feedback de acordo com o id do feedback
 Route::get('feedback/user/{id}'     , 'App\Http\Controllers\FeedbackController@getFeedbackUser'); //retorna todos os feedbacks feitos pelo usuário
 Route::post('feedback'              , 'App\Http\Controllers\FeedbackController@createFeedback'); //cria feedback
-Route::patch('feedback/{id}'          , 'App\Http\Controllers\FeedbackController@updateFeedback'); //altera feedback
+Route::patch('feedback/{id}'        , 'App\Http\Controllers\FeedbackController@updateFeedback'); //altera feedback
 Route::delete('feedback/{id}'       , 'App\Http\Controllers\FeedbackController@deleteFeedback'); //apaga feedback
 
 //Ações de Photos
@@ -43,5 +43,5 @@ Route::get('photo'                       ,   'App\Http\Controllers\PhotoControll
 Route::get('photo/customer/{idCustomer}' ,   'App\Http\Controllers\PhotoController@getAllPhotos'); //retorna fotos por customer
 Route::get('photo/{id}'                  ,   'App\Http\Controllers\PhotoController@getPhoto'); //retorna foto pelo id
 Route::post('photo'                      ,   'App\Http\Controllers\PhotoController@uploadPhoto'); //realiza upload de foto
-Route::patch('photo/{id}'                  ,   'App\Http\Controllers\PhotoController@updatePhoto'); //atualiza dados de imagem
+Route::patch('photo/{id}'                ,   'App\Http\Controllers\PhotoController@updatePhoto'); //atualiza dados de imagem
 Route::delete('photo/{id}'               ,   'App\Http\Controllers\PhotoController@deletePhoto'); //apaga imagem do banco

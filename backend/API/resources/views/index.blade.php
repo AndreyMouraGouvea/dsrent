@@ -24,6 +24,8 @@
 
     <link rel="stylesheet" href="{{ asset('./css/style.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
+
+    <script src="{{ asset('./js/map.js') }}"></script>
 </head>
 <body>
     <header class="header">
@@ -61,5 +63,7 @@
     </footer>
     
     <script src="{{ asset('./js/script.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOnGi0UkfIpP1ofZuurWV3r1ggqCJpd28&callback=initMap"></script>
+    
 </body>
 </html>

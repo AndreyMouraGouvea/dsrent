@@ -29,6 +29,10 @@ Route::get('/planos', function () {
     return view('planos');
 });
 
+Route::get('/mapa', function () {
+    return view('map');
+});
+
 Route::get('/login', 'App\Http\Controllers\UserController@index');
 Route::get('/login/checklogin', 'App\Http\Controllers\UserController@checklogin');
 Route::get('/login/successlogin', 'App\Http\Controllers\UserController@successlogin');
