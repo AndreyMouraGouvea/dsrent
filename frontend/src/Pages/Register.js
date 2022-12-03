@@ -102,6 +102,7 @@ function Register() {
                         placeholder='Digite sua Senha'
                         placeholderTextColor={'#FFF'}
                         onChangeText={(data) => setPassword(data)}
+                        secureTextEntry={true}
                     />
                 </View>
 
