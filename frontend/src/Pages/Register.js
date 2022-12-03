@@ -36,36 +36,28 @@ function Register() {
         });
     }
 
-    async function handlePicture() {
-        if (Platform.OS !== 'web') {
-            const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-            if (status !== 'granted') {
-                alert('Permissão negada!')
-            }
-        }
-    }
-    useEffect(() => {
-        try {
-            handlePicture();
-        } catch (error) {
-            console.log(error);
-        }
-        handlePicture();
-    }, []);
-
     const PickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             aspect: [4, 3],
             quality: 1
         })
-        console.log(result)
-        if (!result.cancelled) {
-            setImage(result.uri)
+        console.log(result.assets[0].uri)
+        if (!result.assets[0].cancelled) {
+            setImage(result.assets[0].uri)
         }
     }
 
-    
+    useEffect(() => {
+        (async () => {
+            if (Platform.OS !== 'web') {
+                const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                if (status !== 'granted') {
+                    alert('Permissão negada!')
+                }
+            }
+        })();
+    }, []);
 
     return (
         <ScrollView
