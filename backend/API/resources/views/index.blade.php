@@ -49,6 +49,7 @@
         </div>
         <div class="options">
             <a href="./">Home</a>
+            <a href="./mapa">Mapa</a>
             <a href="./pesquisa">Pesquisa</a>
             <a href="./sobre">Sobre nós</a>
         </div>
