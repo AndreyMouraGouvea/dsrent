@@ -5,11 +5,17 @@ import { useNavigation } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import FormData from 'form-data';
+import { GOOGLE_API_KEY } from '../../enviroment';
+import { GEOLOCATION_API } from '../../enviroment';
+import axios from 'axios';
 
 
 function Event() {
 
     const navigation = useNavigation();
+    const [address, setAdress] = useState('');
+    const [street, setStreet] = useState(null);
+    const [number, setNumber] = useState(null);
 
     const [name, setName] = useState(null);
     const [phone, setPhone] = useState(null);
@@ -20,7 +26,7 @@ function Event() {
     const [status, setStatus] = useState('1');
     const [service, setService] = useState(null);
     const [userID, setUserID] = useState(null);
-    
+
     // images
     const [image, setImage] = useState(null);
     const [image2, setImage2] = useState(null);
@@ -28,6 +34,29 @@ function Event() {
     const [image4, setImage4] = useState(null);
     const [image5, setImage5] = useState(null);
     const [image6, setImage6] = useState(null);
+
+    //take full adress to take lat and long
+
+    const finalAddress = street + ', ' + number + ' - ' + city + ' - ' + uf;
+
+
+    async function getCoord() {
+        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${finalAddress}&language=pt-BR&key=${GEOLOCATION_API}`)
+
+        const data = await response.json();
+
+        setLat(data.results[0].geometry.location.lat); 
+        setLong(data.results[0].geometry.location.lng);
+
+        console.log(lat, long);
+            
+
+    }
+
+    useEffect(() => {
+        getCoord();
+    }, []);
+
 
     async function createEvent() {
         let formData = new FormData();
@@ -61,7 +90,7 @@ function Event() {
                 console.log(error);
             });
 
-            // image 2
+        // image 2
         image2Data.append('id_customer', userID);
         image2Data.append('image', image2, image2.name);
 
@@ -73,7 +102,7 @@ function Event() {
                 console.log(error);
             });
 
-            // image 3
+        // image 3
         image3Data.append('id_customer', userID);
         image3Data.append('image', image3, image3.name);
 
@@ -117,10 +146,6 @@ function Event() {
             .catch(error => {
                 console.log(error);
             });
-
-
-
-
 
     }
 
@@ -250,6 +275,8 @@ function Event() {
 
 
 
+    // taking the lat and long
+
 
 
 
@@ -352,16 +379,41 @@ function Event() {
                 </View>
                 <View style={styles.inputContainer}>
                     <TextInput style={styles.input}
-                        placeholder='Digite o telefone para contato'
+                        placeholder='Digite a rua do evento'
                         placeholderTextColor={'#FFF'}
-                        keyboardType='numeric'
-                        onChangeText={(data) => setPhone(data)}
+                        onChangeText={(data) => setStreet(data)}
                     />
                 </View>
                 <View style={styles.inputContainer}>
                     <TextInput style={styles.input}
-                        placeholder='Digite o endereço do evento'
+                        placeholder='Digite o número do evento'
                         placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setNumber(data)}
+                        maxLength={5}
+                        keyboardType='numeric'
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite a cidade do evento'
+                        placeholderTextColor={'#FFF'}
+                        onChangeText={(data) => setCity(data)}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite o UF do estado - Ex. SP'
+                        placeholderTextColor={'#FFF'}
+                        maxLength={2}
+                        onChangeText={(data) => setUF(data.toUpperCase())}
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <TextInput style={styles.input}
+                        placeholder='Digite o telefone para contato'
+                        placeholderTextColor={'#FFF'}
+                        keyboardType='numeric'
+                        onChangeText={(data) => setPhone(data)}
                     />
                 </View>
                 <View style={styles.inputContainer}>
