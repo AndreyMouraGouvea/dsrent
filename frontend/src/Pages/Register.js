@@ -13,6 +13,8 @@ function Register() {
     const [password, setPassword] = useState(null);
     const [image, setImage] = useState(null);
 
+    
+
     const navigation = useNavigation();
 
     async function createUser(){
@@ -21,20 +23,45 @@ function Register() {
         formData.append('nm_user', name);   //append the values with key, value pair
         formData.append('ds_email', email);
         formData.append('ds_password', password);
-        formData.append('image', image, image.name);
+        formData.append('image', image);
 
         const config = {     
             headers: { 'content-type': 'multipart/form-data' }
         }
 
+
         axios.post("http://chere.com.br/api/user", formData, config)
         .then(response => {
             console.log(response);
+            alert('foi')
         })
         .catch(error => {
             console.log(error);
         });
+
+
+        //segunda forma => todas são erro 500 => network server error
+
+        // fetch('http://chere.com.br/api/user', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type':'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         'nm_user': name,
+        //         'ds_email': email,
+        //         'image': image
+        //     })
+        // }).then((response) => response.json())
+        // .then((response) => {
+        //     console.log(response);
+        //     alert('foi')
+        // })
+        
+
     }
+
+    // pick image
 
     const PickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({

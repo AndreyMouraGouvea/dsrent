@@ -45,11 +45,11 @@ function Event() {
 
         const data = await response.json();
 
-        setLat(data.results[0].geometry.location.lat); 
+        setLat(data.results[0].geometry.location.lat);
         setLong(data.results[0].geometry.location.lng);
 
         console.log(lat, long);
-            
+
 
     }
 
@@ -58,7 +58,11 @@ function Event() {
     }, []);
 
 
+
+
+
     async function createEvent() {
+
         let formData = new FormData();
         let image2Data = new FormData();
         let image3Data = new FormData();
@@ -100,6 +104,7 @@ function Event() {
         image2Data.append('id_customer', userID);
         image2Data.append('image', image2, image2.name);
 
+
         axios.post("http://chere.com.br/api/photo", image2Data, config)
             .then(response => {
                 console.log(response);
@@ -111,6 +116,8 @@ function Event() {
         // image 3
         image3Data.append('id_customer', userID);
         image3Data.append('image', image3, image3.name);
+
+
 
         axios.post("http://chere.com.br/api/photo", image3Data, config)
             .then(response => {
