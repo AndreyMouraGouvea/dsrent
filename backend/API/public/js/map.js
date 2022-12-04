@@ -38,8 +38,8 @@ function getCity(){
 
 function getCustomers(city){
     //Pegar cidade do customers
-    console.log(`http://chere.com.br/api/customer/city/${city}`);
-    fetch(`http://chere.com.br/api/customer/city/${city}`)
+    console.log(`https://chere.com.br/api/customer/city/${city}`);
+    fetch(`https://chere.com.br/api/customer/city/${city}`)
     .then(function(response) {
         return response.json();
     })

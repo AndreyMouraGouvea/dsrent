@@ -26,6 +26,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
 
     <script src="{{ asset('./js/map.js') }}"></script>
+    
 </head>
 <body>
     <header class="header">
@@ -39,7 +40,14 @@
         <h3>C'Here</h3>
 
         <div class="perfil">
-            <a href="./login">Entrar</a>
+            <?php 
+                if(session()->exists('username')){
+                    echo '<a href="./perfil">'.session()->get("username").'</a>';
+                }
+                else{
+                    echo '<a href="./cadastro">Entrar</a>';
+                }
+            ?>
         </div>
     </header>
 
@@ -65,6 +73,6 @@
     
     <script src="{{ asset('./js/script.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOnGi0UkfIpP1ofZuurWV3r1ggqCJpd28&callback=initMap"></script>
-    
+    <!-- <script src="{{ asset('./js/api.js') }}"></script> -->
 </body>
 </html>
